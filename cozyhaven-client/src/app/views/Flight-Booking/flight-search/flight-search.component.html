@@ -1,0 +1,59 @@
+<app-navbar></app-navbar>
+<div class="background"></div>
+
+<form [formGroup]="flightsSearchForm" class="flight-search-form">
+
+    <div class="form-section">
+        <div class="input-container">
+            <div class="input-box">
+                <label for="fromLocation">From</label>
+                <input type="text" id="fromLocation" placeholder="Enter departure location" formControlName="source">
+                <div>
+                    <div class="input-error" *ngIf="flightsSearchForm.get('source').invalid && flightsSearchForm.get('source').touched"> 
+                        <small *ngIf="flightsSearchForm.get('source').errors['required']">source is required</small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-divider">
+                <i class="fa-solid fa-arrow-right-arrow-left"></i>
+            </div>
+            <div class="input-box">
+                <label for="toLocation">To</label>
+                <input type="text" id="toLocation" placeholder="Enter destination location" formControlName="destination">
+                <div>
+                    <div class="input-error" *ngIf="flightsSearchForm.get('destination').invalid && flightsSearchForm.get('destination').touched"> 
+                        <small *ngIf="flightsSearchForm.get('destination').errors['required']">destination is required</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="form-section">
+        <div class="dropdown-container">
+            <label for="dropdown">Select Class</label>
+            <div class="custom-dropdown">
+                <select id="dropdown" formControlName="classType">
+                    <option value="" disabled selected>Select a class...</option>
+                    <option value="ECONOMY">ECONOMY</option>
+                    <option value="PREMIUM_ECONOMY">PREMIUM ECONOMY</option>
+                    <option value="BUSINESS">BUSINESS</option>
+                    <option value="FIRST_CLASS">FIRST CLASS</option>
+                </select>
+            </div>
+            <div *ngIf="flightsSearchForm.get('classType').invalid && flightsSearchForm.get('classType').touched" class="error">
+                select a class.
+            </div>
+        </div>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="form-section">
+        <button class="search-button" (click)="onClick()">
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,38 @@
+<div class="flight-card">
+    <div class="flight-card-section1">
+        <div class="flight-card-part1">
+            <div class="icon">
+                <i class="fa-solid fa-plane-circle-check" style="color: #1a3c56;"></i>
+            </div>
+            <div class="flight-info">
+                <div class="flight-name">{{flight.flightName}}</div>
+                <div class="flight-number">{{flight.flightNumber}}</div>
+            </div>
+        </div>
+        <div class="horizontal-line"></div>
+        <div class="flight-card-part2">
+            <div class="timing-info">
+                <div class="time">{{flight.sourceArrival}}</div>
+                <div class="location">{{flight.source}}</div>
+            </div>
+            <div class="distance-info">
+                <div class="distance">{{flight.distance}} kms</div>
+                <i class="fa-solid fa-arrows-left-right" style="color: #42d753;"></i>
+            </div>
+            <div class="timing-info">
+                <div class="time">{{flight.destinationArrival}}</div>
+                <div class="location">{{flight.destination}}</div>
+            </div>
+        </div>
+        <div class="horizontal-line"></div>
+        <div class="flight-card-part3">
+            <div class="amount">₹ {{flight.amount}}</div>
+            <div class="for-class">for Economy class</div>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="flight-card-section2">
+        <div class="flight-description">{{flight.flightDescription}}</div>        
+        <button class="proceed-button">Proceed</button>
+    </div>
+</div>
