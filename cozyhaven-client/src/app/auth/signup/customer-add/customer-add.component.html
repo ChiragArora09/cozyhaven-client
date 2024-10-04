@@ -1,1 +1,30 @@
-<p>customer-add works!</p>
+<div class="background"></div>
+<div class="container">
+    <div class="form-container">
+      <h1>Create account</h1>
+      <p>To explore offers on hotels, flights, and buses to make your travel even more fun</p>
+      <form [formGroup]="customerSignupForm" (ngSubmit)="onSignup()">
+        <div class="form-group">
+          <input type="text" placeholder="username" formControlName="username">
+          <input type="text" placeholder="Full name" formControlName="fullname">
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="email" formControlName="email">
+          <input type="password" placeholder="password" formControlName="password">
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="address" formControlName="address">
+          <input type="tel" placeholder="phone number" formControlName="phoneNumber">
+        </div>
+        <div class="form-group">
+          <input type="file" formControlName="profilePicture">
+        </div>
+        <button type="submit" class="register-button">Register</button>
+      </form>
+      <p class="login-link">
+        Already have an account? <a routerLink="/">Log In</a>
+      </p>
+    </div>
+    <button class="service-provider-button" routerLink="/signup/service-provider">JOIN AS SERVICE PROVIDER</button>
+  </div>
+  

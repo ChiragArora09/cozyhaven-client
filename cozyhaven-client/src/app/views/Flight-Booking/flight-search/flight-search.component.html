@@ -52,7 +52,7 @@
     <div class="line"></div>
 
     <div class="form-section">
-        <button class="search-button" (click)="onClick()">
+        <button class="search-button" [disabled]="flightsSearchForm.invalid" (click)="onClick()">
             <i class="fa-solid fa-arrow-right"></i>
         </button>
     </div>

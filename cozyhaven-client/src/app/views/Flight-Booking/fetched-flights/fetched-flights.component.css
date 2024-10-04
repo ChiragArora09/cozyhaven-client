@@ -1,12 +1,13 @@
 .main-container {
-    display: flex;
     padding: 20px;
     margin: 0 auto;
+    /* min-height: 100vh; */
   }
   
   .flights-list {
-    position: relative;
-    top: 30%;
+    position: absolute;
+    top: 20%;
+    left: 30%;
     flex: 3;
   }
   
@@ -55,5 +56,25 @@
 
   .fetched-flights {
     display: flex;
-    margin: 0 50px;  
+    margin: 0 5rem;
+  }
+
+  .filter-group i {
+    cursor: pointer;
+  }
+
+  .back-button {
+    position: absolute;
+    top: 90%;
+    left: 5%;
+    padding: 12px 9px;
+    background-color: white;
+    color: white;
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+  }
+
+  .back-button:hover {
+    background-color: lightgray; /* Darker color on hover */
   }

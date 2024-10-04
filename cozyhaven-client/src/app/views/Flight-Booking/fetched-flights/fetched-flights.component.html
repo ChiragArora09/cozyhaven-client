@@ -7,6 +7,10 @@
                 <div class="filter-group">
                     <h4>Time of Departure</h4>
                     <label>
+                        All Flights
+                        <i (click)="noFilter()" class="fa-solid fa-circle-arrow-right" style="color: #000000;"></i>
+                    </label>
+                    <label>
                         Morning departures
                         <i (click)="filterbyMorning()" class="fa-solid fa-circle-arrow-right" style="color: #000000;"></i>
                     </label>
@@ -37,4 +41,5 @@
             </div>
         </div>
     </div>
+    <button routerLink="/flight-search" type="button" class="back-button"><i class="fa-solid fa-backward fa-2xl" style="color: #000000;"></i></button>
 </div>

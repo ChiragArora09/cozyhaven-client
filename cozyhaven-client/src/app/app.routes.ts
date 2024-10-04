@@ -10,6 +10,10 @@ import { FlightSearchComponent } from './views/Flight-Booking/flight-search/flig
 import { FetchedFlightsComponent } from './views/Flight-Booking/fetched-flights/fetched-flights.component';
 import { BusSearchComponent } from './views/Bus-Booking/bus-search/bus-search.component';
 import { FlightCardComponent } from './components/flight-card/flight-card.component';
+import { ConfirmFlightBookingComponent } from './views/Flight-Booking/confirm-flight-booking/confirm-flight-booking.component';
+import { AuthGuard } from './guard/auth.guard';
+import { CustomerAddComponent } from './auth/signup/customer-add/customer-add.component';
+import { ServiceProviderAddComponent } from './auth/signup/service-provider-add/service-provider-add.component';
 
 
 export const routes: Routes = [
@@ -17,31 +21,40 @@ export const routes: Routes = [
         "path":"", component: LoginPageComponent
     },
     {
-        "path":"home", component: HomeComponent
+        "path":"signup", component: CustomerAddComponent
     },
     {
-        "path":"bus-provider", component: BusProviderComponent
+        "path":"signup/service-provider", component: ServiceProviderAddComponent
     },
     {
-        "path":"flight-provider", component: FlightProviderComponent
+        "path":"home", component: HomeComponent, canActivate: [AuthGuard]
     },
     {
-        "path":"bus-search", component: BusSearchComponent
+        "path":"bus-provider", component: BusProviderComponent, canActivate: [AuthGuard]
     },
     {
-        "path":"flight-search", component: FlightSearchComponent
+        "path":"flight-provider", component: FlightProviderComponent, canActivate: [AuthGuard]
     },
     {
-        "path":"fetched-flights", component: FetchedFlightsComponent
+        "path":"bus-search", component: BusSearchComponent, canActivate: [AuthGuard]
     },
     {
-        "path":"hotel-booking", component: HotelBookingComponent
+        "path":"flight-search", component: FlightSearchComponent, canActivate: [AuthGuard]
     },
     {
-        "path":"holiday-packages", component: PackageBookingComponent
+        "path":"fetched-flights", component: FetchedFlightsComponent, canActivate: [AuthGuard]
     },
     {
-        "path":"fetchflight", component: FlightCardComponent
+        "path":"hotel-booking", component: HotelBookingComponent, canActivate: [AuthGuard]
+    },
+    {
+        "path":"holiday-packages", component: PackageBookingComponent, canActivate: [AuthGuard]
+    },
+    {
+        "path":"fetchflight", component: FlightCardComponent, canActivate: [AuthGuard]
+    },
+    {
+        "path":"flights/booking/:flightId/:bookingId", component: ConfirmFlightBookingComponent, canActivate: [AuthGuard]
     },
     {
         "path":"**", component: PageNotFoundComponent
