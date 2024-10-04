@@ -1,0 +1,54 @@
+/* Hotel card style */
+.hotel-card {
+    display: flex;
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    width: 600px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hotel-card:hover {
+    transform: scale(1.02);
+}
+
+.hotel-card img {
+    width: 100px; /* Set a fixed width for the image */
+    height: 100px; /* Set a fixed height for the image */
+    border-radius: 5px;
+}
+
+.hotel-name{
+    font-size: 15px;
+    font-weight:bold;
+    font-family: Arial;
+}
+
+.hotel-info {
+    flex-grow: 1;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hotel-info h3 {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.star-rating {
+    color: #ffa500; /* Orange color for stars */
+    margin: 10px 0;
+}
+
+.price {
+    font-size: 1.2em;
+    color: #000;
+}
+

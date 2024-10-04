@@ -1,0 +1,64 @@
+.background {
+    background-image: url("/assets/hotel dashboard.jpg");
+    background-size: 100% 100%;
+    background-position: center;
+    height: 600px; /* You can adjust this based on your design */
+    position: relative; /* Needed for positioning the search section */
+}
+
+.main-content {
+    margin-top: 20px;
+}
+
+/* Search Section */
+.search-section {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: -40px;
+    border-radius: 10px;
+    position: relative;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-field {
+    margin: 0 10px;
+}
+
+
+.search-field label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.search-field input {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.search-button {
+    display: flex;
+    align-items: center;
+}
+
+.search-button button {
+    background-color: #5A67D8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-button button:hover {
+    background-color: #434190;
+}

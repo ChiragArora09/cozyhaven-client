@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<div class="background"></div>
+<form [formGroup]="hotelSearchForm">
+        <div class="search-section">
+            <div class="search-field">
+                <label for="location">City Or Locations</label>
+                <input type="text" id="location" placeholder="Enter city" formControlName="location">
+                <div>
+                    <div class="input-error" *ngIf="hotelSearchForm.get('location').invalid && hotelSearchForm.get('location').touched">
+                        
+                        <small *ngIf="hotelSearchForm.get('location').errors['required']">Location is required.</small>
+                      </div>
+                          
+                </div>
+            </div>
+            <div class="search-field">
+                <label for="checkin">Check-In</label>
+                <input type="date" id="checkin" formControlName="checkInDate">
+      <div class="input-error" *ngIf="hotelSearchForm.get('checkInDate').invalid && hotelSearchForm.get('checkInDate').touched">
+        <small class="error">Check-In date is required.</small>
+      </div>
+                          
+                </div>
+            <div class="search-field">
+                <label for="checkout">Check-Out</label>
+                <input type="date" id="checkout" formControlName="checkOutDate">
+                <div class="input-error" *ngIf="hotelSearchForm.get('checkOutDate').invalid && hotelSearchForm.get('checkOutDate').touched">
+                  <small class="error">Check-Out date is required.</small>
+                </div>
+                          
+                </div>
+            <div class="search-field">
+                <label for="guests">Rooms & Guests</label>
+                <input type="text" id="guests" formControlName="numberGuests" placeholder="1 Room 2 Adults">
+                <div class="input-error" *ngIf="hotelSearchForm.get('numberGuests').invalid && hotelSearchForm.get('numberGuests').touched">
+                  <small class="error">Number of guests must be at least 1.</small>
+                </div>    
+            </div>
+            <div class="search-button" (click)="onClick()">
+                <button type="submit">SEARCH</button>
+            </div>
+           
+        </div>
+    </form>
+

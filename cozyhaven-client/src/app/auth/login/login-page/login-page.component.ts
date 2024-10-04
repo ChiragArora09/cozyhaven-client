@@ -44,6 +44,9 @@ export class LoginPageComponent {
               case 'ROLE_CUSTOMER':
                 this.router.navigateByUrl('/home')
               break;
+              case 'HOTEL_SERVICE_PROVIDER':
+                this.router.navigateByUrl('/hotel-provider')
+              break;
             }
           },
           error: (err) => {

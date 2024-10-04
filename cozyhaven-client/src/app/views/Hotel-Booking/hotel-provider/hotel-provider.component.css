@@ -1,0 +1,11 @@
+.sidebar {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+.nav-link {
+    cursor: pointer;
+}
+.collapse.show {
+    margin-left: 10px;
+}

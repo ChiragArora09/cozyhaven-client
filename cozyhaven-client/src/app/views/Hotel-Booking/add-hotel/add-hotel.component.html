@@ -1,0 +1,37 @@
+<div class="background-image">
+<div class="container-fluid mt-4">
+<div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="card flex justify-content-center">
+                <div class="card-header text-center">
+                   <h1>Add Hotel</h1> 
+                     
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-dark" role="alert" *ngIf="successMsg">
+                         {{successMsg}}
+                      </div>
+                      <div class="alert alert-primary" role="alert" *ngIf="errorMsg">
+                        {{errorMsg}}
+                      </div>
+                    <div>
+                        <label>HOTEL NAME </label>
+                        <input class="form-control" type="string" [(ngModel)]="hotelName" (change)="resetmsg()">
+                </div>   
+                <div>
+                    <label>DESCRIPTION </label>
+                    <input class="form-control" type="string" [(ngModel)]="description" (change)="resetmsg()">
+            </div>  
+            <div>
+                <label>LOCATION </label>
+                <input class="form-control" type="string" [(ngModel)]="location" (change)="resetmsg()">
+        </div>  
+                <div class="card-footer">
+                    <button (click)="onClick()">+Add</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+ </div>
+</div>
