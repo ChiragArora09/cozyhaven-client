@@ -3,7 +3,7 @@
         <div class="login-error" *ngIf="loginErrMsg != ''">
             {{loginErrMsg}}
           </div>
-        <h2>Cozy Haven</h2>        
+        <h2 class="app-name">Cozy Haven</h2>        
         <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
             <div class="input-containers">
                 <div class="input-container">
@@ -29,7 +29,7 @@
                     <button type="submit" class="login-button">LOGIN</button>
                 </div>
             </div>
-            <p class="p-info">Don't have an account? <a href="#" class="signup-link">Sign up</a></p>
+            <p class="p-info">Don't have an account? <a routerLink="/signup" class="signup-link">Sign up</a></p>
         </form>
     </div>
 </div>

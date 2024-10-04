@@ -22,4 +22,9 @@ export class UserService {
         headers: new HttpHeaders().set('Authorization', 'Bearer '+token)
       })
     }
+
+    isUserAutheticated(): boolean{
+      let token = localStorage.getItem('token'); 
+      return !token?false: true; 
+    }
 }

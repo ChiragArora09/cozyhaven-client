@@ -1,0 +1,67 @@
+<div class="main-container">
+    <app-navbar></app-navbar>
+      <div class="heading"><h4>COMPLETE YOUR BOOKING</h4></div>
+
+      <div class="steps">Add traveller<span class="traveller-span" [ngStyle]="travellersAdded ? {'background-color': '#7DDA58'} : {'background-color': 'none'}" ></span><span class="traveller-seat-span"></span> <span class="seat-span" [ngStyle]="travellersAdded ? {'border': '2px solid black'} : {'border': '1px solid lightgray'}"></span>choose seats</div>
+
+      <div class="booking-container">
+        <div class="flight-info">
+            <div class="flight-source-and-destination">{{ flight.source }} &rarr; {{ flight.destination }}</div>
+            <div class="time">{{ flight.sourceArrival.slice(0,5) }} - {{ flight.destinationArrival.slice(0,5) }}</div>
+            <div class="flight-name-number">
+                <i class="fa-solid fa-plane fa-rotate-270" style="color: #2a2456;"></i>
+                <div class="flight-name">{{ flight.flightName }}</div>
+                <div class="flight-number">{{ flight.flightNumber }}</div>
+            </div>
+        </div>
+<!--  ------------------------------------------------------------------------------------------------------- -->
+      <form [formGroup]="travelersForm" (ngSubmit)="onSubmit()">
+          <div formArrayName="travelers">
+            <div *ngFor="let traveler of travelers.controls; let i = index" [formGroupName]="i" class="traveler-row">
+              <div>
+                <label for="traveler-name-{{ i }}">Name</label>
+                <input id="traveler-name-{{ i }}" formControlName="name" placeholder="Name" />
+                <div *ngIf="traveler.get('name').invalid && traveler.get('name').touched" class="error">
+                  Name is required (min 2 characters).
+                </div>
+              </div>
+        
+              <div>
+                <label for="traveler-age-{{ i }}">Age</label>
+                <input id="traveler-age-{{ i }}" formControlName="age" type="number" placeholder="Age" />
+                <div *ngIf="traveler.get('age').invalid && traveler.get('age').touched" class="error">
+                  Age is required (must be greater than 0).
+                </div>
+              </div>
+        
+              <div>
+                <label for="traveler-gender-{{ i }}">Gender</label>
+                <select id="traveler-gender-{{ i }}" formControlName="gender">
+                  <option value="">Select Gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+                <div *ngIf="traveler.get('gender').invalid && traveler.get('gender').touched" class="error">
+                  Gender is required.
+                </div>
+              </div>
+              <i class="fa-solid fa-trash" (click)="removeTraveler(i)" style="color: #d32f2f;" *ngIf="travelers.length > 1"></i>
+            
+            </div>
+          </div>
+        
+          <button type="button" (click)="addTraveler()">Add Traveler</button>
+          <button type="submit" [disabled]="travelersForm.invalid">Submit</button>
+        </form>
+      </div>
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------- -->
+      <div class="seat-container">
+        <div class="date-selector-container">
+          <label class="date-label" for="travel-date">Select Journey date:</label>
+          <input *ngIf="travellersAdded" class="date-input" type="date" id="travel-date" (change)="onDateChange($event)" />  
+        </div>
+        <app-seat-selection [seats]="flightSeats" ></app-seat-selection> 
+      </div>
+</div>
+
+<!-- "2024-10-03" -->

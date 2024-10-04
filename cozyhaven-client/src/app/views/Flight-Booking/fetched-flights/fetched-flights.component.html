@@ -1,3 +1,45 @@
-<div *ngFor="let flight of flights">
-    <app-flight-card [flight]="flight"></app-flight-card>
+<div class="main-container">
+    <app-navbar></app-navbar>
+    <div class="fetched-flights">
+        <div>
+            <div class="filters-section">
+                <h3>FILTERS</h3>
+                <div class="filter-group">
+                    <h4>Time of Departure</h4>
+                    <label>
+                        All Flights
+                        <i (click)="noFilter()" class="fa-solid fa-circle-arrow-right" style="color: #000000;"></i>
+                    </label>
+                    <label>
+                        Morning departures
+                        <i (click)="filterbyMorning()" class="fa-solid fa-circle-arrow-right" style="color: #000000;"></i>
+                    </label>
+                    <label>
+                        Afternoon departures
+                        <i (click)="filterbyAfternoon()" class="fa-solid fa-circle-arrow-right" style="color: #000000;"></i>
+                    </label>
+                    <label>
+                        Late departures
+                        <i (click)="filterbyLate()" class="fa-solid fa-circle-arrow-right" style="color: #000000;"></i>
+                    </label>
+                </div>
+                <div class="filter-group">
+                    <h4>Airlines</h4>
+                    <div *ngFor="let flight of flights">
+                        <label>
+                            <input type="checkbox">
+                            {{flight.flightName}}
+                            <span class="price">₹ {{flight.amount}}</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flights-list">
+            <div *ngFor="let flight of flights">
+                <app-flight-card [flight]="flight"></app-flight-card>
+            </div>
+        </div>
+    </div>
+    <button routerLink="/flight-search" type="button" class="back-button"><i class="fa-solid fa-backward fa-2xl" style="color: #000000;"></i></button>
 </div>

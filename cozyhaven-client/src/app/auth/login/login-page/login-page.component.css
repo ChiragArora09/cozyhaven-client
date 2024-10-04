@@ -33,6 +33,7 @@ h2 {
     font-weight: bolder;
     color: #333;
     font-family: "Dancing Script";
+    margin-bottom: 1.5rem;
 }
 
 .input-containers {
@@ -54,6 +55,7 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
 }
 
 .input-error {

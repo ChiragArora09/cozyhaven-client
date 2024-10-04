@@ -1,0 +1,21 @@
+<div class="seat-selection-container">
+    <h3>Choose Your Seat</h3>
+    <div class="seats-grid">
+        <div *ngFor="let seat of seats" 
+            [ngClass]="{'seat': true, 'available': !seat.booked, 'booked': seat.booked, 'selected': seat.selected}" 
+            (click)="selectSeat(seat)" (mouseenter)="showDetails(seat)" (mouseleave)="hideDetails()">
+            {{ seat.seatNumber }}
+        </div>
+        <div *ngIf="seatInfo" class="particular-seat-info">
+            <div class="seat-type-info">
+                <span class="seatType">Seat Type: </span>
+                {{hoveredSeat.seatType}}
+            </div>
+            <div class="seat-type-info">
+                <span class="seatType">Class: </span>
+                {{hoveredSeat.classType}}
+            </div>        
+        </div>
+    </div>
+    <button class="confirm-booking-button" [disabled]="selectedSeats.length<1">Confirm booking</button>
+</div>

@@ -1,0 +1,80 @@
+.main-container {
+    padding: 20px;
+    margin: 0 auto;
+    /* min-height: 100vh; */
+  }
+  
+  .flights-list {
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    flex: 3;
+  }
+  
+  .flight-card {
+    margin-bottom: 20px;
+  }
+
+.filters-section {
+    flex: 3;
+    width: 310px;
+    padding: 30px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+    position: relative;
+    top: 35%;
+  }
+  
+  .filters-section h3 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: 700;
+  }
+  
+  .filter-group h4 {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight:500;
+  }
+  
+  label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  
+  .price {
+    font-weight: bold;
+    color: #333;
+  }
+
+  .fetched-flights {
+    display: flex;
+    margin: 0 5rem;
+  }
+
+  .filter-group i {
+    cursor: pointer;
+  }
+
+  .back-button {
+    position: absolute;
+    top: 90%;
+    left: 5%;
+    padding: 12px 9px;
+    background-color: white;
+    color: white;
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+  }
+
+  .back-button:hover {
+    background-color: lightgray; /* Darker color on hover */
+  }
