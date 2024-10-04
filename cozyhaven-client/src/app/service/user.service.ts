@@ -27,4 +27,14 @@ export class UserService {
       let token = localStorage.getItem('token'); 
       return !token?false: true; 
     }
+
+    customerSignup(user:any) {
+      console.log(user)
+      return this.http.post('http://localhost:8082/customer/add', user)
+    }
+
+    serviceProviderSignup(serviceProvider: any){
+      console.log(serviceProvider)
+      return this.http.post('http://localhost:8082/service-provider/add', serviceProvider)
+    }
 }

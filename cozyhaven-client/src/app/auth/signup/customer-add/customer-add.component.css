@@ -17,14 +17,18 @@
     left: 5%;
 }
 
+.loading {
+    filter: blur(3px);
+}
+
 .form-container {
     background-color: #f8f9fa;
     padding: 40px;
     border-radius: 10px;
     width: 600px;
-    height: 500px;
+    height: 640px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    margin-top: 10%;
+    margin-top: 1%;
 }
 
 h1 {
@@ -42,7 +46,13 @@ p {
 .form-group {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    flex-direction: row;
+    margin-bottom: 2.5rem;
+    gap:20px;
+}
+
+.form-group-info {
+    width: 100%;
 }
 
 input[type="text"],
@@ -50,7 +60,7 @@ input[type="email"],
 input[type="password"],
 input[type="tel"],
 input[type="file"] {
-    width: 48%;
+    width: 100%;
     padding: 7px 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -105,12 +115,34 @@ text-decoration: underline;
     border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s;
-    position: relative;
-    left: 200px;
+    position: absolute;
+    right: 33%;
+    top: 83%;
 }
 
 .service-provider-button:hover {
 background-color: #007bff;
 color: #ffffff;
 }
-  
+
+.id-select {
+    color: gray;
+    border-radius: 5px;
+    padding: 7px 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 100%;
+}
+
+.input-error {
+    color: red;
+    font-weight: thin;
+    font-size: 10px;
+}
+
+.register-button:disabled {
+    background-color: #ccc;
+    color: #999;
+    cursor: not-allowed;    
+    opacity: 0.7;    
+}

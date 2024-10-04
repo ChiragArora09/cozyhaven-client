@@ -1,30 +1,79 @@
 <div class="background"></div>
-<div class="container">
+<div class="container" [ngClass]="{ 'loading': isSubmitting }">
     <div class="form-container">
       <h1>Create account</h1>
       <p>To explore offers on hotels, flights, and buses to make your travel even more fun</p>
       <form [formGroup]="customerSignupForm" (ngSubmit)="onSignup()">
         <div class="form-group">
-          <input type="text" placeholder="username" formControlName="username">
-          <input type="text" placeholder="Full name" formControlName="fullname">
+            <div class="form-group-info">
+                <input type="text" placeholder="username" formControlName="username">
+                <div class="input-error" *ngIf="customerSignupForm.get('username').invalid && customerSignupForm.get('username').touched"> 
+                    <small *ngIf="customerSignupForm.get('username').errors['required']">username is required</small>
+                </div>
+            </div>
+            <div class="form-group-info">
+                <input type="text" placeholder="Full name" formControlName="fullname">
+                <div class="input-error" *ngIf="customerSignupForm.get('fullname').invalid && customerSignupForm.get('fullname').touched"> 
+                    <small *ngIf="customerSignupForm.get('fullname').errors['required']">Full name is required</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-group-info">
+                <input type="email" placeholder="email" formControlName="email">
+                <div class="input-error" *ngIf="customerSignupForm.get('email').invalid && customerSignupForm.get('email').touched"> 
+                    <small *ngIf="customerSignupForm.get('email').errors['required']">email is required</small>
+                    <small *ngIf="customerSignupForm.get('email').errors['email']">Please enter a valid email address.</small>
+                </div>
+            </div>
+            <div class="form-group-info">
+                <input type="password" placeholder="password" formControlName="password">
+                <div class="input-error" *ngIf="customerSignupForm.get('password').invalid && customerSignupForm.get('password').touched"> 
+                    <small *ngIf="customerSignupForm.get('password').errors['required']">password is required</small>
+                    <small *ngIf="customerSignupForm.get('password').errors['minlength']">Password must be at least 8 characters.</small>
+                    <small *ngIf="customerSignupForm.get('password').errors['pattern']">Password must contain at least 1 Upper case letter, 1 Special character and a number.</small>
+                </div>
+            </div>
         </div>
         <div class="form-group">
-          <input type="email" placeholder="email" formControlName="email">
-          <input type="password" placeholder="password" formControlName="password">
+            <div class="form-group-info">
+                <input type="text" placeholder="address" formControlName="address">
+                <div class="input-error" *ngIf="customerSignupForm.get('address').invalid && customerSignupForm.get('address').touched"> 
+                    <small *ngIf="customerSignupForm.get('address').errors['required']">Address is required</small>
+                </div>
+            </div>
+            <div class="form-group-info">
+                <input type="tel" placeholder="phone number" formControlName="phoneNumber">
+                <div class="input-error" *ngIf="customerSignupForm.get('phoneNumber').invalid && customerSignupForm.get('phoneNumber').touched"> 
+                    <small *ngIf="customerSignupForm.get('phoneNumber').errors['required']">Phone number is required</small>
+                </div>
+            </div>
         </div>
         <div class="form-group">
-          <input type="text" placeholder="address" formControlName="address">
-          <input type="tel" placeholder="phone number" formControlName="phoneNumber">
-        </div>
-        <div class="form-group">
-          <input type="file" formControlName="profilePicture">
-        </div>
-        <button type="submit" class="register-button">Register</button>
+            <div class="form-group-info">
+                <select class="id-select" formControlName="idType" name="ID-select">
+                    <option value="" disabled selected>Select ID Type</option>
+                    <option value="ADHAAR_CARD">Aadhaar Card</option>
+                    <option value="DRIVING_LICENSE">Driving License</option>
+                    <option value="PASSPORT">Passport</option>
+                </select>
+                <div class="input-error" *ngIf="customerSignupForm.get('idType').invalid && customerSignupForm.get('idType').touched"> 
+                    <small *ngIf="customerSignupForm.get('idType').errors['required']">ID is required</small>
+                </div>
+            </div>
+            <div class="form-group-info">
+                <input class="id-number" formControlName="idNumber" type="text" placeholder="ID number" />
+                <div class="input-error" *ngIf="customerSignupForm.get('idNumber').invalid && customerSignupForm.get('idNumber').touched"> 
+                    <small *ngIf="customerSignupForm.get('idNumber').errors['required']">Please enter ID number</small>
+                </div>
+            </div>
+          </div>
+        <button type="submit" [disabled]="customerSignupForm.invalid" class="register-button">Register</button>
       </form>
       <p class="login-link">
         Already have an account? <a routerLink="/">Log In</a>
       </p>
     </div>
-    <button class="service-provider-button" routerLink="/signup/service-provider">JOIN AS SERVICE PROVIDER</button>
-  </div>
-  
+</div>
+<button class="service-provider-button" routerLink="/signup/service-provider">JOIN AS SERVICE PROVIDER</button>

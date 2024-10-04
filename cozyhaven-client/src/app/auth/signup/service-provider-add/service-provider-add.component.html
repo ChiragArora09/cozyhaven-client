@@ -1,1 +1,79 @@
-<p>service-provider-add works!</p>
+<div class="background"></div>
+<div class="container" [ngClass]="{ 'loading': isSubmitting }">
+    <div class="form-container">
+      <h1>Create Account as a Business Executive</h1>
+      <p>Join the Journey, Enhance Your Travel Business Today.</p>
+      <form [formGroup]="serviceProviderForm" (ngSubmit)="onSignup()">
+        <div class="form-group">
+            <div class="form-group-info">
+                <input type="text" placeholder="username" formControlName="username">
+                <div class="input-error" *ngIf="serviceProviderForm.get('username').invalid && serviceProviderForm.get('username').touched"> 
+                    <small *ngIf="serviceProviderForm.get('username').errors['required']">username is required</small>
+                </div>
+            </div>
+            <div class="form-group-info">
+                <input type="text" placeholder="Full name" formControlName="fullname">
+                <div class="input-error" *ngIf="serviceProviderForm.get('fullname').invalid && serviceProviderForm.get('fullname').touched"> 
+                    <small *ngIf="serviceProviderForm.get('fullname').errors['required']">Full name is required</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-group-info">
+                <input type="email" placeholder="email" formControlName="email">
+                <div class="input-error" *ngIf="serviceProviderForm.get('email').invalid && serviceProviderForm.get('email').touched"> 
+                    <small *ngIf="serviceProviderForm.get('email').errors['required']">email is required</small>
+                    <small *ngIf="serviceProviderForm.get('email').errors['email']">Please enter a valid email address.</small>
+                </div>
+            </div>
+            <div class="form-group-info">
+                <input type="password" placeholder="password" formControlName="password">
+                <div class="input-error" *ngIf="serviceProviderForm.get('password').invalid && serviceProviderForm.get('password').touched"> 
+                    <small *ngIf="serviceProviderForm.get('password').errors['required']">password is required</small>
+                    <small *ngIf="serviceProviderForm.get('password').errors['minlength']">Password must be at least 8 characters.</small>
+                    <small *ngIf="serviceProviderForm.get('password').errors['pattern']">Password must contain at least 1 Upper case letter, 1 Special character and a number.</small>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-group-info">
+                <input type="text" placeholder="address" formControlName="address">
+                <div class="input-error" *ngIf="serviceProviderForm.get('address').invalid && serviceProviderForm.get('address').touched"> 
+                    <small *ngIf="serviceProviderForm.get('address').errors['required']">Address is required</small>
+                </div>
+            </div>
+            <div class="form-group-info">
+                <input type="tel" placeholder="phone number" formControlName="phoneNumber">
+                <div class="input-error" *ngIf="serviceProviderForm.get('phoneNumber').invalid && serviceProviderForm.get('phoneNumber').touched"> 
+                    <small *ngIf="serviceProviderForm.get('phoneNumber').errors['required']">Phone number is required</small>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-group-info">
+                <select class="service-select" formControlName="serviceType" name="service-select">
+                    <option value="" disabled selected>Select your Service</option>
+                    <option value="HOTEL">Hotels</option>
+                    <option value="FLIGHT">Flights</option>
+                    <option value="BUS">Buses</option>
+                </select>
+                <div class="input-error" *ngIf="serviceProviderForm.get('serviceType').invalid && serviceProviderForm.get('serviceType').touched"> 
+                    <small *ngIf="serviceProviderForm.get('serviceType').errors['required']">Business type???</small>
+                </div>
+            </div>
+            <div class="form-group-info">
+                <input class="company-name" formControlName="companyName" type="text" placeholder="Name of your company" />
+                <div class="input-error" *ngIf="serviceProviderForm.get('companyName').invalid && serviceProviderForm.get('companyName').touched"> 
+                    <small *ngIf="serviceProviderForm.get('companyName').errors['required']">Please enter your company name</small>
+                </div>
+            </div>
+          </div>
+        <button type="submit" [disabled]="serviceProviderForm.invalid" class="register-button">Register</button>
+      </form>
+      <p class="login-link">
+        Already have an account? <a routerLink="/">Log In</a>
+      </p>
+    </div>
+</div>
+<button class="customer-button" routerLink="/signup">Register as a customer</button>
