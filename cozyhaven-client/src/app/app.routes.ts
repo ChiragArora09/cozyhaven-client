@@ -22,6 +22,7 @@ import { CustomerAddComponent } from './auth/signup/customer-add/customer-add.co
 import { ServiceProviderAddComponent } from './auth/signup/service-provider-add/service-provider-add.component';
 import { BusProviderComponent } from './views/Bus-Booking/bus-provider/bus-provider.component';
 import { FlightSearchComponent } from './views/Flight-Booking/flight-search/flight-search.component';
+import { FlightPaymentComponent } from './components/flight-payment/flight-payment.component';
 
 
 export const routes: Routes = [
@@ -47,9 +48,7 @@ export const routes: Routes = [
         "path":"hotel-booking/add-hotel",component:AddHotelComponent
     },
     {
-
         "path":"bus-provider", component: BusProviderComponent, canActivate: [AuthGuard]
-
     },
     {
         "path":"flight-provider", component: FlightProviderComponent, canActivate: [AuthGuard]
@@ -58,7 +57,6 @@ export const routes: Routes = [
         "path":"bus-search", component: BusSearchComponent, canActivate: [AuthGuard]
     },
     {
-
         "path":"hotel-search",component:HotelSearchComponent
     },
     {
@@ -76,6 +74,9 @@ export const routes: Routes = [
     },
     {
         "path":"flights/booking/:flightId/:bookingId", component: ConfirmFlightBookingComponent, canActivate: [AuthGuard]
+    },
+    {
+        "path":"flight/booking/payment/:bookingId", component: FlightPaymentComponent, canActivate: [AuthGuard]
     },
     {
         "path":"**", component: PageNotFoundComponent

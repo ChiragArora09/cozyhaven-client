@@ -1,6 +1,7 @@
-.main-content {
-    margin-left: 16.666667%; 
-    padding: 20px;
-  }
-  
-  
+.hotel-list {
+  display: grid;
+  grid-template-columns: repeat(4, 250px);
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}

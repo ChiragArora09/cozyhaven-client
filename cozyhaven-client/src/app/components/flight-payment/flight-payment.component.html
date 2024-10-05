@@ -1,0 +1,56 @@
+<div class="payment-container">
+    <div class="payment-card">
+      <h3>Payment details:</h3>
+      <div class="ticket-details">
+        <div *ngFor="let p of payment" class="ticket-row">
+          <span class="seat">1x - {{ p.flightSeatType }}</span>
+          <span class="class-type">{{ p.flightClassType }}</span>
+          <span class="amount">{{ parseInt(p.totalAmount) }} Rs. </span>
+        </div>
+      </div>
+      
+    <div class="price-details">
+        <h4>Price details</h4>
+        <div class="detail-row">
+            <span>Base Fare</span>
+            <span>₹{{parseInt(totalPayment)}}</span>
+        </div>
+        <div class="detail-row">
+            <span>Discount</span>
+            <span>₹{{parseInt(discount)}}</span>
+        </div>
+        <div class="detail-row total">
+            <span>Amount</span>
+            <span>₹{{parseInt(AmountAfterDiscount)}}</span>
+        </div>
+        <div class="remove">
+            <span (click)="removeOffer()">remove?</span>
+        </div>
+      </div>
+      <button class="pay-button" (click)="completeBooking(discount, AmountAfterDiscount)">Pay now</button>
+      <button class="offers-button" (click)="getOffers()">Offers</button>
+    </div>
+
+    <div *ngIf="showOffers" class="offers-container">
+        <i class="fa-solid fa-circle-xmark fa-lg" style="color: #d22d2d;" (click)="closeOffers()"></i>
+        <h2>Offers on this booking</h2>
+        <ul *ngFor="let offer of offers">
+            <li *ngIf="offer.offerCondition < parseInt(payment[1].totalAmount) *2">
+                <span class="offer-description">{{offer.description}}: </span>
+                <span class="offer-discount">Get {{offer.offerDiscount}}</span>
+                <span class="offer-type" *ngIf="offer.offerType=='percentage'">% off</span>
+                <span class="offer-type" *ngIf="offer.offerType=='money'"> Rs. off</span>
+                <span class="offer-condition"> on spending above {{offer.offerCondition}}</span>
+                <span class="loyalty-points"> and earn {{offer.loyaltyPoints}} loyalty Points for next booking </span>
+                <span class="apply-button" (click)="applyOffer(offer.offerType, offer.offerDiscount, offer.loyaltyPoints)">Apply</span>
+            </li>
+        </ul>
+      </div>
+
+  </div>
+
+
+
+  <!-- http://localhost:4200/flight/booking/payment/402 -->
+  <!-- http://localhost:4200/flight/booking/payment/403
+  http://localhost:4200/flight/booking/payment/403 -->
