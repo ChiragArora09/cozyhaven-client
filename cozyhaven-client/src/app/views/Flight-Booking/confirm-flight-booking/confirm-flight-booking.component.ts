@@ -87,6 +87,7 @@ export class ConfirmFlightBookingComponent {
   onDateChange(e: any) {
     this.journeyDate=e.target.value
     console.log(this.journeyDate)
+    localStorage.setItem('journeyDate', JSON.stringify(this.journeyDate))
     this.activatedRoute.paramMap.subscribe(params => {
       this.flightId = params.get("flightId")
     })

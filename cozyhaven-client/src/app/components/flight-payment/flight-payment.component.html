@@ -24,18 +24,19 @@
             <span>₹{{parseInt(AmountAfterDiscount)}}</span>
         </div>
         <div class="remove">
-            <span (click)="removeOffer()">remove?</span>
+            <span (click)="removeOffer(discount)">remove offer?</span>
         </div>
-      </div>
-      <button class="pay-button" (click)="completeBooking(discount, AmountAfterDiscount)">Pay now</button>
-      <button class="offers-button" (click)="getOffers()">Offers</button>
+    </div>
+    <button class="pay-button" (click)="completeBooking(discount, AmountAfterDiscount)">Pay now</button>
+    <button class="loyalty-button" (click)="showMyLoyaltyPoints()">Use points</button>
+    <button class="offers-button" (click)="getOffers()">Offers</button>
     </div>
 
     <div *ngIf="showOffers" class="offers-container">
         <i class="fa-solid fa-circle-xmark fa-lg" style="color: #d22d2d;" (click)="closeOffers()"></i>
         <h2>Offers on this booking</h2>
         <ul *ngFor="let offer of offers">
-            <li *ngIf="offer.offerCondition < parseInt(payment[1].totalAmount) *2">
+            <li *ngIf="offer.offerCondition < totalPayment">
                 <span class="offer-description">{{offer.description}}: </span>
                 <span class="offer-discount">Get {{offer.offerDiscount}}</span>
                 <span class="offer-type" *ngIf="offer.offerType=='percentage'">% off</span>
@@ -46,11 +47,19 @@
             </li>
         </ul>
       </div>
+  </div>
+  <div *ngIf="showLoyaltyPoints" class="my-loyalty-points">
+    <div class="points-info">
+        <p>{{myWalletLoyaltyPoints}}</p>
+        <i class="fa-solid fa-coins" style="color: #e1b530;"></i>
+    </div>
+    <div class="use-points">
+        <button *ngIf="!loyaltyPointsApplied" class="use-points-button" (click)="useLoyaltyPoints(myWalletLoyaltyPoints)">Use</button>
+        <button *ngIf="loyaltyPointsApplied" class="remove-points-button" (click)="removeLoyaltyPoints(myWalletLoyaltyPoints)">Remove</button>
+    </div>
 
   </div>
 
 
 
-  <!-- http://localhost:4200/flight/booking/payment/402 -->
-  <!-- http://localhost:4200/flight/booking/payment/403
-  http://localhost:4200/flight/booking/payment/403 -->
+  <!-- http://localhost:4200/flight/booking/payment/502 -->

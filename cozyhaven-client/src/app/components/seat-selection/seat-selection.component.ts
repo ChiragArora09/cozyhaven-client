@@ -70,4 +70,3 @@ export class SeatSelectionComponent {
   }
 
 }
-// http://localhost:4200/flight/booking/payment/302

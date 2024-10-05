@@ -87,7 +87,18 @@
     cursor: pointer;
     font-size: 15px;
     margin-top: 5px;
-    margin-left: 85%;
+    margin-left: 60%;
+    transition: color 0.3s;
+  }
+
+  .loyalty-button {
+    background: transparent;
+    color: gray;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    margin-top: 5px;
+    margin-left: 2%;
     transition: color 0.3s;
   }
   
@@ -155,4 +166,56 @@
   .apply-button:hover {
     text-decoration:underline;
     font-size: 16px;
+  }
+
+  .my-loyalty-points {
+    width: 100px;
+    background-color: white;
+    position: relative;
+    left:7%;
+    top: -15px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    height: 72px;
+    display: flex;
+    flex-direction:column;
+    gap: 5px;
+  }
+
+  .points-info{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    align-items: baseline;
+    height: 25px;
+  }
+
+  .use-points{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .use-points-button {
+    width:90%;
+    padding: 5px 15px;
+    background-color: #0ba6ff;
+    border: none;
+    color: white;
+    border-radius: 10px
+  }
+  .use-points-button:hover {
+    background-color: #237fb7;
+  }
+
+  .remove-points-button {
+    width:90%;
+    padding: 5px 15px;
+    background-color: #ff0000;
+    border: none;
+    color: white;
+    border-radius: 10px
+  }
+  .remove-points-button:hover {
+    background-color: #e60000;
   }
