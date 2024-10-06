@@ -151,6 +151,7 @@ useLoyaltyPoints(points) {
   this.AmountAfterDiscount-=points;
   this.loyaltyPointsApplied=true
 }
+
 removeLoyaltyPoints(points) {
   this.discount -= points;
   if(this.discount<0){
@@ -161,7 +162,5 @@ removeLoyaltyPoints(points) {
 }
 
 }
-
-// http://localhost:4200/flight/booking/payment/502
 
 

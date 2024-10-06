@@ -23,6 +23,7 @@ import { ServiceProviderAddComponent } from './auth/signup/service-provider-add/
 import { BusProviderComponent } from './views/Bus-Booking/bus-provider/bus-provider.component';
 import { FlightSearchComponent } from './views/Flight-Booking/flight-search/flight-search.component';
 import { FlightPaymentComponent } from './components/flight-payment/flight-payment.component';
+import { CustomerHistoryComponent } from './components/customer-history/customer-history.component';
 
 
 export const routes: Routes = [
@@ -77,6 +78,9 @@ export const routes: Routes = [
     },
     {
         "path":"flight/booking/payment/:bookingId", component: FlightPaymentComponent, canActivate: [AuthGuard]
+    },
+    {
+        "path":"my-bookings", component: CustomerHistoryComponent, canActivate: [AuthGuard]
     },
     {
         "path":"**", component: PageNotFoundComponent

@@ -11,7 +11,7 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class NavbarComponent {
   username: any = ''
-  constructor (@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor (@Inject(PLATFORM_ID) private platformId: Object, private router: Router) {}
 
   ngOnInit(): void {
     this.getValueFromLocalStorage();
@@ -21,6 +21,11 @@ export class NavbarComponent {
     if (isPlatformBrowser(this.platformId)) {
       this.username = localStorage.getItem('username');
     }
+  }
+
+  Logout() {
+    localStorage.clear()
+    this.router.navigateByUrl('/')
   }
 
 }

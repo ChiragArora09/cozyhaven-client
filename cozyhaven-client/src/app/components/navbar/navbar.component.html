@@ -4,15 +4,22 @@
         <img src="../../../assets/logo.png" alt="">
       </div>
       <div class="options">
-        <div routerLink="/home" >Home</div>
-        <div routerLink="/flight-search">Flight</div>
-        <div routerLink="/bus-search">Bus</div>
-        <div routerLink="/hotel-booking">Hotel</div>
-        <div routerLink="/holiday-packages">Holiday Package</div>
+        <div class="option" routerLink="/flight-search">Flight</div>
+        <div class="option" routerLink="/bus-search">Bus</div>
+        <div class="option" routerLink="/hotel-search">Hotel</div>
+        <div class="option" routerLink="/holiday-packages">Holiday Package</div>
       </div>
       <div class="user-greeting">
-        <span>{{username}}</span>
-        <i class="fas fa-user"></i>
+        <div class="btn-group">
+          <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <span>{{username}}</span><i class="fas fa-user"></i>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/my-bookings">My bookings</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" (click)="Logout()">Logout <i class="fa-solid fa-power-off" style="color: #ff0000;"></i></a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </nav>

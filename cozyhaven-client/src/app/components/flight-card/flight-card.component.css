@@ -135,6 +135,10 @@
     font-size: 15px;
   }
 
+  .proceed-button:hover {
+    background-color: #3A41AA;
+  }
+
   .horizontal-line {
     height: 40px;
     width: 1px;

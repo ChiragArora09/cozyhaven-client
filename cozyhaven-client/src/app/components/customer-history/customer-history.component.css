@@ -1,0 +1,228 @@
+.bookings-container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    margin-top:2%;
+  }
+  
+  .filter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    padding: 15px;
+    border-radius: 12px;
+    color: #ffffff;
+    background: transparent;
+  }
+  
+  .dropdown-container {
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid #1976d2;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dropdown-container label {
+    color:black;
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  #service-select {
+    padding: 2px 8px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .filter-buttons{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    width: 50%;
+  }
+
+  .filter-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 19px;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #2575fc;
+    font-weight: bold;
+    margin-left: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .filter-button.active-button {
+    background-color: #1976d2;
+    color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .filter-button:hover {
+    transform: scale(1.05);
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333333;
+    font-size: 1.8rem;
+    margin-top: 8%
+  }
+  
+  .booking-cards {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 20px;
+    border-radius: 16px;
+    background: #f6f6f6;
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+  }
+
+  .booking-date {
+    font-weight: 600;
+    color: black;
+  }
+
+  .booking-locations {
+    font-weight:700;
+    color: gray;
+
+  }
+
+  .booking-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+  }
+
+  .booking-buttons {
+    width: 15%;
+  }
+
+  .feedback-button {
+    border: none;
+    padding: 5px 12px;
+    width: 100%;
+    color: white;
+    background-color: #64CA8D;
+    border-radius: 10px;
+  }
+  .feedback-button:hover {
+    background-color: #00b100;
+  }
+
+  .cancel-button {
+    border: none;
+    padding: 5px 12px;
+    width: 100%;
+    color: white;
+    background-color: #ff0000;
+    border-radius: 10px;
+  }
+  .cancel-button:hover {
+    background-color: #e60000
+  }
+
+  .cancelled-booking {
+    font-size: 16px;
+    font-weight: 600;
+    color:#ff0000;
+  }
+
+  .feedback-form {
+    width: 400px;
+    height:300px;
+    margin: 0 auto;
+    background-color: white;
+    position: relative;
+    top: -20rem;
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  textarea,
+  select {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+    width:95%;
+  }
+  
+  textarea:focus,
+  select:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+  .ratings {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .rating {
+    margin-bottom: 5px;
+    width: 100%;
+  }
+  
+  .feedback-form-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5%;
+    gap: 20px;
+  }
+
+  .submit-feedback-button {
+    border: none;
+    padding: 5px 12px;
+    width: 100%;
+    color: white;
+    background-color: #0ba6ff;
+    border-radius: 10px;
+  }
+  .submit-feedback-button:hover {
+    background-color: #237fb7;
+  }
+
+  .blur-bg {
+    filter: blur(2px);
+  }
+
+  .feedback-message{
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    width: 25%;
+    background-color: #f1fdf5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #c0f7d3;
+    padding: 5px 25px;
+    border-radius: 60px;
+  }
+
+  .feedback-message p {
+    margin-top: 12px;
+    color: #2fad5c;
+  }
+
+  .feedback-message i {
+    cursor: pointer;
+  }
