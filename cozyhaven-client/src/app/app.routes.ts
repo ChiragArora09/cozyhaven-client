@@ -24,6 +24,10 @@ import { BusProviderComponent } from './views/Bus-Booking/bus-provider/bus-provi
 import { FlightSearchComponent } from './views/Flight-Booking/flight-search/flight-search.component';
 import { FlightPaymentComponent } from './components/flight-payment/flight-payment.component';
 import { CustomerHistoryComponent } from './components/customer-history/customer-history.component';
+import { FlightProviderFlightsComponent } from './components/flight-provider-flights/flight-provider-flights.component';
+import { FlightProviderStopsComponent } from './components/flight-provider-stops/flight-provider-stops.component';
+import { AddFlightComponent } from './components/add-flight/add-flight.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 export const routes: Routes = [
@@ -81,6 +85,18 @@ export const routes: Routes = [
     },
     {
         "path":"my-bookings", component: CustomerHistoryComponent, canActivate: [AuthGuard]
+    },
+    {
+        "path":"my-flights", component: FlightProviderFlightsComponent, canActivate: [AuthGuard]
+    },
+    {
+        "path":"flight-stops", component: FlightProviderStopsComponent, canActivate: [AuthGuard]
+    },
+    {
+        "path":"add-flight", component: AddFlightComponent, canActivate: [AuthGuard]
+    },
+    {
+        "path":"profile", component: ProfileComponent, canActivate: [AuthGuard]
     },
     {
         "path":"**", component: PageNotFoundComponent

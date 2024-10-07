@@ -1,16 +1,19 @@
 import { Component, Input } from '@angular/core';
 import { FlightBookingService } from '../../service/flightBooking.service';
 import { Router } from '@angular/router';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-flight-card',
   standalone: true,
-  imports: [],
+  imports: [NgIf, NgFor, NgClass],
   templateUrl: './flight-card.component.html',
   styleUrl: './flight-card.component.css'
 })
 export class FlightCardComponent {
   @Input() flight: any;
+  showOfferSection: boolean = false
+  flightOffers: any
 
   constructor(private flightBookingService:FlightBookingService, private router: Router) {}
 
@@ -27,6 +30,21 @@ export class FlightCardComponent {
         console.log(err)
       }
     })
+  }
+
+  showOffers(flightId:any){
+    this.showOfferSection = true
+    this.flightBookingService.getAllOffersForParticularFlight(flightId)
+    .subscribe({
+      next: (data) => {
+        this.flightOffers = data
+        console.log(this.flightOffers)
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
+
   }
 
 }

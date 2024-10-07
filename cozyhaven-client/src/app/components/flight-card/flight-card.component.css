@@ -139,8 +139,91 @@
     background-color: #3A41AA;
   }
 
+  .buttons{
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .offer-button {
+    font-size: 15px;
+    color: gray;
+    font-weight: 400;
+    transition: all 0.1s;
+  }
+
+  .offer-button:hover {
+    font-size: 16px;
+    color: gray;
+    text-decoration: underline;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
   .horizontal-line {
     height: 40px;
     width: 1px;
     background: lightgray;
+  }
+
+  .offers-container {
+    margin: 20px auto;
+    padding: 50px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    width: max-content;
+    position: relative;
+    top: -12rem;
+    box-shadow: 7px 5px 50px 0px rgba(0,0,0,0.84);
+    font-size: 12px;
+  }
+  
+  .offers-container h2 {
+    margin-bottom: 10px;
+  }
+  
+  .offers-container ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .offers-container li {
+    margin-bottom: 2px;
+  }
+
+  .offer-description {
+    color: black;
+  }
+
+  .offer-discount {
+    color: gray;
+  }
+
+  .offer-type {
+    color: gray;
+  }
+
+  .offer-condition {
+    color: gray;  
+  }
+
+  .loyalty-points {
+    color: gray;
+  }
+
+  .close-button {
+    width: 150px;
+    padding: 5px 10px;
+    background: #64CA8D;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    position: relative;
+    left: 78%;
+    top: 20px;
+  }
+
+  .blur-bg {
+    -webkit-filter: blur(8px);
   }

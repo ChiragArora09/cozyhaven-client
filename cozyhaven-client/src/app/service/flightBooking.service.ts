@@ -77,5 +77,8 @@ export class FlightBookingService {
         })
     }
 
+    getAllOffersForParticularFlight(flightId:any) {
+        return this.http.get(`http://localhost:8082/flight/getAllOffers/${flightId}`)
+    }
 
 }

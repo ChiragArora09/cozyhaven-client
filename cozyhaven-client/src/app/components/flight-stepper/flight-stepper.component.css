@@ -1,0 +1,33 @@
+/* src/app/flight-stepper/flight-stepper.component.css */
+.card {
+    padding: 2rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-top: 2rem;
+  }
+  
+  .stepper {
+    margin-bottom: 2rem;
+  }
+  
+  .step-content {
+    margin-top: 1rem;
+  }
+  
+  .p-field {
+    margin-bottom: 1.5rem;
+  }
+  
+  .city-group, .class-group, .seat-group {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+  }
+  
+  .navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+  

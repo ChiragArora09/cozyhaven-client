@@ -38,7 +38,7 @@ export class LoginPageComponent {
             localStorage.setItem('username',this.user.username );
             localStorage.setItem('role',this.user.role );
             switch(this.user.role){
-              case 'ROLE_SERVICE_PROVIDER':
+              case 'ROLE_FLIGHT_SERVICE_PROVIDER':
                 this.router.navigateByUrl('/flight-provider')
               break;
               case 'ROLE_CUSTOMER':
