@@ -24,7 +24,7 @@
             <span>₹{{parseInt(AmountAfterDiscount)}}</span>
         </div>
         <div class="remove">
-            <span (click)="removeOffer(discount)">remove offer?</span>
+            <span (click)="removeOffer(discount)" *ngIf="offerApplied">remove offer?</span>
         </div>
     </div>
     <button class="pay-button" (click)="completeBooking(discount, AmountAfterDiscount)">Pay now</button>
@@ -46,6 +46,18 @@
                 <span class="apply-button" (click)="applyOffer(offer.offerType, offer.offerDiscount, offer.loyaltyPoints)">Apply</span>
             </li>
         </ul>
+        <h2>Exclusive offers for you</h2>
+        <ul *ngFor="let offer of generatedOffers">
+            <li *ngIf="offer.offerCondition < totalPayment">
+                <span class="offer-description">{{offer.description}}: </span>
+                <span class="offer-discount" *ngIf="offer.offerDiscount>0" >Get {{offer.offerDiscount}}</span>
+                <span class="offer-type" *ngIf="offer.offerType=='percentage' && offer.offerDiscount>0">% off</span>
+                <span class="offer-type" *ngIf="offer.offerType=='money' && offer.offerDiscount>0"> Rs. off</span>
+                <span class="offer-condition" *ngIf="offer.offerCondition>0" > on spending above {{offer.offerCondition}}, and </span>
+                <span class="loyalty-points">earn {{offer.loyaltyPoints}} loyalty Points for next booking </span>
+                <span class="apply-button" (click)="applyOffer(offer.offerType, offer.offerDiscount, offer.loyaltyPoints)">Apply</span>
+            </li>
+        </ul>
       </div>
   </div>
   <div *ngIf="showLoyaltyPoints" class="my-loyalty-points">
@@ -59,3 +71,6 @@
     </div>
 
   </div>
+
+
+  <!-- my-bookings/generated-offers/{bid} -->

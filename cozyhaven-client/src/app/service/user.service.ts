@@ -37,4 +37,11 @@ export class UserService {
       console.log(serviceProvider)
       return this.http.post('http://localhost:8082/service-provider/add', serviceProvider)
     }
+
+    getCustomerInfo() {
+      const token = localStorage.getItem('token');
+      return this.http.get('http://localhost:8082/customer/my-info', {
+        headers: new HttpHeaders().set('Authorization', 'Bearer '+token)
+      })
+    }
 }

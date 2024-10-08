@@ -14,6 +14,7 @@ export class FlightPaymentComponent {
   payment: any[] = [] // this is to store payment data from the previous screen
   bookingId: any // this is grabbed from url to use in apis
   offers: any[] = [] // this is to store offers for the particular booking
+  generatedOffers: any = [] // this is to store offers for the particular booking
   showOffers: boolean = false // this is to display/close offers div
   totalPayment: any = 0 // this is the original amount before discount
   discount: any = 0 // this is discount on using points and offers
@@ -75,6 +76,17 @@ getOffers(){
     },
     error: (err) => {console.log(err)}
   })
+  this.flightBookingService.generatedOffers(this.bookingId)
+  .subscribe({
+    next: (data) => {
+      this.generatedOffers = data
+      console.log(this.generatedOffers)
+    },
+    error: (err) => {
+      console.log(err)
+    }
+  })
+  
 }
 
 showMyLoyaltyPoints(){

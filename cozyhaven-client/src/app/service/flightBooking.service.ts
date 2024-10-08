@@ -81,4 +81,11 @@ export class FlightBookingService {
         return this.http.get(`http://localhost:8082/flight/getAllOffers/${flightId}`)
     }
 
+    generatedOffers(bookingId:any) {
+        const token = localStorage.getItem('token');
+        return this.http.get(`http://localhost:8082/my-bookings/generated-offers/${bookingId}`, {
+            headers: new HttpHeaders().set('Authorization', 'Bearer '+token)
+        })
+    }
+
 }
