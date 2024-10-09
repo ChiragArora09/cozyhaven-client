@@ -12,6 +12,7 @@ import { DividerModule } from 'primeng/divider';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-flight-stepper',
@@ -35,7 +36,10 @@ export class FlightStepperComponent {
   cities: any[] = [];
   flightClassesList: any[] = []
 
-  constructor(private flightService: FlightService) {}
+  flightId:any
+  flightClassId:any
+
+  constructor(private flightService: FlightService, private router:Router) {}
 
   ngOnInit(): void {
     this.items = [
@@ -176,19 +180,12 @@ export class FlightStepperComponent {
 
   // Submission Method
   onSubmit() {
-    // Validate all forms
-    if (
-      this.flightDetailsForm.invalid ||
-      this.flightCitiesForm.invalid ||
-      this.flightClassesForm.invalid ||
-      this.flightSeatsForm.invalid
-    ) {
-      console.log('Please complete all required fields before submitting.');
+    if(this.flightDetailsForm.invalid || this.flightCitiesForm.invalid || this.flightClassesForm.invalid || this.flightSeatsForm.invalid) {
+      console.log('Complete all required fields before submitting');
       return;
     }
 
-    // Collect data
-    const payload = {
+    const info = {
       flight: this.flightDetailsForm.value,
       cities: this.flightCitiesForm.value.cities,
       classes: this.flightClassesForm.value.classes,
@@ -196,17 +193,48 @@ export class FlightStepperComponent {
     };
 
     // Send data to backend
-    this.flightService.createFlight(payload)
-    // .subscribe(
-    //   response => {
-    //     this.showSuccess('Flight created successfully!');
-    //     this.resetForms();
-    //     this.activeIndex = 0;
-    //   },
-    //   error => {
-    //     this.showError('Failed to create flight. Please try again.');
-    //   }
-    // );
+    this.flightService.createFlight(info.flight)
+    .subscribe({
+      next: (data) => {
+        this.flightId = data.id
+        console.log(this.flightId)
+        this.flightService.createRoute(info.cities, this.flightId)
+        .subscribe({
+          next: (data) => {
+              let i=1;
+              for(let fc of info.classes){
+                console.log(fc)
+                console.log("i= " + i)
+                this.flightService.addClassesAndSeats(fc, this.flightId)
+                .subscribe({
+                  next: (data) => {
+                    this.flightClassId = data.id
+                    console.log(this.flightClassId)
+                    let flightSeatsForThisClass = info.seats.filter(seat => seat.flight_class_id === i);
+                    console.log(flightSeatsForThisClass)
+                    let reducedSeats = flightSeatsForThisClass.map(seat => {
+                      return {"flightSeatType":seat.flight_seat_type, "seatNumber":seat.seat_number};
+                    });
+                    console.log(reducedSeats)
+                    this.flightService.addSeats(reducedSeats, this.flightClassId).subscribe()
+                    i++;
+                  },
+                  error: (err) => {
+                    console.log(err)
+                  }
+                })
+              }
+              this.router.navigateByUrl('/my-flights')
+          },
+          error: (err) => {
+            console.log(err)
+          }
+        })
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
   }
 
   // Reset Forms

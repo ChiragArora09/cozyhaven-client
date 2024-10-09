@@ -68,17 +68,6 @@ export class CustomerAddComponent {
                 localStorage.setItem('role',this.user.role );
                 this.isSubmitting = false;
                 this.router.navigateByUrl('/home')
-                // switch(this.user.role){
-                //   case 'ROLE_FLIGHT_SERVICE_PROVIDER':
-                //     this.router.navigateByUrl('/flight-provider')
-                //   break;
-                //   case 'ROLE_CUSTOMER':
-                //     this.router.navigateByUrl('/home')
-                //   break;
-                //   case 'ROLE_HOTEL_SERVICE_PROVIDER':
-                //     this.router.navigateByUrl('/hotel-provider')
-                //   break;
-                // }
               },
               error: (err) => {
                 this.message = "an error has occured please login now"
@@ -96,9 +85,6 @@ export class CustomerAddComponent {
       error: (err) => {console.log(err)} 
     })
   }
-
-
-
 }
 
 /*
