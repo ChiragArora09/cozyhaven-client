@@ -28,6 +28,8 @@ import { FlightProviderFlightsComponent } from './components/flight-provider-fli
 import { FlightProviderStopsComponent } from './components/flight-provider-stops/flight-provider-stops.component';
 import { AddFlightComponent } from './components/add-flight/add-flight.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { MyFlightInfoComponent } from './components/my-flight-info/my-flight-info.component';
+import { EditFlightRouteComponent } from './components/edit-flight-route/edit-flight-route.component';
 
 
 export const routes: Routes = [
@@ -97,6 +99,12 @@ export const routes: Routes = [
     },
     {
         "path":"profile", component: ProfileComponent, canActivate: [AuthGuard]
+    },
+    {
+        "path":"my-flight-info/:flightId", component: MyFlightInfoComponent, canActivate: [AuthGuard]
+    },
+    {
+        "path":"edit-flight-route/:flightId", component: EditFlightRouteComponent, canActivate: [AuthGuard]
     },
     {
         "path":"**", component: PageNotFoundComponent

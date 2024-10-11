@@ -38,10 +38,6 @@ export class FlightService {
     return this.http.post(`http://localhost:8082/flight/add-flight-seat/${flightClassId}`, flightSeats)
   }
 
-
-
-
-
   getCities(): Observable<any> {
     return this.http.get('http://localhost:8082/flight/get-flight-cities');
   }

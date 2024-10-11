@@ -1,0 +1,25 @@
+/* src/app/flight-cities-edit/flight-cities-edit.component.css */
+
+.card {
+    padding: 2rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin: 2rem auto;
+    max-width: 800px;
+  }
+  
+  .city-group {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+  }
+  
+  .p-field {
+    margin-bottom: 1.5rem;
+  }
+  
+  button {
+    margin-top: 1rem;
+  }
+  

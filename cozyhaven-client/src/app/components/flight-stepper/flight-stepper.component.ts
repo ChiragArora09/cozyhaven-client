@@ -18,7 +18,7 @@ import { Router } from '@angular/router';
   selector: 'app-flight-stepper',
   standalone: true,
   imports: [ReactiveFormsModule, NgIf, CommonModule, StepsModule, ButtonModule, InputTextModule, DropdownModule, InputNumberModule, DividerModule, InputTextareaModule, ToastModule],
-    providers: [MessageService],
+  providers: [MessageService],
   templateUrl: './flight-stepper.component.html',
   styleUrl: './flight-stepper.component.css'
 })

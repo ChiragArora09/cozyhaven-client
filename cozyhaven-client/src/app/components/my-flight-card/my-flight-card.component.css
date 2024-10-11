@@ -9,6 +9,13 @@ body, html {
     width: 100%;
     border-radius: 15px;
     padding: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.flight-card:hover{
+    background: #111111;
+    transform: scale(1.05, 1.05);
 }
 
 .flight-card h3 {
@@ -57,7 +64,7 @@ body, html {
 
 .edit-button {
     width: 100%;
-    background: #3B71FE;
+    background: #0ba6ff;
     color: white;
     border: none;
     padding: 5px 0;
@@ -71,5 +78,5 @@ body, html {
 
 .edit-button:hover {
     cursor: pointer;
-    background: #237fb7;
+    background: #3B71FE;
 }

@@ -5,7 +5,7 @@
       <li class="description">- {{ flight.description }}</li>
     </ul>
     <div class="buttons">
-        <button class="edit-button">Edit</button>
+        <button class="edit-button" [routerLink]="['/my-flight-info', flight.id]">View</button>
         <button class="delete-button">Delete</button>
     </div>
   </div>
