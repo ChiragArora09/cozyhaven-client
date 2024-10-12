@@ -27,7 +27,7 @@ export class FlightService {
     }
 
     getFlightOffers(flightId:any): Observable<any> {
-        return this.http.get(`http://localhost:8082/flight/getAllOffers/${flightId}`)
+        return this.http.get(`http://localhost:8082/flight/getMyFlightOffers/${flightId}`)
     }
 
     getFlightReviews(flightId:any): Observable<any> {

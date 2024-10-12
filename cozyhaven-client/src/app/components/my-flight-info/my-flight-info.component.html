@@ -29,7 +29,6 @@
                 <th>Departure</th>
                 <th>Distance</th>
                 <th>Stop number</th>
-                <!-- <th>Actions</th> -->
               </tr>
         </ng-template>
         <ng-template pTemplate="body" let-flightRoute>
@@ -39,10 +38,6 @@
               <td>{{flightRoute.departure}}</td>
               <td>{{flightRoute.distance}} kms</td>
               <td>{{flightRoute.stopNumber}}</td>
-              <!-- <td class="actions">
-                <button><i class="fa-solid fa-trash fa-lg" style="color: #ff2400;"></i></button>
-                <button><i class="fa-solid fa-pen-to-square fa-lg" style="color: #4c9bd6;"></i></button>
-              </td> -->
             </tr>
           </ng-template>
         </p-table>
@@ -95,16 +90,20 @@
     </div>
     <div *ngFor="let offer of flightOffers" class="offer-card">
       <span class="offer-description">{{offer.description}}: </span>
-      <span class="offer-discount">Get {{offer.offerDiscount}}</span>
-      <span class="offer-type" *ngIf="offer.offerType=='percentage'">% off</span>
-      <span class="offer-type" *ngIf="offer.offerType=='money'">Rs. off</span>
+      <span>Get</span>
+      <span class="offer-discount"> {{offer.offerDiscount}}</span>
+      <span class="offer-type" *ngIf="offer.offerType=='percentage'">%</span>
+      <span class="offer-type" *ngIf="offer.offerType=='money'">Rs. </span>
+      <span> off</span>
       <span class="offer-condition"> on spending above {{offer.offerCondition}}</span>
       <span> and earn </span>
       <span class="loyalty-points">{{offer.loyaltyPoints}}</span>
       <span> loyalty Points for next booking </span>
-      <i class="fa-solid fa-pen" style="color: #000000;"></i>
-      <button class="activate-offer-button" *ngIf="offer.active=='NO'">Activate</button>
-      <button class="deactivate-offer-button" *ngIf="offer.active=='YES'">Deactivate</button>
+      <i (click)="navigateToEditOffer(offer.id)" class="fa-solid fa-pen" style="color: #000000;"></i>
+      <button (click)="changeOfferStatus(offer.id)" [ngClass]="{'activate-offer-button': offer.active=='NO', 'deactivate-offer-button': offer.active=='YES'}">{{offer.active=='NO' ? "Activate": "Deactivate"}}</button>
+    </div>
+    <div class="add-icon">
+      <i (click)="navigateToAddOffer()" class="fa-solid fa-circle-plus fa-2xl" style="color: #35c04c;"></i>
     </div>
   </div>
 

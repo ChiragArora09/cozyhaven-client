@@ -30,6 +30,8 @@ import { AddFlightComponent } from './components/add-flight/add-flight.component
 import { ProfileComponent } from './components/profile/profile.component';
 import { MyFlightInfoComponent } from './components/my-flight-info/my-flight-info.component';
 import { EditFlightRouteComponent } from './components/edit-flight-route/edit-flight-route.component';
+import { AddOfferComponent } from './components/add-offer/add-offer.component';
+import { EditOfferComponent } from './components/edit-offer/edit-offer.component';
 
 
 export const routes: Routes = [
@@ -105,6 +107,12 @@ export const routes: Routes = [
     },
     {
         "path":"edit-flight-route/:flightId", component: EditFlightRouteComponent, canActivate: [AuthGuard]
+    },
+    {
+        "path":"add-offer/:flightId", component: AddOfferComponent, canActivate: [AuthGuard]
+    },
+    {
+        "path":"edit-offer/:flightId/:offerId", component: EditOfferComponent, canActivate: [AuthGuard]
     },
     {
         "path":"**", component: PageNotFoundComponent

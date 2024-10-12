@@ -268,6 +268,10 @@
   .offer-description {
     font-weight: 700;
   }
+  
+  .offer-discount {
+    font-weight: 700;
+  }
 
   .offer-type {
     font-weight: 700;
@@ -298,6 +302,10 @@
     transition: all 0.3s;
   }
 
+  .activate-offer-button:hover {
+    background: #03AC13;
+  }
+
   .deactivate-offer-button {
     border: none;
     padding: 2px 20px;
@@ -305,6 +313,23 @@
     color: white;
     border-radius: 20px;
     transition: all 0.3s;
+  }
+  
+  .deactivate-offer-button:hover {
+    background: #dc143c;
+  }
+
+  .add-icon {
+    margin-top: 20px;
+  }
+
+  .add-icon i {
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .add-icon i:hover {
+    transform: scale(1.2, 1.2);
   }
 
   .flight-reviews-container {

@@ -9,6 +9,7 @@ import { DataViewModule } from 'primeng/dataview';
 import { ButtonModule } from 'primeng/button';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
+import { FlightProviderService } from '../../service/flight-provider.service';
 
 @Component({
   selector: 'app-my-flight-info',
@@ -72,7 +73,7 @@ export class MyFlightInfoComponent implements OnInit {
    
   }
 
-  constructor(private flightService: FlightService, private activatedRoute: ActivatedRoute, private router: Router) {}
+  constructor(private flightService: FlightService, private activatedRoute: ActivatedRoute, private router: Router, private flightProviderService: FlightProviderService) {}
 
   selectSection(section: string) {
     this.selectedSection = section;
@@ -80,6 +81,42 @@ export class MyFlightInfoComponent implements OnInit {
 
   navigateToEditPage(flightId:any){
     this.router.navigate(['/edit-flight-route', flightId]);
+  }
+
+  navigateToAddOffer() {
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.flightId = params.get("flightId")
+    })
+    this.router.navigate(['/add-offer', this.flightId]);
+  }
+
+  navigateToEditOffer(offerId:any) {
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.flightId = params.get("flightId")
+    })
+    this.router.navigate(['/edit-offer', this.flightId, offerId]);
+  }
+
+  changeOfferStatus(offerId:any) {
+    this.flightProviderService.changeOfferStatus(offerId)
+    .subscribe({
+      next: (data) => {
+        console.log(data)
+        this.flightService.getFlightOffers(this.flightId)
+        .subscribe({
+          next: (data) => {
+            console.log(data)
+            this.flightOffers=data
+          },
+          error: (err) => {
+            console.log(err)
+          }
+        })
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
   }
 
 }

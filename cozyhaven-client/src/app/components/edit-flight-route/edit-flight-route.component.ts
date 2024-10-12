@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormArray, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { DividerModule } from 'primeng/divider';
@@ -42,29 +42,21 @@ export class EditFlightRouteComponent {
     ) { }
 
     ngOnInit(): void {  
-      // Initialize the form
       this.initForm();
-  
-      // Load cities (for dropdown options)
       this.loadCities();
-  
-      // Load existing flight cities
       this.loadFlightCities();
     }
 
-      // Initialize the form
-  initForm() {
-    this.flightCitiesForm = new FormGroup({
-      cities: new FormArray([])
-    });
-  }
+    initForm() {
+      this.flightCitiesForm = new FormGroup({
+        cities: new FormArray([])
+      });
+    }
 
-  // Getter for cities FormArray
   get citiesArray(): FormArray {
     return this.flightCitiesForm.get('cities') as FormArray;
   }
 
-  // Create a flight city FormGroup
   createCityGroup(cityData: any = {}): FormGroup {
     return new FormGroup({
       id: new FormControl(cityData.id || null), // Optional: for existing cities
@@ -76,12 +68,10 @@ export class EditFlightRouteComponent {
     });
   }
 
-  // Add a new city
   addCity(cityData?: any) {
     this.citiesArray.push(this.createCityGroup(cityData));
   }
 
-  // Remove a city
   removeCity(index: number) {
     if (this.citiesArray.length > 1) {
       this.citiesArray.removeAt(index);
@@ -154,18 +144,15 @@ export class EditFlightRouteComponent {
     });
   }
 
-  // Mark all form controls as touched to trigger validation messages
   markAllAsTouched() {
     this.flightCitiesForm.markAllAsTouched();
     this.citiesArray.controls.forEach(control => control.markAllAsTouched());
   }
 
-  // Display success message
   showSuccess(detail: string) {
     console.log(detail)
   }
 
-  // Display error message
   showError(detail: string) {
     console.log(detail)
   }
