@@ -192,6 +192,8 @@ export class FlightStepperComponent {
       seats: this.flightSeatsForm.value.seats
     };
 
+    console.log(info)
+    
     // Send data to backend
     this.flightService.createFlight(info.flight)
     .subscribe({

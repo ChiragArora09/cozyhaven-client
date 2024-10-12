@@ -66,7 +66,6 @@ export class EditFlightRouteComponent {
 
   // Create a flight city FormGroup
   createCityGroup(cityData: any = {}): FormGroup {
-    console.log(cityData)
     return new FormGroup({
       id: new FormControl(cityData.id || null), // Optional: for existing cities
       city_id: new FormControl(cityData.city_id || null, Validators.required),
@@ -108,16 +107,15 @@ export class EditFlightRouteComponent {
     this.flightService1.getRoute(this.flightId)
     .subscribe({
       next: (data) => {
-        console.log(data)
           if (data && data.length) {
             data.forEach(city => {
               const transformedCity: FlightCity = {
                 id: city.id,
-                city_id: city.city.id, // Extract city.id
+                city_id: city.city.id,
                 arrival: city.arrival,
                 departure: city.departure,
                 distance: city.distance,
-                stopNumber: city.stopNumber // Ensure consistent naming
+                stopNumber: city.stopNumber
               };
               this.addCity(transformedCity);
             });
@@ -140,16 +138,20 @@ export class EditFlightRouteComponent {
 
     const flightCitiesData: any[] = this.flightCitiesForm.value.cities;
     console.log(flightCitiesData)
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.flightId = params.get("flightId")
+    })
+    this.flightService.updateRoute(this.flightId, flightCitiesData)
+    .subscribe({
+      next: (data) => {
+        console.log(data)
+        this.router.navigateByUrl(`/my-flight-info/${this.flightId}`)
+      },
+      error: (err) => {
+        console.log(err)
+      }
 
-    // this.flightService.updateFlightCities(this.flightId, payload).subscribe(
-    //   response => {
-    //     this.showSuccess('Flight cities updated successfully.');
-    //     this.router.navigate(['/flights']); // Navigate to flight list or another appropriate page
-    //   },
-    //   error => {
-    //     this.showError('Failed to update flight cities.');
-    //   }
-    // );
+    });
   }
 
   // Mark all form controls as touched to trigger validation messages
