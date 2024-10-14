@@ -1,9 +1,7 @@
-/* General styles */
 body {
     margin: 0;
     display: flex;
     height: 100vh;
-    background: #f0f2f5;
 }
 
 .sidebar {
@@ -128,4 +126,134 @@ body {
 
 .content-area h3 {
     font-weight: 600;
+}
+
+.general-info {
+    width: 1200px;
+    background: #2b2b2b;
+    border-radius: 10px;
+    height: 90px;
+    position: relative;
+    left: 20%;
+    top: 25px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: gray;
+}
+
+.pie-chart {
+    position: relative;
+    left: 22%;
+    top: 3rem;
+    width: 1100px;
+    display:flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    margin-bottom: 8rem;
+}
+
+.all-flight-chart {
+    height: 750px;
+    width: 800px;
+    background: #2c2c2c;
+    padding: 20px 20px;
+    border-radius: 10px;
+}
+
+.booking-date-chart {
+    height: 550px;
+    width: 400px;
+    background: #2c2c2c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 15px;
+    gap: 15px;
+}
+
+.booking-date-chart input {
+    margin-bottom: 10px;
+    padding: 5px 20px;
+    border-radius: 10px;
+}
+.booking-date-chart h6 {
+    color: gray;
+}
+
+.general-info i {
+    margin-left: 4px;
+}
+
+.general-info span {
+    color: white;
+}
+
+.general-info div {
+    transition: all 0.2s;
+}
+
+.general-info div:hover {
+    transform: scale(1.1, 1.1);
+}
+
+.bar-graph {
+    width: 1100px;
+    position: relative;
+    left: 22%;
+    border-radius: 20px;
+    padding: 25px;
+    background: #2c2c2c;
+    margin-bottom: 5rem;
+}
+.bar-graph h6 {
+    color: lightgray;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.flight-selector-graph {
+    width: 1100px;
+    position: relative;
+    left: 22%;
+    background: #2c2c2c;
+    padding: 25px;
+    border-radius: 20px;
+    margin-bottom: 5rem;
+}
+
+.flight-selector-graph h6{
+    color: lightgray;
+    text-align: center;
+}
+
+.flight-selector-graph select{
+    background: #2b2b2b;
+    outline: black;
+    color: lightgray;
+    padding: 5px 10px;
+}
+
+.flight-popular-routes {
+    width: 1100px;
+    position: relative;
+    left: 22%;
+    background: #2b2b2b;
+    padding: 25px;
+    border-radius: 20px;
+}
+
+.polar-area-div{
+    margin: 30px auto;
+    height: 800px;
+    width: 800px
+}
+
+.flight-popular-routes h6 {
+    color: lightgray;
+    text-align: center;
+    margin-bottom: 10px;
 }

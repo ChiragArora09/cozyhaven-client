@@ -70,6 +70,7 @@ export class MyFlightInfoComponent implements OnInit {
         console.log(err)
       }
     })
+    
    
   }
 

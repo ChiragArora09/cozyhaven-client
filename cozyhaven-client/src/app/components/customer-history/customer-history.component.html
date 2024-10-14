@@ -24,6 +24,7 @@
     </div>
     </div>
   
+  <div *ngIf="selectedService=='Flight'">
     <div class="booking-cards" *ngFor="let booking of bookings">
       <div class="booking-info">
         <span class="booking-date"><i class="fa-solid fa-calendar-days"></i> {{booking.booking}} </span>
@@ -38,6 +39,7 @@
       </div>
     </div>
   </div>
+</div>
 
   <div class="feedback-message" *ngIf="showFeedbackMessage==true">
     <p>Feedback has been successfully submitted</p>

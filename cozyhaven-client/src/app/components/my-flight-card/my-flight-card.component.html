@@ -6,6 +6,6 @@
     </ul>
     <div class="buttons">
         <button class="edit-button" [routerLink]="['/my-flight-info', flight.id]">View</button>
-        <button class="delete-button">Delete</button>
+        <button [ngClass]="{'activate-flight-button': flight.status=='Not Running', 'deactivate-flight-button': flight.status=='Running'}" (click)="deleteFlight(flight.id)">{{flight.status=='Running'?"Delete":"Activate"}}</button>
     </div>
   </div>

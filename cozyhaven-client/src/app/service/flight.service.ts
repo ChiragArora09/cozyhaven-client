@@ -34,4 +34,8 @@ export class FlightService {
         return this.http.get(`http://localhost:8082/flight/reviews-on-flight/${flightId}`)
     }
 
+    deleteFlight(flightId) : Observable<any> {
+        return this.http.put(`http://localhost:8082/flight/flight-status/${flightId}`, {})
+    }
+
 }

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrl: './page-not-found.component.css'
 })
 export class PageNotFoundComponent {
-  email: string='admin@my-hospital.com'; 
+  email: string='admin@cozy-haven.com'; 
 
   constructor(private router: Router){
     localStorage.clear();

@@ -1,1 +1,38 @@
 <app-flight-provider-sidebar></app-flight-provider-sidebar>
+<div class="general-info">
+    <div class="totalFlights"><span>{{totalNumberOfFlights.length}}</span> Flights <i class="fa-solid fa-plane-circle-check" style="color: #838383;"></i></div>
+    <div class="totalBookings"><span>{{totalBookings}}+</span> bookings <i class="fa-solid fa-arrow-up-right-dots fa-sm" style="color: #838383;"></i></div>
+    <div class="totalCustomers"><span>{{totalUniqueCustomers}}+</span> unique customers <i class="fa-solid fa-arrow-up" style="color: #838383;"></i></div>
+</div>
+<div class="pie-chart">
+    <div class="all-flight-chart">
+        <p-chart type="pie" [data]="flightPieBookingData" [options]="pieOptions" />
+    </div>
+    <div class="booking-date-chart">
+        <h6>FLIGHT AND BOOKINGS EACH DAY</h6>
+        <input type="date" [value]="today" (change)="onDateChange($event)">
+        <p-chart type="pie" [data]="flightDatePieBookingData" [options]="pieDateOptions" />
+    </div>
+</div>
+<div class="bar-graph">
+    <h6>FLIGHTS AND REVENUE</h6>
+    <p-chart type="bar" [data]="flightRevenueBarData" [options]="barOptions" />
+</div>
+
+<div class="flight-selector-graph">
+    <h6>FLIGHT REVENUE ON EACH DATE</h6>
+    <select name="" id="" (change)="onFlightChange($event)">
+        <option value="" selected disabled>Select a Flight</option>
+        <option [value]="flight.id" *ngFor="let flight of totalNumberOfFlights">{{flight.name}}</option>
+    </select>
+    <div>
+        <p-chart type="line" [data]="completeLineData" [options]="lineOptions" />
+    </div>
+</div>
+
+<div class="flight-popular-routes">
+    <h6>5 most Popular routes</h6>
+    <div class="polar-area-div">
+        <p-chart type="polarArea" height="800px" width="800px" [data]="completepolarAreaData" [options]="polarAreaOptions" />
+    </div>
+</div>
