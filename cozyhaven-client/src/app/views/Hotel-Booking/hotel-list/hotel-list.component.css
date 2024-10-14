@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .main-content {
     margin-left: 20%; 
     padding: 20px;
@@ -15,3 +16,12 @@
   }
   
   
+=======
+.hotel-list {
+  display: grid;
+  grid-template-columns: repeat(4, 250px);
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+>>>>>>> 3e78df26f53cfe5aed086755b9ceb9ba6ff7e27a

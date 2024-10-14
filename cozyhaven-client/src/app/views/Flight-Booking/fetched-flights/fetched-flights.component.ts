@@ -76,14 +76,3 @@ export class FetchedFlightsComponent {
     })
   }
 }
-
-// flight: "{\"flightName\":\"Wingspan Flight\",\"flightNumber\":\"Wing101\",\"flightDescription\":\"A long-haul flight, featuring spacious seats, gourmet meals, and personalized service.\",\"source\":\"Chennai\",\"destination\":\"Kochi\",\"sourceArrival\":\"13:30:00\",\"destinationArrival\":\"17:00:00\",\"distance\":680,\"amount\":3500,\"flightId\":8,\"sourceStopNo\":1,\"destinationStopNo\":2}"
-// role: "ROLE_CUSTOMER"
-// token: "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huIiwiZXhwIjo1MTQ5NDEwMjExMDU3MTYxLCJpYXQiOjE3Mjc4OTg0MTB9.ML49esQNqJM_-tebOPDX_j_PeB5g9yE426HcesyXcmQ"
-// username: "john"
-
-
-// flight: "{\"flightName\":\"Skyliner Flight\",\"flightNumber\":\"S9267\",\"flightDescription\":\"A premium flight experience with world-class amenities and on-time departures.\",\"source\":\"Chennai\",\"destination\":\"Kochi\",\"sourceArrival\":\"15:00:00\",\"destinationArrival\":\"19:30:00\",\"distance\":670,\"amount\":3450,\"flightId\":4,\"sourceStopNo\":1,\"destinationStopNo\":2}"
-// role: "ROLE_CUSTOMER"
-// token: "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huIiwiZXhwIjo1MTQ5NDEwMjExMDU3MTYxLCJpYXQiOjE3Mjc4OTg0MTB9.ML49esQNqJM_-tebOPDX_j_PeB5g9yE426HcesyXcmQ"
-// username : "john"

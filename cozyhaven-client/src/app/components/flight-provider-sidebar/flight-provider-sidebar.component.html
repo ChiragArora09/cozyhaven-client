@@ -1,0 +1,14 @@
+<div class="sidebar">
+  <div>
+    <h2><i class="fa-solid fa-user fa-sm" style="color: #74C0FC;"></i> {{username}}</h2>
+  </div>
+    <ul>
+      <li [ngClass]="{'active-option': selectedOption === 'Dashboard'}" (click)="selectOption('Dashboard')"><span class="option" routerLink="/dashboard"><i class="fas fa-home"></i> Dashboard</span></li>
+      <li [ngClass]="{'active-option': selectedOption === 'Flights'}" (click)="selectOption('Flights')"><span class="option" routerLink="/flights"><i class="fas fa-plane"></i> Flights</span></li>
+      <!-- <li [ngClass]="{'active-option': selectedOption === 'Stops'}" (click)="selectOption('Stops')"><span class="option" routerLink="/alerts"><i class="fa-regular fa-circle-stop"></i> Stops</span></li> -->
+    </ul>
+    <div (click)="Logout()" class="logout-button" >
+      <button>Logout</button>
+      <i class="fa-solid fa-right-from-bracket" style="color: #fff;"></i>
+    </div>
+  </div>

@@ -1,0 +1,82 @@
+body, html {
+    padding: 0;
+    margin: 0;
+}
+
+.flight-card {
+    background: #282828;
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.flight-card:hover{
+    background: #111111;
+    transform: scale(1.05, 1.05);
+}
+
+.flight-card h3 {
+    color: #647bd1;
+    font-size: 1.5rem;
+    margin-left: 1.9rem;
+    margin-top: 10px;
+}
+
+.flight-card ul {
+    list-style: none;
+}
+
+.flight-number {
+    text-align: start;
+    color: gray;
+}
+
+.description {
+    margin-top: 1rem;
+    font-style: italic;
+    color: #75757b;
+    padding: 10px;
+    border-radius: 10px;
+    background: #2d2e36;
+    height: 8rem;
+}
+
+.buttons {
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.delete-button {
+    width: 100%;
+    background: #ff0000;
+    color: white;
+    border: none;
+    padding: 5px 0; 
+    border-radius: 10px;
+}
+
+.edit-button {
+    width: 100%;
+    background: #0ba6ff;
+    color: white;
+    border: none;
+    padding: 5px 0;
+    border-radius: 10px;
+}
+
+.delete-button:hover {
+    cursor: pointer;
+    background: #e60000;
+}
+
+.edit-button:hover {
+    cursor: pointer;
+    background: #3B71FE;
+}

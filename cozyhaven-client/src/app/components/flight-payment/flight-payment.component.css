@@ -1,0 +1,221 @@
+.payment-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .payment-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 420px;
+    width: 100%;
+  }
+  
+  .payment-card h3 {
+    margin: 10px;
+  }
+  
+  .ticket-details {
+    margin-bottom: 2.5rem;
+  }
+  
+  .ticket-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+
+  .seat {
+    font-size: 15px;
+    color: gray;
+
+  }
+  .class-type {
+    font-size: 15px;
+    color: gray;
+  }
+  
+  .amount{
+    font-size: 15px;
+    color: gray;
+  }
+
+  
+  .price-details {
+    margin-bottom: 2.2rem;
+  }
+  
+  .detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  
+  .total {
+    font-weight: bold;
+  }
+
+  .remove {
+    display: flex;
+    justify-content:flex-end;
+    margin-bottom: 7px;
+    color: blue;
+    cursor: pointer;
+  }
+  
+  .pay-button {
+    background-color: #62c462;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+  }
+
+  .offers-button {
+    background: transparent;
+    color: gray;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    margin-top: 5px;
+    margin-left: 60%;
+    transition: color 0.3s;
+  }
+
+  .loyalty-button {
+    background: transparent;
+    color: gray;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    margin-top: 5px;
+    margin-left: 2%;
+    transition: color 0.3s;
+  }
+  
+  .offers-button:hover {
+    color: #333;
+  }
+
+  .pay-button:hover {
+    background-color: #51a351;
+  }
+  
+  .offers-container {
+    margin: 20px auto;
+    padding: 50px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    width: max-content;
+  }
+  
+  .offers-container h2 {
+    margin-bottom: 10px;
+  }
+  
+  .offers-container ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .offers-container li {
+    margin-bottom: 5px;
+  }
+
+  .offers-container i {
+    position: absolute;
+    top: 17%;
+    right:8%;
+    cursor: pointer;
+  }
+
+  .offer-description {
+    color: black;
+  }
+
+  .offer-discount {
+    color: gray;
+  }
+
+  .offer-type {
+    color: gray;
+  }
+
+  .offer-condition {
+    color: gray;  
+  }
+
+  .loyalty-points {
+    color: gray;
+  }
+
+  .apply-button {
+    margin-left: 1rem;
+    cursor: pointer;
+  }
+
+  .apply-button:hover {
+    text-decoration:underline;
+    font-size: 16px;
+  }
+
+  .my-loyalty-points {
+    width: 100px;
+    background-color: white;
+    position: relative;
+    left:7%;
+    top: -15px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    height: 72px;
+    display: flex;
+    flex-direction:column;
+    gap: 5px;
+  }
+
+  .points-info{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    align-items: baseline;
+    height: 25px;
+  }
+
+  .use-points{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .use-points-button {
+    width:90%;
+    padding: 5px 15px;
+    background-color: #0ba6ff;
+    border: none;
+    color: white;
+    border-radius: 10px
+  }
+  .use-points-button:hover {
+    background-color: #237fb7;
+  }
+
+  .remove-points-button {
+    width:90%;
+    padding: 5px 15px;
+    background-color: #ff0000;
+    border: none;
+    color: white;
+    border-radius: 10px
+  }
+  .remove-points-button:hover {
+    background-color: #e60000;
+  }

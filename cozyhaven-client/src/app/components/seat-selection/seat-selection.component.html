@@ -17,5 +17,5 @@
             </div>        
         </div>
     </div>
-    <button class="confirm-booking-button" [disabled]="selectedSeats.length<1">Confirm booking</button>
+    <button class="confirm-booking-button" [disabled]="selectedSeats.length<1" (click)="confirmBooking()" >Confirm booking</button>
 </div>

@@ -1,0 +1,82 @@
+<app-navbar></app-navbar>
+  
+<h2>My Bookings</h2>
+<div class="bookings-container" [ngClass]="{'blur-bg': showFeedback==true || showFeedbackMessage==true}">
+    <div class="filter-bar">
+      <div class="dropdown-container">
+        <label for="service-select">Type:</label>
+        <select id="service-select" [(ngModel)]="selectedService" (change)="onFilterChange($event)">
+          <option value="Bus">Bus</option>
+          <option value="Flight" selected>Flight</option>
+          <option value="Hotel">Hotel</option>
+        </select>
+      </div>
+    <div class="filter-buttons" >
+        <button class="filter-button" [ngClass]="{'active-button': filter === 'Past'}" (click)="filterBookings('Past')">
+            Past Bookings
+        </button>
+        <button class="filter-button" [ngClass]="{'active-button': filter === 'Upcoming'}" (click)="filterBookings('Upcoming')">
+            Upcoming Bookings
+        </button>
+        <button class="filter-button" [ngClass]="{'active-button': filter === 'Cancelled'}" (click)="filterBookings('Cancelled')">
+            Cancelled Bookings
+        </button>
+    </div>
+    </div>
+  
+    <div *ngIf="selectedService=='Flight'">
+    <div class="booking-cards"  *ngFor="let booking of bookings">
+      <div class="booking-info">
+        <span class="booking-date"><i class="fa-solid fa-calendar-days"></i> {{booking.booking}} </span>
+        <span class="booking-locations">{{booking.source}} <i class="fa-solid fa-arrow-right"></i> {{booking.destination}}</span>
+        <span class="booking-vehicle"><i class="fa-solid fa-plane fa-rotate-by" style="--fa-rotate-angle: -45deg;"></i> {{booking.vehicleName}} ({{booking.vehicleNumber}}) </span>
+        <span class="booking-amount"><i class="fa-solid fa-indian-rupee-sign"></i>{{booking.amount}} </span>
+      </div>
+      <div class="booking-buttons">
+        <button (click)="showFeedback=true; bookingId=booking.bookingId" class="feedback-button" *ngIf="filter==='Past'">Feedback</button>
+        <button *ngIf="filter==='Upcoming'" class="cancel-button" (click)="cancelBooking(booking.bookingId)" >Cancel</button>
+        <p *ngIf="filter==='Cancelled'" class="cancelled-booking">Cancelled</p>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <div *ngIf="selectedService=='Hotel'">
+    <div class="booking-info" *ngFor="let booking of hotelBooking">
+      <h3>{{booking.hotelName}}</h3>
+      <p><strong>Total Amount: </strong>{{booking.totalAmount}}</p>
+      <p><strong>Booked Date: </strong>{{booking.bookedDate}}</p>
+      <p><strong>Check-in date: </strong>{{booking.checkInDate}}</p>
+      <p><strong>Check-out date: </strong>{{booking.checkOutDate}}</p>
+      <p><strong>Address: </strong>{{booking.location}}</p>
+      <p><strong>Status: </strong>
+        <span class="status-booked">{{booking.status}}</span>
+      </p>
+      <div class="card-actions">
+        <button class="btn-review" *ngIf="filter=='Past'" (click)="reviewBooking(booking.hotelId)">Review</button>
+        <button class="btn-cancel" *ngIf="filter=='Upcoming'" (click)="cancelHotelBooking(booking.bid)">Cancel Booking</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="feedback-message" *ngIf="showFeedbackMessage==true">
+    <p>Feedback has been successfully submitted</p>
+    <i class="fa-solid fa-xmark fa-lg" style="color: #7DDA58;" (click)="showFeedbackMessage=false" ></i>
+  </div>
+
+  <div class="feedback-form" *ngIf="filter==='Past' && showFeedback">
+    <div class="form-group">
+      <label for="description">How was your experience?</label>
+      <textarea id="description" name="description" rows="3" [(ngModel)]="description" ></textarea>
+      <div class="ratings">
+        <label class="rating" for="rating">Ratings</label>
+        <p-rating class="rating" id="rating" [(ngModel)]="value" [cancel]="false"/>
+      </div>
+      <div class="feedback-form-buttons">
+        <button class="cancel-button" (click)="showFeedback=false">Cancel</button>
+        <button class="submit-feedback-button" (click)="writeFeedback()">Submit</button>
+      </div>
+    </div>
+  </div>
+
+  

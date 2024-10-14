@@ -42,6 +42,16 @@ import { BookingDetailsComponent } from './views/Hotel-Booking/booking-details/b
 import { ReviewBookingComponent } from './views/Hotel-Booking/review-booking/review-booking.component';
 import { HotelImagesComponent } from './components/hotel-images/hotel-images.component';
 import { AddReviewComponent } from './components/add-review/add-review.component';
+import { FlightPaymentComponent } from './components/flight-payment/flight-payment.component';
+import { CustomerHistoryComponent } from './components/customer-history/customer-history.component';
+import { FlightProviderFlightsComponent } from './components/flight-provider-flights/flight-provider-flights.component';
+import { FlightProviderStopsComponent } from './components/flight-provider-stops/flight-provider-stops.component';
+import { AddFlightComponent } from './components/add-flight/add-flight.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { MyFlightInfoComponent } from './components/my-flight-info/my-flight-info.component';
+import { EditFlightRouteComponent } from './components/edit-flight-route/edit-flight-route.component';
+import { AddOfferComponent } from './components/add-offer/add-offer.component';
+import { EditOfferComponent } from './components/edit-offer/edit-offer.component';
 
 
 export const routes: Routes = [
@@ -86,7 +96,6 @@ export const routes: Routes = [
         "path":"bus-search", component: BusSearchComponent, canActivate: [AuthGuard]
     },
     {
-
         "path":"hotel-search",component:HotelSearchComponent
     },
     {
@@ -166,7 +175,37 @@ export const routes: Routes = [
         "path":"booking-details/:bookingId",component:BookingDetailsComponent
     },
     {
-        "path":"review",component:AddReviewComponent
+        "path":"add-review/:hotelId",component:AddReviewComponent
+    },
+    {
+        "path":"flight/booking/payment/:bookingId", component: FlightPaymentComponent, canActivate: [AuthGuard]
+    },
+    {
+        "path":"my-bookings", component: CustomerHistoryComponent, canActivate: [AuthGuard]
+    },
+    {
+        "path":"my-flights", component: FlightProviderFlightsComponent, canActivate: [AuthGuard]
+    },
+    {
+        "path":"flight-stops", component: FlightProviderStopsComponent, canActivate: [AuthGuard]
+    },
+    {
+        "path":"add-flight", component: AddFlightComponent, canActivate: [AuthGuard]
+    },
+    {
+        "path":"profile", component: ProfileComponent, canActivate: [AuthGuard]
+    },
+    {
+        "path":"my-flight-info/:flightId", component: MyFlightInfoComponent, canActivate: [AuthGuard]
+    },
+    {
+        "path":"edit-flight-route/:flightId", component: EditFlightRouteComponent, canActivate: [AuthGuard]
+    },
+    {
+        "path":"add-offer/:flightId", component: AddOfferComponent, canActivate: [AuthGuard]
+    },
+    {
+        "path":"edit-offer/:flightId/:offerId", component: EditOfferComponent, canActivate: [AuthGuard]
     },
     {
         "path":"**", component: PageNotFoundComponent

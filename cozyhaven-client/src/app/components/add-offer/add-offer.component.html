@@ -1,0 +1,51 @@
+<div class="message" *ngIf="showStringMessage">
+    <p>{{stringMessage}}</p>
+    <i (click)="showStringMessage=false" class="fa-solid fa-xmark fa-xl" style="color: #3fd73c;"></i>
+</div>
+<div class="offer-form-container">
+    <h2>Create a New Offer</h2>
+    <form [formGroup]="createOfferForm" (ngSubmit)="createOffer()">
+        <div class="form-group">
+            <label for="description">Theme of the offer:</label>
+            <input type="text" id="description" formControlName="description" placeholder="Early Bird Offer" />
+            <div class="input-error" *ngIf="createOfferForm.get('description').invalid && createOfferForm.get('description').touched"> 
+                <small *ngIf="createOfferForm.get('description').errors['required']">offer theme is required</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="offer_condition">Minimum amount spent to avail this offer (in INR)</label>
+            <input type="number" id="offerCondition" formControlName="offerCondition" placeholder="5000" />
+            <div class="input-error" *ngIf="createOfferForm.get('offerCondition').invalid && createOfferForm.get('offerCondition').touched"> 
+                <small *ngIf="createOfferForm.get('offerCondition').errors['required']">Enter a minimum condition</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="offer_discount">Discount offered for the customer?</label>
+            <input type="number" id="offerDiscount" formControlName="offerDiscount" placeholder="10% / 1000 Rs." />
+            <div class="input-error" *ngIf="createOfferForm.get('offerDiscount').invalid && createOfferForm.get('offerDiscount').touched"> 
+                <small *ngIf="createOfferForm.get('offerDiscount').errors['required']">Enter a discount value</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="offerType">Type of discount</label>
+            <select id="offerType" formControlName="offerType">
+                <option value="" disabled>Select Offer Type</option>
+                <option value="money">Money</option>
+                <option value="percentage">Percentage</option>
+            </select>
+            <div class="input-error" *ngIf="createOfferForm.get('offerType').invalid && createOfferForm.get('offerType').touched"> 
+                <small *ngIf="createOfferForm.get('offerType').errors['required']">Enter type of offer</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="loyalty_points">Loyalty points on availing this offer?</label>
+            <input type="number" id="loyaltyPoints" formControlName="loyaltyPoints" placeholder="100" />
+            <div class="input-error" *ngIf="createOfferForm.get('loyaltyPoints').invalid && createOfferForm.get('loyaltyPoints').touched"> 
+                <small *ngIf="createOfferForm.get('loyaltyPoints').errors['required']">Enter loyalty points</small>
+            </div>
+        </div>
+        <button type="submit" class="submit-btn" [disabled]="createOfferForm.invalid">Create Offer</button>
+        <button type="button" class="cancel-btn" (click)="cancelCreatingOffer()">Cancel</button>
+    </form>
+  </div>
+  

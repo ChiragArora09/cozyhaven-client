@@ -2,7 +2,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HotelService } from '../../service/hotel.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-review',
@@ -20,8 +20,9 @@ export class AddReviewComponent {
   customer:any;
   successMsg:string=undefined
   errorMsg:string=undefined
+  hotelId:any
 
-  constructor(private hotelService:HotelService,private router:Router){
+  constructor(private hotelService:HotelService,private router:Router,private route:ActivatedRoute){
     this.addReviewForm=new FormGroup({
       comments: new FormControl('',Validators.required),
       rating: new FormControl('',Validators.required),
@@ -29,11 +30,16 @@ export class AddReviewComponent {
     })
 }
 
+
+
 onClick(){
-  this.hotelService.addReview({
-    "comments":this.addReviewForm.value.hotelName,
-    "ratings":this.addReviewForm.value.description,
-    "star":this.addReviewForm.value.location
+  this.route.paramMap.subscribe(params => {
+    this.hotelId = params.get("hotelId");
+  })
+  this.hotelService.addReview(this.hotelId,{
+    "comments":this.addReviewForm.value.comments,
+    "rating":this.addReviewForm.value.rating,
+    "star":this.addReviewForm.value.star
   }).subscribe({
     next:(data)=>{
       console.log(data);

@@ -21,24 +21,24 @@ export class BookingDetailsComponent {
        this.bookingId = params.get("bookingId");
      });
 
-    this.fetchBooking();
+    // this.fetchBooking();
    }
 
-  cancelBooking(){
-     this.bookedService.cancelBooking(this.bookingId).subscribe({
-      next:(data)=>{
-        this.bookings=data;
-      }
-     })
-   }
+  // cancelBooking(){
+  //    this.bookedService.cancelBooking(this.bookingId).subscribe({
+  //     next:(data)=>{
+  //       this.bookings=data;
+  //     }
+  //    })
+  //  }
 
-   fetchBooking(){
-     this.bookedService.getBookingDetails(this.bookingId).subscribe({
-       next:(data)=>{
-         this.bookings=data;
-         console.log(this.bookings)
-      }
-   })
-  }
+  //  fetchBooking(){
+  //    this.bookedService.getBookingDetails(this.bookingId).subscribe({
+  //      next:(data)=>{
+  //        this.bookings=data;
+  //        console.log(this.bookings)
+  //     }
+  //  })
+  // }
 }
 

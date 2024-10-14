@@ -18,4 +18,20 @@ export class FlightService {
         })
     }
 
+    getRoute(flightId:any): Observable<any> {
+        return this.http.get(`http://localhost:8082/flight/getRoute/${flightId}`)
+    }
+
+    getSeatsAndClasses(flightId:any): Observable<any> {
+        return this.http.get(`http://localhost:8082/flight/classesAndFlights/${flightId}`)
+    }
+
+    getFlightOffers(flightId:any): Observable<any> {
+        return this.http.get(`http://localhost:8082/flight/getMyFlightOffers/${flightId}`)
+    }
+
+    getFlightReviews(flightId:any): Observable<any> {
+        return this.http.get(`http://localhost:8082/flight/reviews-on-flight/${flightId}`)
+    }
+
 }

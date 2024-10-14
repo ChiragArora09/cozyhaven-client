@@ -23,7 +23,17 @@
     justify-content: center;
     align-items: center;
   }
-  
+
+  .option {
+    font-size: 15px;
+    cursor:pointer;
+    transition: font-size 0.2s;
+  }
+
+  .option:hover {
+    font-size: 18px;
+  }
+
   .logo {
     height: 30px;
     width: 25px;

@@ -1,0 +1,131 @@
+/* General styles */
+body {
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    background: #f0f2f5;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100%;
+    background: #2B2B2B;
+    padding-top: 30px;
+    position: fixed;
+}
+
+.sidebar h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+}
+
+.sidebar ul li span {
+    color: #b8b8b8;
+    text-decoration: none;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+    border-radius: 8px;
+}
+
+.sidebar ul li span:hover {
+    background: #3b3b58;
+    color: #fff;
+}
+
+.sidebar ul li span i {
+    margin-right: 15px;
+}
+
+.logout {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logout a {
+    color: #b8b8b8;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.logout a:hover {
+    color: #fff;
+}
+
+.logout a i {
+    margin-right: 8px;
+}
+
+.main-content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.navbar {
+    height: 70px;
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.navbar-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.navbar-icons .notification {
+    position: relative;
+}
+
+.navbar-icons .notification .badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ff4757;
+    color: #fff;
+    border-radius: 50%;
+    padding: 3px 6px;
+    font-size: 0.8rem;
+}
+
+.navbar h4 {
+    font-weight: 600;
+    color: #555;
+}
+
+.content-area {
+    padding: 40px;
+    color: #333;
+}
+
+.content-area h3 {
+    font-weight: 600;
+}

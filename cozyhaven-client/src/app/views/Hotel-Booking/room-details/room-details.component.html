@@ -1,37 +1,3 @@
-<!-- <div class="container">
-    <div class="hotel-info">
-        <div class="hotel-details">
-            <h1>{{roomInfo.hotelName }}</h1>
-            <div class="hotel-images mt-4" *ngFor="let image of picture">
-                <img [src]="'/assets/'+image.imageName" >
-            </div>
-            </div>
-            <div class="hotel-about">
-                <h3>About The Hotel</h3>
-                <p>{{roomInfo?.description}}</p>
-                <ul class="amenities">
-                    <li *ngIf="roomInfo?.freeWifi=='YES'">Free-Wifi</li>
-                    <li *ngIf="roomInfo?.spa=='YES'">Spa</li>
-                    <li *ngIf="roomInfo?.parkingArea=='YES'">Parking Lot</li>
-                    <li *ngIf="roomInfo?.swimmingPool=='YES'">Swimming Pool</li>
-                    <li *ngIf="roomInfo?.gym=='YES'">Gym</li>
-                </ul>
-            </div>
-        </div>
-        <div class="room-info">
-            <p class="price">{{roomInfo.price}} INR</p>
-            <p class="details">Meals: {{roomInfo.complimentary}}<br>Cancellation Policy: {{roomInfo.cancellationInfo}}</p>
-            <button class="book-button" (click)="confirmBooking()">BOOK NOW</button>
-        </div>
-    </div>
-    <div class="reviews" *ngFor="let review of reviews">
-        <div class="review">
-            <h4>{{review.customer.fullname}}</h4>
-            <p>{{review.comments}}</p>
-            <p-rating [(ngModel)]="review.rating" [readonly]="true" [cancel]="false" />
-        </div>
-    </div> -->
-
     <div class="container">
         <div class="hotel-info">
             <div class="hotel-details">

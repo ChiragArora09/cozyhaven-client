@@ -138,10 +138,10 @@ export class HotelService {
 
   }
 
-  addReview(hotelId:any){
+  addReview(hotelId:any,obj:any){
 
     const token = localStorage.getItem('token')
-    return this.http.post(`http://localhost:8082/review/${hotelId}`,{
+    return this.http.post(`http://localhost:8082/reviews/${hotelId}`,obj,{
       headers: new HttpHeaders().set('Authorization', 'Bearer '+token)
        
     })

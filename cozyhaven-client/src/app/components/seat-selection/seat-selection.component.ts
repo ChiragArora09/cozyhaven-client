@@ -1,5 +1,7 @@
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { FlightBookingService } from '../../service/flightBooking.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-seat-selection',
@@ -13,6 +15,10 @@ export class SeatSelectionComponent {
   selectedSeats: any[] = [];
   seatInfo: boolean = false
   hoveredSeat:any
+  bookingId: any = null
+  payment: any[] = []
+
+  constructor(private flightBookingService: FlightBookingService, private activatedRoute: ActivatedRoute, private router: Router) {}
 
   selectSeat(seat: any): void {
     if(!seat.selected){
@@ -35,6 +41,32 @@ export class SeatSelectionComponent {
 
   hideDetails() {
     this.seatInfo = false
+  }
+
+
+  confirmBooking() {
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.bookingId = params.get("bookingId")
+    })
+
+    this.flightBookingService.confirmBooking(this.selectedSeats, this.bookingId)
+    .subscribe({
+      next: (data) => {
+        this.flightBookingService.getPayment(this.bookingId)
+        .subscribe({
+          next: (data) => {
+            console.log(data)
+            this.payment = data
+            localStorage.setItem('paymentData', JSON.stringify(this.payment))
+            this.router.navigateByUrl(`/flight/booking/payment/${this.bookingId}`)
+          },
+          error: (err) => {console.log(err)}
+        })
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
   }
 
 }

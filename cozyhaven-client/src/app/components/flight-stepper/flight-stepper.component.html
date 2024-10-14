@@ -1,0 +1,225 @@
+<!-- <p-toast></p-toast> -->
+
+<div class="card">
+  <p-steps [model]="items" [activeIndex]="activeIndex" styleClass="stepper"></p-steps>
+
+  <div class="step-content">
+    <!-- Flight Details -->
+    <div *ngIf="activeIndex === 0">
+      <form [formGroup]="flightDetailsForm">
+        <div class="p-fluid">
+          <div class="p-field">
+            <label for="name">Flight Name</label>
+            <input id="name" type="text" pInputText formControlName="name" />
+            <small *ngIf="flightDetailsForm.get('name').invalid && flightDetailsForm.get('name').touched" class="p-error">
+              Flight Name is required.
+            </small>
+          </div>
+
+          <div class="p-field">
+            <label for="number">Flight Number</label>
+            <input id="number" type="text" pInputText formControlName="number" />
+            <small *ngIf="flightDetailsForm.get('number').invalid && flightDetailsForm.get('number').touched" class="p-error">
+              Number is required.
+            </small>
+          </div>
+          <div class="p-field">
+            <label for="description">Description</label>
+            <textarea id="description" pInputTextarea formControlName="description"></textarea>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Flight and Cities -->
+    <div *ngIf="activeIndex === 1">
+      <form [formGroup]="flightCitiesForm">
+        <div formArrayName="cities">
+          <div *ngFor="let city of citiesArray.controls; let i = index" [formGroupName]="i" class="city-group">
+            <h3>City {{ i + 1 }}</h3>
+
+            <div class="p-fluid">
+              <div class="p-field">
+                <label for="city_id_{{i}}">City*</label>
+                <p-dropdown
+                  [options]="cities"
+                  optionLabel="cityName"
+                  optionValue="id"
+                  placeholder="Select a City"
+                  formControlName="city_id"
+                  [showClear]="true">
+                </p-dropdown>
+                <small *ngIf="city.get('city_id').invalid && city.get('city_id').touched" class="p-error">
+                  City is required.
+                </small>
+              </div>
+
+              <div class="p-field">
+                <label for="arrival_{{i}}">Arrival Time*</label>
+                <input id="arrival_{{i}}" type="time" pInputText formControlName="arrival" />
+                <small *ngIf="city.get('arrival').invalid && city.get('arrival').touched" class="p-error">
+                  Arrival time is required.
+                </small>
+              </div>
+
+              <div class="p-field">
+                <label for="departure_{{i}}">Departure Time*</label>
+                <input id="departure_{{i}}" type="time" pInputText formControlName="departure" />
+                <small *ngIf="city.get('departure').invalid && city.get('departure').touched" class="p-error">
+                  Departure time is required.
+                </small>
+              </div>
+
+              <div class="p-field">
+                <label for="distance_{{i}}">Distance (km)*</label>
+                <p-inputNumber id="distance_{{i}}" formControlName="distance" [min]="0"></p-inputNumber>
+                <small *ngIf="city.get('distance').invalid && city.get('distance').touched" class="p-error">
+                  Distance is required and must be a positive number.
+                </small>
+              </div>
+
+              <div class="p-field">
+                <label for="stop_number_{{i}}">Stop Number*</label>
+                <p-inputNumber id="stop_number_{{i}}" formControlName="stop_number" [min]="0"></p-inputNumber>
+                <small *ngIf="city.get('stop_number').invalid && city.get('stop_number').touched" class="p-error">
+                  Stop number is required and must be a positive number.
+                </small>
+              </div>
+
+              <div class="p-field">
+                <button pButton type="button" icon="pi pi-minus" label="Remove" class="p-button-danger" (click)="removeCity(i)" *ngIf="citiesArray.length > 1"></button>
+              </div>
+
+              <p-divider></p-divider>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-field">
+          <button pButton type="button" icon="pi pi-plus" label="Add Another City" class="p-button-success" (click)="addCity()"></button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Step 3: Flight Classes -->
+    <div *ngIf="activeIndex === 2">
+      <form [formGroup]="flightClassesForm">
+        <div formArrayName="classes">
+          <div *ngFor="let cls of classesArray.controls; let i = index" [formGroupName]="i" class="class-group">
+            <h3>Class {{ i + 1 }}</h3>
+
+            <div class="p-fluid">
+              <div class="p-field">
+                <label for="type_{{i}}">Type*</label>
+                <p-dropdown
+                  [options]="[
+                    { label: 'Business', value: 'BUSINESS' },
+                    { label: 'Economy', value: 'ECONOMY' },
+                    { label: 'First Class', value: 'FIRST_CLASS' },
+                    { label: 'Premium Economy', value: 'PREMIUM_ECONOMY' }
+                  ]"
+                  optionLabel="label"
+                  optionValue="value"
+                  placeholder="Select Class Type"
+                  formControlName="type"
+                  [showClear]="true">
+                </p-dropdown>
+                <small *ngIf="cls.get('type').invalid && cls.get('type').touched" class="p-error">
+                  Class type is required.
+                </small>
+              </div>
+
+              <div class="p-field">
+                <button pButton type="button" icon="pi pi-minus" label="Remove" class="p-button-danger" (click)="removeClass(i)" *ngIf="classesArray.length > 1"></button>
+              </div>
+
+              <p-divider></p-divider>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-field">
+          <button pButton type="button" icon="pi pi-plus" label="Add Another Class" class="p-button-success" (click)="addClass()"></button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Step 4: Flight Seats -->
+    <div *ngIf="activeIndex === 3">
+      <form [formGroup]="flightSeatsForm">
+        <div formArrayName="seats">
+          <div *ngFor="let seat of seatsArray.controls; let i = index" [formGroupName]="i" class="seat-group">
+            <h3>Seat {{ i + 1 }}</h3>
+
+            <div class="p-fluid">
+              <div class="p-field">
+                <label for="flight_class_id_{{i}}">Class</label>
+                <p-dropdown
+                  [options]="getFlightClassOptions()"
+                  optionLabel="label"
+                  optionValue="value"
+                  placeholder="Select Class"
+                  formControlName="flight_class_id"
+                  [showClear]="true">
+                </p-dropdown>
+                <small *ngIf="seat.get('flight_class_id').invalid && seat.get('flight_class_id').touched" class="p-error">
+                  Class is required.
+                </small>
+              </div>
+
+              <div class="p-field">
+                <label for="flight_seat_type_{{i}}">Seat Type</label>
+                <p-dropdown
+                  [options]="[
+                    { label: 'Aisle Seat', value: 'Aisle_Seat' },
+                    { label: 'Middle Seat', value: 'Middle_Seat' },
+                    { label: 'Window Seat', value: 'Window_Seat' }
+                  ]"
+                  optionLabel="label"
+                  optionValue="value"
+                  placeholder="Select Seat Type"
+                  formControlName="flight_seat_type"
+                  [showClear]="true">
+                </p-dropdown>
+                <small *ngIf="seat.get('flight_seat_type').invalid && seat.get('flight_seat_type').touched" class="p-error">
+                  Seat type is required.
+                </small>
+              </div>
+
+              <div class="p-field">
+                <label for="seat_number_{{i}}">Seat Number</label>
+                <input id="seat_number_{{i}}" type="text" pInputText formControlName="seat_number" placeholder="e.g., 12A" />
+                <small *ngIf="seat.get('seat_number').invalid && seat.get('seat_number').touched" class="p-error">
+                  Seat number is required.
+                </small>
+              </div>
+
+              <div class="p-field">
+                <button pButton type="button" icon="pi pi-minus" label="Remove" class="p-button-danger" (click)="removeSeat(i)" *ngIf="seatsArray.length > 1"></button>
+              </div>
+
+              <p-divider></p-divider>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-field">
+          <button pButton type="button" icon="pi pi-plus" label="Add Another Seat" class="p-button-success" (click)="addSeat()"></button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="navigation-buttons">
+      <button pButton type="button" label="Back" icon="pi pi-chevron-left" (click)="prevStep()" [disabled]="activeIndex === 0"></button>
+      <button
+        pButton
+        type="button"
+        label="{{ activeIndex === items.length - 1 ? 'Submit' : 'Next' }}"
+        icon="{{ activeIndex === items.length - 1 ? 'pi pi-check' : 'pi pi-chevron-right' }}"
+        (click)="activeIndex === items.length - 1 ? onSubmit() : nextStep()"
+        [disabled]="!isCurrentStepValid()">
+      </button>
+    </div>
+  </div>
+</div>

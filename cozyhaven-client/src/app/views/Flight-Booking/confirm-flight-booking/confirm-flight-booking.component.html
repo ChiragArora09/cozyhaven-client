@@ -50,8 +50,8 @@
             </div>
           </div>
         
-          <button type="button" (click)="addTraveler()">Add Traveler</button>
-          <button type="submit" [disabled]="travelersForm.invalid">Submit</button>
+          <button type="button" [disabled]="travellersAdded" (click)="addTraveler()">Add Traveler</button>
+          <button type="submit" [disabled]="travelersForm.invalid || travellersAdded">Submit</button>
         </form>
       </div>
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------------- -->
@@ -63,5 +63,3 @@
         <app-seat-selection [seats]="flightSeats" ></app-seat-selection> 
       </div>
 </div>
-
-<!-- "2024-10-03" -->

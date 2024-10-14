@@ -1,0 +1,93 @@
+<p-toast></p-toast>
+
+<div class="card">
+  <h2>Edit Flight Cities</h2>
+  
+  <form [formGroup]="flightCitiesForm" (ngSubmit)="onSubmit()">
+    <div formArrayName="cities">
+      <div *ngFor="let city of citiesArray.controls; let i = index" [formGroupName]="i" class="city-group">
+        <h3>City {{ i + 1 }}</h3>
+
+        <div class="p-fluid">
+          <!-- City Dropdown -->
+          <div class="p-field">
+            <label for="city_id_{{i}}">City*</label>
+            <p-dropdown
+              [options]="cities"
+              optionLabel="cityName"
+              optionValue="id"
+              placeholder="Select a City"
+              formControlName="city_id"
+              [showClear]="true">
+            </p-dropdown>
+            <small *ngIf="city.get('city_id').invalid && city.get('city_id').touched" class="p-error">
+              City is required.
+            </small>
+          </div>
+
+          <!-- Arrival Time -->
+          <div class="p-field">
+            <label for="arrival_{{i}}">Arrival Time*</label>
+            <input id="arrival_{{i}}" type="time" pInputText formControlName="arrival" />
+            <small *ngIf="city.get('arrival').invalid && city.get('arrival').touched" class="p-error">
+              Arrival time is required.
+            </small>
+          </div>
+
+          <!-- Departure Time -->
+          <div class="p-field">
+            <label for="departure_{{i}}">Departure Time*</label>
+            <input id="departure_{{i}}" type="time" pInputText formControlName="departure" />
+            <small *ngIf="city.get('departure').invalid && city.get('departure').touched" class="p-error">
+              Departure time is required.
+            </small>
+          </div>
+
+          <!-- Distance -->
+          <div class="p-field">
+            <label for="distance_{{i}}">Distance (km)*</label>
+            <p-inputNumber id="distance_{{i}}" formControlName="distance" [min]="0"></p-inputNumber>
+            <small *ngIf="city.get('distance').invalid && city.get('distance').touched" class="p-error">
+              Distance is required and must be a positive number.
+            </small>
+          </div>
+
+          <!-- Stop Number -->
+          <div class="p-field">
+            <label for="stop_number_{{i}}">Stop Number*</label>
+            <p-inputNumber id="stop_number_{{i}}" formControlName="stop_number" [min]="0"></p-inputNumber>
+            <small *ngIf="city.get('stop_number').invalid && city.get('stop_number').touched" class="p-error">
+              Stop number is required and must be a positive number.
+            </small>
+          </div>
+
+          <!-- Remove Button -->
+          <div class="p-field">
+            <button
+              pButton
+              type="button"
+              icon="pi pi-minus"
+              label="Remove"
+              class="p-button-danger"
+              (click)="removeCity(i)"
+              *ngIf="citiesArray.length > 1">
+            </button>
+          </div>
+
+          <p-divider></p-divider>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add City Button -->
+    <div class="p-field">
+      <button pButton type="button" icon="pi pi-plus" label="Add Another City" class="p-button-success" (click)="addCity()"></button>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="p-field">
+      <button pButton type="submit" label="Update Flight Cities" icon="pi pi-check" [disabled]="flightCitiesForm.invalid"></button>
+    </div>
+  </form>
+</div>
+

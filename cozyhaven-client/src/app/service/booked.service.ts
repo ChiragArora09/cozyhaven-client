@@ -42,20 +42,19 @@ export class BookedService {
     }
   }
 
-  getBookingDetails(bookingId:any):Observable<any>{
+  getBookingDetails(selectedService:any,filter:any):Observable<any>{
+    console.log(selectedService,filter)
     const token = localStorage.getItem('token')
-    console.log(bookingId);
-    return this.http.get(`http://localhost:8082/booking/customer/2`,{
-      headers: new HttpHeaders().set('Authorization', 'Bearer '+token)
+    return this.http.get(`http://localhost:8082/booking/customer/${selectedService}/${filter}`,{
+       headers: new HttpHeaders().set('Authorization', 'Bearer '+token)
        
-    })
+     })
   }
 
-  cancelBooking(bookingId:any):Observable<any>{
+  cancelBooking(bookingId:any,selectedService:any):Observable<any>{
     const token = localStorage.getItem('token')
-    console.log(bookingId);
-    return this.http.post(`http://localhost:8082/booking/cancel/${bookingId}`,{
-      headers: new HttpHeaders().set('Authorization', 'Bearer '+token)
+    return this.http.put(`http://localhost:8082/booking/cancel/${selectedService}/upcoming/${bookingId}`,{
+      headers: new HttpHeaders().set('Authorization', 'Bearer '+ token)
        
     })
   }

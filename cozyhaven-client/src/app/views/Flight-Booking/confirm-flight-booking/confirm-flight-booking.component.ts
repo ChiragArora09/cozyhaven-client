@@ -65,7 +65,6 @@ export class ConfirmFlightBookingComponent {
   }
 
   onSubmit() {
-    this.travellersAdded = true
     if (this.travelersForm.valid) {
       this.activatedRoute.paramMap.subscribe(params => {
         this.bookingId = params.get("bookingId")
@@ -74,6 +73,8 @@ export class ConfirmFlightBookingComponent {
       .subscribe({
         next: (data) => {
           this.travellerAddedMessage="Travellers added successfully, please select date and seats"
+          this.travellersAdded = true
+          
         },
         error: (err) => {console.log(err)}
       })
@@ -86,6 +87,7 @@ export class ConfirmFlightBookingComponent {
   onDateChange(e: any) {
     this.journeyDate=e.target.value
     console.log(this.journeyDate)
+    localStorage.setItem('journeyDate', JSON.stringify(this.journeyDate))
     this.activatedRoute.paramMap.subscribe(params => {
       this.flightId = params.get("flightId")
     })
@@ -102,10 +104,5 @@ export class ConfirmFlightBookingComponent {
     })
 
   }
-  
-  confirmBooking(){
-
-  }
 
 }
-// this.travelersForm.value.travelers

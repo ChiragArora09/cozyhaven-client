@@ -1,0 +1,139 @@
+.profile-container {
+    width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    top: 10rem;
+}
+
+.title {
+    text-align: center;
+    color: #2b2b2b;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.profile-picture-section {
+    text-align: center;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 2px solid #ddd;
+}
+
+.file-upload {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.file-upload input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-upload button {
+    background-color: #2b2b2b;
+    color: white;
+    border: none;
+    padding: 6px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.file-upload button:hover {
+    background-color: #000;
+}
+
+.sub-title {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.profile-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-info {
+    display: flex;
+    gap:15px;
+    justify-content: center;
+    margin-bottom: 10px
+}
+
+.info {
+    width: 100%;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    color: #555;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"] {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-color: #009688;
+    outline: none;
+}
+
+.submit-button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #009688;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #00796b;
+}
+
+.id-select {
+    color: gray;
+    border-radius: 5px;
+    padding: 4px 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 100%;
+}

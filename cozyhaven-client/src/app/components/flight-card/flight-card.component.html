@@ -1,4 +1,4 @@
-<div class="flight-card">
+<div class="flight-card" [ngClass]="{'blur-bg': showOfferSection==true}">
     <div class="flight-card-section1">
         <div class="flight-card-part1">
             <div class="icon">
@@ -32,7 +32,24 @@
     </div>
     <div class="line"></div>
     <div class="flight-card-section2">
-        <div class="flight-description">{{flight.flightDescription}}</div>        
-        <button (click)="initiateBooking(flight)" class="proceed-button">Proceed</button>
+        <div class="flight-description">{{flight.flightDescription}}</div>
+        <div class="buttons">
+            <div class="offer-button" (click)="showOffers(flight.flightId)">offers</div>
+            <button (click)="initiateBooking(flight)" class="proceed-button">Proceed</button>
+        </div>
     </div>
 </div>
+<div *ngIf="showOfferSection" class="offers-container">
+    <h2>Offers on {{flight.flightName}} ({{flight.flightNumber}})</h2>
+    <ul *ngFor="let offer of flightOffers">
+        <li>
+            <span class="offer-description">{{offer.description}}: </span>
+            <span class="offer-discount">Get {{offer.offerDiscount}}</span>
+            <span class="offer-type" *ngIf="offer.offerType=='percentage'">% off</span>
+            <span class="offer-type" *ngIf="offer.offerType=='money'"> Rs. off</span>
+            <span class="offer-condition"> on spending above {{offer.offerCondition}}</span>
+            <span class="loyalty-points"> and earn {{offer.loyaltyPoints}} loyalty Points </span>
+        </li>
+    </ul>
+    <button class="close-button" (click)="showOfferSection=false">Close</button>
+  </div>

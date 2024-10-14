@@ -1,0 +1,8 @@
+<app-flight-provider-sidebar></app-flight-provider-sidebar>
+<div class="add-flight" (click)="addFlight()">
+    <button class="add-flight-button">Add Flight</button>
+    <i class="fa-solid fa-plus" style="color: #ffffff;"></i>
+</div>
+<div class="flights-container">
+    <app-my-flight-card *ngFor="let flight of myFlights" [flight]="flight"></app-my-flight-card>
+</div>
