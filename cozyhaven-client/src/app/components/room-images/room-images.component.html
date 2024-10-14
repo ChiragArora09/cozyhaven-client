@@ -1,0 +1,100 @@
+<div class="main-container">
+    <app-hotel-provider></app-hotel-provider>
+    <div class="hotel-list">
+
+             <div class="main-content">
+                    <div id="simple-room" class="card">
+                        <h3>Simple Room</h3>
+                        <form id="roomImageForm">
+                            <div class="add-image">
+                                <label for="fileInput">Add Image:</label>
+                                <input type="file" id="fileInput" (change)="onChange($event)">
+                                <button type="button" class="btn" (click)="onUpload()">Upload Images</button>
+                            </div>
+                            <div class="image-list">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Image</th>
+                                            <th>Name</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let image of images">
+                                            <td>
+                                                <img [src]="'/assets/'+image" alt="Uploaded Image" style="max-width: 100px; max-height: 100px;">
+                                            </td>
+                                            <td>{{ image }}</td>
+                                            <td>
+                                                <button>Delete</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div>
+                                    <button (click)="navigateToAmenities()">Next</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                </div>
+                </div>
+            
+        
+
+
+  <!--  <div class="main-content">
+        
+        <div id="simple-room" class="card">
+            <h3>Simple Room</h3>
+            <form id="roomImageForm">
+                <div class="add-image">
+                    <label for="fileInput">Add Image:</label>
+                    <input type="file" id="fileInput" (change)="onChange($event)">
+                    <button class="btn" (click)="onUpload()">Upload Images</button>
+                </div>
+                <div class="image-list">
+                    <table>
+                        <thead>
+                              <tr>
+
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Delete</th>
+                           
+                            </tr>
+                        </thead>
+                        <tbody class="images">
+                          <img src="" alt="">
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+        </div>
+
+        
+    </div>
+</div>-->
+<!--<div>
+    <ul *ngIf="images?.length > 0">
+    <div class="alert alert-warning">
+    <h4>Uploaded Images: </h4>
+    <div *ngFor="let i of images">
+        <div>
+            <li>{{i}}</li>
+        </div>
+    </div>
+    </div>
+</ul>
+<div class="mt-4">
+    <hr>
+    <div class="alert alert-primary" *ngIf="imageMsg != ''">
+        {{imageMsg}}
+    </div>
+    <input type="file" (change)="onChange($event)">
+    <button (click)="onUpload()" >Upload Image</button>
+</div>
+</div>-->
+

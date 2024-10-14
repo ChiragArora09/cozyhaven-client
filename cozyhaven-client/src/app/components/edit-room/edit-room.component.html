@@ -1,0 +1,57 @@
+<div class="d-flex">
+ 
+    <app-hotel-provider class="bg-light p-3" style="min-width: 200px;"></app-hotel-provider>
+  
+    <div class="container mt-4 flex-grow-1">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+              Edit Room Details
+            </div>
+            <div class="card-body">
+             
+              <div class="alert alert-success" role="alert" *ngIf="successMsg">
+                {{ successMsg }}
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="errorMsg">
+                {{ errorMsg }}
+              </div>
+  
+              <form>
+                <div class="form-group mb-3">
+                  <label for="bedType" class="text-dark">Bed Type</label>
+                  <input id="bedType" name="bedType" type="text" class="form-control" [(ngModel)]="bedType" (ngModelChange)="resetmsg()" placeholder="Enter bed type" required>
+                </div>
+  
+                <div class="form-group mb-3">
+                  <label for="roomType" class="text-dark">Room Type</label>
+                  <input id="roomType" name="roomType" type="text" class="form-control" [(ngModel)]="roomType" (ngModelChange)="resetmsg()" placeholder="Enter room type" required>
+                </div>
+  
+                <div class="form-group mb-3">
+                  <label for="totalRooms" class="text-dark">Total Rooms</label>
+                  <input id="totalRooms" name="totalRooms" type="number" class="form-control" [(ngModel)]="totalRooms" (ngModelChange)="resetmsg()" placeholder="Enter total rooms" required>
+                </div>
+  
+                <div class="form-group mb-3">
+                  <label for="price" class="text-dark">Price</label>
+                  <input id="price" name="price" type="number" class="form-control" [(ngModel)]="price" (ngModelChange)="resetmsg()" placeholder="Enter price" required>
+                </div>
+  
+                <div class="form-group mb-3">
+                  <label for="capacity" class="text-dark">Capacity</label>
+                  <input id="capacity" name="capacity" type="number" class="form-control" [(ngModel)]="capacity" (ngModelChange)="resetmsg()" placeholder="Enter capacity" required>
+                </div>
+              </form>
+            </div>
+            <div class="card-footer text-center">
+              <button class="btn btn-primary me-2" (click)="onClick()"> Edit </button>
+              <button class="btn btn-secondary" (click)="onShowClick()" *ngIf="show">Go to Room List</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

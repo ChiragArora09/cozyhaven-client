@@ -4,6 +4,8 @@ import { NgClass, NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CustomerBookingService } from '../../service/customerBookings.service';
 import { RatingModule } from 'primeng/rating';
+import { BookedService } from '../../service/booked.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer-history',
@@ -21,8 +23,10 @@ export class CustomerHistoryComponent {
   description: string
   bookingId: any
   showFeedbackMessage: boolean = false
+  hotelBooking:any[]=[]
 
-  constructor(private customerBookingService: CustomerBookingService) {}
+
+  constructor(private customerBookingService: CustomerBookingService,private bookedService:BookedService,private router:Router,private route:ActivatedRoute) {}
 
   ngOnInit() {
     this.customerBookingService.getBookings(this.selectedService, this.filter)
@@ -37,6 +41,9 @@ export class CustomerHistoryComponent {
 
   onFilterChange(e:any) {
     this.selectedService = e.target.value
+    if(this.selectedService=="Hotel"){
+     return this.getHotelBooking();
+    }
     this.customerBookingService.getBookings(this.selectedService, this.filter)
     .subscribe({
       next: (data) => {
@@ -47,7 +54,11 @@ export class CustomerHistoryComponent {
   }
 
   filterBookings(status: string) {
+
     this.filter=status
+    if(this.selectedService=="Hotel"){
+      return this.getHotelBooking();
+     }
     this.customerBookingService.getBookings(this.selectedService, this.filter)
     .subscribe({
       next: (data) => {
@@ -87,6 +98,36 @@ export class CustomerHistoryComponent {
         console.log(err)
       }
     })
+  }
+
+  getHotelBooking(){
+    this.bookedService.getBookingDetails(this.selectedService,this.filter).subscribe({
+      next:(data)=>{
+        console.log(data);
+        this.hotelBooking=data;
+      },
+      error:(err)=>{
+        console.log(err)
+      }
+    })
+   
+  }
+
+  cancelHotelBooking(bid:any){
+   
+       this.bookedService.cancelBooking(bid,this.selectedService).subscribe({
+        next:(data)=>{
+          console.log(data)
+          window.location.reload();
+       },
+       error:(err)=>{
+        console.log(err)
+       }
+       })
+  }
+
+  reviewBooking(hotelId:any){
+    this.router.navigateByUrl(`/add-review/${hotelId}`)
   }
 
 }

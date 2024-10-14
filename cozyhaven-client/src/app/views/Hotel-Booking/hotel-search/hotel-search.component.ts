@@ -4,13 +4,13 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { NgIf } from '@angular/common';
 import { HotelService } from '../../../service/hotel.service';
 import { HotelSearch } from '../../../model/hotelSearch.model';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { HotelDataService } from '../../../service/hotelData.service';
 
 @Component({
   selector: 'app-hotel-search',
   standalone: true,
-  imports: [NavbarComponent,ReactiveFormsModule,NgIf],
+  imports: [NavbarComponent,ReactiveFormsModule,NgIf,RouterLink],
   templateUrl: './hotel-search.component.html',
   styleUrl: './hotel-search.component.css'
 })
@@ -33,7 +33,9 @@ export class HotelSearchComponent {
     let hotelSearch=new HotelSearch(this.hotelSearchForm.value.location,this.hotelSearchForm.value.checkInDate,this.hotelSearchForm.value.checkOutDate,this.hotelSearchForm.value.numberGuests,this.hotelSearchForm.value.numRooms)
     this.hotelService.getHotels(hotelSearch).subscribe({
       next:(data)=>{
-        this.hotels=data
+      localStorage.setItem("searchData",JSON.stringify(hotelSearch))
+       // this.hotels=data
+       this.hotels=this.getUniqueHotels(data);
         console.log(this.hotels)
         this.hotelDataService.setHotels(this.hotels)
         this.route.navigateByUrl('/hotels')
@@ -44,4 +46,16 @@ export class HotelSearchComponent {
       }
     })
   }
+  getUniqueHotels(hotels: any[]): any[] {
+    const uniqueHotelMap = new Map<number, any>();
+  
+    hotels.forEach((hotel) => {
+      if (!uniqueHotelMap.has(hotel.hotelId)) {
+        uniqueHotelMap.set(hotel.hotelId, hotel);
+      }
+    });
+  
+    return Array.from(uniqueHotelMap.values());
+}
+
 }

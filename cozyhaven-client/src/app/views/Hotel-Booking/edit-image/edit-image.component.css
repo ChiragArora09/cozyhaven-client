@@ -1,0 +1,100 @@
+.container {
+    display: flex;
+}
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f4f4f4;
+    position:relative;
+    left:408px;
+    top: 53px;
+}
+.card {
+    background-color: #fff;
+    color: #000;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    width: 900px;
+    
+}
+.main-container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh; 
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.add-image,
+.checkbox-group,
+.form-group {
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: white; 
+    color: #333; 
+    padding: 10px;
+    text-align: center;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+.checkbox-group div {
+    margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+select, input, button {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.update-button {
+    background-color: #2cbf15;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right:10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.icon-btn {
+    background-color: transparent;
+    border: none;
+    color: #f00;
+    cursor: pointer;
+}

@@ -1,6 +1,6 @@
-<app-navbar></app-navbar>
+
 <div class="background"></div>
-<form [formGroup]="hotelSearchForm">
+<form [formGroup]="hotelSearchForm" (ngSubmit)="onClick()">
         <div class="search-section">
             <div class="search-field">
                 <label for="location">City Or Locations</label>
@@ -36,8 +36,8 @@
                   <small class="error">Number of guests must be at least 1.</small>
                 </div>    
             </div>
-            <div class="search-button" (click)="onClick()">
-                <button type="submit">SEARCH</button>
+            <div class="search-button" >
+                <button type="submit" >SEARCH</button>
             </div>
            
         </div>

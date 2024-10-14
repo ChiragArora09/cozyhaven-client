@@ -1,0 +1,48 @@
+<p>hotel-images works!</p>
+<div class="main-container">
+    <div class="hotel-list">
+
+             <div class="main-content">
+                    <div id="simple-room" class="card">
+                        <h3>Simple Room</h3>
+                        <form id="roomImageForm">
+                            <div class="add-image">
+                                <label for="fileInput">Add Image:</label>
+                                <input type="file" id="fileInput" (change)="onChange($event)">
+                                <button type="button" class="btn" (click)="onUpload()">Upload Images</button>
+                            </div>
+                            <div class="image-list">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Image</th>
+                                            <th>Name</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let image of images">
+                                            <td>
+                                                <img [src]="'/assets/'+image" alt="Uploaded Image" style="max-width: 100px; max-height: 100px;">
+                                            </td>
+                                            <td>{{ image }}</td>
+                                            <td>
+                                                <button>Delete</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div>
+                                    <button (click)="navigateToAddRoom()">Next</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                </div>
+                </div>
+            
+        
+
+
+  

@@ -1,0 +1,63 @@
+.container {
+    display: flex;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f4f4f4;
+    position: relative;
+    left:500px;
+    top:53px;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh; /* Full height for the main container */
+}
+
+/* Card Component */
+.card {
+    background-color: #72767d;
+    color: #fff;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.checkbox-group div {
+    margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+select, input, button {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #28A745;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}

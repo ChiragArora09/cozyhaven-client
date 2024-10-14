@@ -1,31 +1,147 @@
-<div class="hotel-card">
-    <div >{{hotel.roomId}}</div>
-    <div>{{hotel.roomType}}</div>
-     <div>{{hotel.price}}</div>
-    <div>{{hotel.hotelName}}</div>
-     <div>{{hotel.hotelInfo}}</div>
-    <div>{{hotel.location}}</div>
-    <div>{{hotel.star}}</div>
-     <div>{{hotel.hotelId}}</div>
-</div>
+ <!-- <div class="container">
+  <header class="header">
+      <input type="text" placeholder="City, Area" value="Goa">
+      <input type="date" value="2024-09-06">
+      <input type="date" value="2024-09-07">
+      <input type="text" placeholder="Rooms & Guests" value="1 Room, 2 Adults">
+      <button class="search-button">SEARCH</button>
+  </header>
+  
+  <div class="main-content">
+      <aside class="sidebar">
+          <h3>Select Filters</h3>
+          <div class="filter-group">
+              <label>Location</label>
+              <input type="text" value="Goa">
+          </div>
 
- 
- <!-- <div class="hotel-info">{{hotel.hotelName}}</div>
-  <div class="hotel-info">{{hotel.hotelInfo}}</div>
-  <div class="hotel-info">{{hotel.location}}</div>
-  <div class="hotel-info">{{hotel.price}}</div>
-  <div class="hotel-info">{{hotel.star}}</div>
-  div class="hotel-info">{{hotel.hotelId}}</div>
-    <img [src]="hotel.imageUrl || 'default-hotel-image.jpg'" alt="Hotel Image">
-    <div class="hotel-info">
-     <div class="hotel-name">{{hotel.hotelName}}</div>
-     <div class="hotel-info h3"><p>{{hotel.location}}</p></div>
-     <div class="hotel-info">{{hotel.hotelInfo}}</div>
+          <div class="filter-group">
+              <label>Your Budget</label>
+              <input type="number" placeholder="min">
+              <input type="number" placeholder="max">
+          </div>
+
+          <div class="filter-group">
+              <label>Star Category</label>
+              <ul class="star-rating">
+                  <li><input type="radio" name="star" value="1"> ★</li>
+                  <li><input type="radio" name="star" value="2"> ★★</li>
+                  <li><input type="radio" name="star" value="3"> ★★★</li>
+                  <li><input type="radio" name="star" value="4"> ★★★★</li>
+                  <li><input type="radio" name="star" value="5"> ★★★★★</li>
+              </ul>
+          </div>
+      </aside>
+      
+      <section class="hotel-list">
+          <div class="hotel">
+              <h2>{{hotel.hotelName}}</h2>
+              <span class="hotel-rating">★★★★</span>
+              <p>{{hotel.description}}</p>
+              <span class="price">{{hotel.price}}</span>
+              <a href="#" class="deal-tag" routerLink="/room-type">PROCEED</a>
+          </div>
+      </section>
+  </div>
+</div>  -->
+
+ <!-- <div class="container">
+    
+    <div class="filter-section">
+      <h2>Select Filters</h2>
+      <div class="filter-group">
+        <label for="location">Location</label>
+        <select id="location">
+          <option>Goa</option>
+         
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="price">Price per night</label>
+        <div>
+          <input type="checkbox"> Rs. 0-2000 <br>
+          <input type="checkbox"> Rs. 2000-5000 <br>
+          <input type="checkbox"> Rs. 5000-10000 <br>
+         
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label>Your Budget</label>
+        <input type="text" placeholder="min">
+        <input type="text" placeholder="max">
+      </div>
+
+      <div class="filter-group">
+        <label>Star Category</label>
+        <div class="stars">
+          <input type="checkbox"> ★ ★ ★ ★ ★ <br>
+          <input type="checkbox"> ★ ★ ★ ★ <br>
+          <input type="checkbox"> ★ ★ ★ <br>
+         
+        </div>
+      </div>
     </div>
-   <div>
-     <div class="star-rating">{{hotel.star}}</div>
-     <div class="price">{{hotel.price}}</div>
-   </div>-->
 
+   
+    <div class="results-section">
+      <div class="search-header">
+        <div>
+          <span>City_Area</span> | <span>Check-in: Fri, 6 Sept</span> | <span>Check-out: Sat, 7 Sept</span> | <span>Rooms & Guests: 1 Room, 2 Adults</span>
+        </div>
+        <button class="search-button">Search</button>
+      </div>
 
+      
+      <div class="hotel-card">
+        <img src="hotel-image-1.jpg" alt="Hotel Image" class="hotel-image">
+        <div class="hotel-details">
+          <h3>Welcome Hotel, Cathedral Road</h3>
+          <p><strong>Excellent</strong> 4.4 (230 Ratings)</p>
+          <p>Centrally Located, Modern renovated design, wide range of cuisines.</p>
+          <p class="price">₹ 4,000 <span> + ₹ 1,620 Per Night</span></p>
+          <p class="free-cancellation">Free Cancellation till check-in</p>
+        </div>
+      </div>
+
+      <div class="hotel-card">
+        <img src="hotel-image-2.jpg" alt="Hotel Image" class="hotel-image">
+        <div class="hotel-details">
+          <h3>The Park</h3>
+          <p><strong>Excellent</strong> 4.4 (230 Ratings)</p>
+          <p>5 min walk to metro station</p>
+          <p class="price">₹ 5,115 <span> + ₹ 1,045 Per Night</span></p>
+          <p class="free-cancellation">Free Cancellation till check-in</p>
+        </div>
+      </div>
+    </div>
+  </div>  -->
+
+  <div class="hotel-card">
+    <img src="assets/images/hotel-placeholder.jpg" alt="Hotel Image" class="hotel-image" *ngIf="hotel.picture; else noImage">
+    <ng-template #noImage>
+      <img src="assets/images/no-image.png" alt="No Image Available" class="hotel-image">
+    </ng-template>
+    
+    <div class="hotel-details">
+      <h3>{{ hotel.hotelName }}</h3>
+      <p class="location">{{ hotel.hotelLocation }}</p>
+      
+      <p class="room-type"><strong>Room Type:</strong> {{ hotel.roomType }}</p>
+      <p class="price"><strong>Price per Night:</strong> ₹{{ hotel.price }}</p>
+      
+      <div class="stars">
+        <span *ngIf="hotel.star; else noStar">{{ hotel.star }}★</span>
+        <ng-template #noStar><span>No star rating available</span></ng-template>
+      </div>
+      
+      <div class="rating">
+        <span *ngIf="hotel.rating; else noRating"><strong>Rating:</strong> {{ hotel.rating }}/5</span>
+        <ng-template #noRating><span>No rating available</span></ng-template>
+      </div>
+
+      <button class="btn btn-primary me-2" (click)="onclick()"> Proceed </button>
+    </div>
+  </div>
   

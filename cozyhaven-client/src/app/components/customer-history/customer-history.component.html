@@ -24,8 +24,8 @@
     </div>
     </div>
   
-  <div *ngIf="selectedService=='Flight'">
-    <div class="booking-cards" *ngFor="let booking of bookings">
+    <div *ngIf="selectedService=='Flight'">
+    <div class="booking-cards"  *ngFor="let booking of bookings">
       <div class="booking-info">
         <span class="booking-date"><i class="fa-solid fa-calendar-days"></i> {{booking.booking}} </span>
         <span class="booking-locations">{{booking.source}} <i class="fa-solid fa-arrow-right"></i> {{booking.destination}}</span>
@@ -38,8 +38,27 @@
         <p *ngIf="filter==='Cancelled'" class="cancelled-booking">Cancelled</p>
       </div>
     </div>
+    </div>
   </div>
-</div>
+
+  <div *ngIf="selectedService=='Hotel'">
+    <div class="booking-info" *ngFor="let booking of hotelBooking">
+      <h3>{{booking.hotelName}}</h3>
+      <p><strong>Total Amount: </strong>{{booking.totalAmount}}</p>
+      <p><strong>Booked Date: </strong>{{booking.bookedDate}}</p>
+      <p><strong>Check-in date: </strong>{{booking.checkInDate}}</p>
+      <p><strong>Check-out date: </strong>{{booking.checkOutDate}}</p>
+      <p><strong>Address: </strong>{{booking.location}}</p>
+      <p><strong>Status: </strong>
+        <span class="status-booked">{{booking.status}}</span>
+      </p>
+      <div class="card-actions">
+        <button class="btn-review" *ngIf="filter=='Past'" (click)="reviewBooking(booking.hotelId)">Review</button>
+        <button class="btn-cancel" *ngIf="filter=='Upcoming'" (click)="cancelHotelBooking(booking.bid)">Cancel Booking</button>
+      </div>
+    </div>
+  </div>
+
 
   <div class="feedback-message" *ngIf="showFeedbackMessage==true">
     <p>Feedback has been successfully submitted</p>

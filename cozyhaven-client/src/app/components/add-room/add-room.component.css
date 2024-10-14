@@ -1,0 +1,104 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh; /* Full height for the main container */
+}
+
+.form-container {
+    background-color: #72767d;
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+    position: relative;
+    margin: initial;
+    left:630px;
+    top:65px
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+}
+
+label {
+    color: white;
+    margin-bottom: 5px;
+}
+
+input, select {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+input[type="number"] {
+    background-color: #fff;
+}
+
+.save-btn {
+    background-color: #28A745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.save-btn:hover {
+    background-color: #218838;
+}
+
+/* Left Navbar */
+.navbar {
+    width: 250px;
+    background-color: #2C3E50;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%; /* 100% height for the navbar */
+    overflow-y: auto;
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.navbar ul li {
+    padding: 15px;
+    color: white;
+    cursor: pointer;
+}
+
+.navbar ul li:hover {
+    background-color: #34495E;
+}
+

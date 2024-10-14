@@ -1,0 +1,50 @@
+.main-container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh; 
+}
+
+.content-section {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 20px; /* Adds space between navbar and content */
+    background-color: #f8f9fa; /* Optional: Adds a background color to the content area */
+}
+
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px; /* Adds spacing between the buttons and the table */
+}
+
+.table-responsive {
+    margin-top: 20px;
+    position: initial;
+    margin-left: 230px;
+}
+
+.btn-group button {
+    width: 150px; /* Adjust width as necessary */
+    margin-right: 10px;
+    position: initial;
+    margin-left: 250px; /* Adds space between the buttons */
+}
+
+.status-box {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .status-confirmed {
+    background-color: green;
+  }
+  
+  .status-cancelled {
+    background-color: red;
+  }
+  
+  .status-checkedout {
+    background-color: grey;
+  }
