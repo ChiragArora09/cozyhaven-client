@@ -1,6 +1,17 @@
 .main-content {
-    margin-left: 16.666667%; 
+    margin-left: 20%; 
     padding: 20px;
+  }
+  .hotel-list{
+    display: grid;
+    grid-template-columns: repeat(4,20rem);
+    position: relative;
+    top:55px;
+    left: 288px;
+  }
+  .main-container{
+    display: flex;
+    flex-direction: row;
   }
   
   

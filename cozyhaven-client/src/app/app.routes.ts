@@ -4,8 +4,6 @@ import { HomeComponent } from './views/home/home.component';
 
 import { FlightProviderComponent } from './views/Flight-Booking/flight-provider/flight-provider.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { PackageBookingComponent } from './views/package-booking/package-booking.component';
-
 import { FetchedFlightsComponent } from './views/Flight-Booking/fetched-flights/fetched-flights.component';
 import { BusSearchComponent } from './views/Bus-Booking/bus-search/bus-search.component';
 import { FlightCardComponent } from './components/flight-card/flight-card.component';
@@ -22,11 +20,34 @@ import { CustomerAddComponent } from './auth/signup/customer-add/customer-add.co
 import { ServiceProviderAddComponent } from './auth/signup/service-provider-add/service-provider-add.component';
 import { BusProviderComponent } from './views/Bus-Booking/bus-provider/bus-provider.component';
 import { FlightSearchComponent } from './views/Flight-Booking/flight-search/flight-search.component';
+import { PackageSearchComponent } from './views/Holiday-Package/package-search/package-search.component';
+import { AddRoomComponent } from './components/add-room/add-room.component';
+import { RoomImagesComponent } from './components/room-images/room-images.component';
+import { SteppercomponentComponent } from './components/steppercomponent/steppercomponent.component';
+import { PackageCardComponent } from './components/package-card/package-card.component';
+import { PackageBookingComponent } from './views/Holiday-Package/package-booking/package-booking.component';
+import { RoomTypeComponent } from './components/room-type/room-type.component';
+import { HotelCardComponent } from './components/hotel-card/hotel-card.component';
+import { RoomDetailsComponent } from './views/Hotel-Booking/room-details/room-details.component';
+import { AddAmenitiesComponent } from './components/add-amenities/add-amenities.component';
+import { MyRoomCardComponent } from './components/my-room-card/my-room-card.component';
+import { Component } from '@angular/core';
+import { EditHotelComponent } from './components/edit-hotel/edit-hotel.component';
+import { UpdataStatusComponent } from './views/Hotel-Booking/updata-status/updata-status.component';
+import { ReviewCardComponent } from './views/Hotel-Booking/review-card/review-card.component';
+import { EditRoomComponent } from './components/edit-room/edit-room.component';
+import { MyAddedRoomCardComponent } from './components/my-added-room-card/my-added-room-card.component';
+import { EditImageComponent } from './views/Hotel-Booking/edit-image/edit-image.component';
+import { BookingDetailsComponent } from './views/Hotel-Booking/booking-details/booking-details.component';
+import { ReviewBookingComponent } from './views/Hotel-Booking/review-booking/review-booking.component';
+import { HotelImagesComponent } from './components/hotel-images/hotel-images.component';
+import { AddReviewComponent } from './components/add-review/add-review.component';
 
 
 export const routes: Routes = [
+    
     {
-        "path":"", component: LoginPageComponent
+        "path":"",component:LoginPageComponent
     },
     {
         "path":"signup", component: CustomerAddComponent
@@ -47,9 +68,16 @@ export const routes: Routes = [
         "path":"hotel-booking/add-hotel",component:AddHotelComponent
     },
     {
-
+        "path":"stepper",component:SteppercomponentComponent
+    },
+    {
+        "path":"add-room/:id",component:AddRoomComponent
+    },
+    {
+        "path":"room-images/:hotelId/:roomId",component:RoomImagesComponent
+    },
+    {
         "path":"bus-provider", component: BusProviderComponent, canActivate: [AuthGuard]
-
     },
     {
         "path":"flight-provider", component: FlightProviderComponent, canActivate: [AuthGuard]
@@ -62,6 +90,9 @@ export const routes: Routes = [
         "path":"hotel-search",component:HotelSearchComponent
     },
     {
+        "path":"hotels",component:HotelsComponent
+    },
+    {
         "path":"flight-search", component: FlightSearchComponent, canActivate: [AuthGuard]
 
     },
@@ -69,13 +100,73 @@ export const routes: Routes = [
         "path":"fetched-flights", component: FetchedFlightsComponent, canActivate: [AuthGuard]
     },
     {
-        "path":"holiday-packages", component: PackageBookingComponent, canActivate: [AuthGuard]
+        "path":"package-search", component: PackageSearchComponent, canActivate: [AuthGuard]
     },
     {
         "path":"fetchflight", component: FlightCardComponent, canActivate: [AuthGuard]
     },
     {
         "path":"flights/booking/:flightId/:bookingId", component: ConfirmFlightBookingComponent, canActivate: [AuthGuard]
+    },
+    {
+        "path":"hotel-provider",component:HotelProviderComponent
+    },
+    {
+        "path":"view-list",component:HotelListComponent
+    },
+    {
+       "path":"update-status",component:UpdataStatusComponent   
+    },
+    {
+        "path":"review-card",component:ReviewCardComponent
+    },
+    {
+         "path":"edit-hotel/:id",component:EditHotelComponent
+    },
+    {
+          "path":"edit-room/:hotelId/:roomId",component:EditRoomComponent
+    },
+    {
+        "path":"add-hotel",component:AddHotelComponent
+    },
+    {
+        "path":"add-room/:id",component:AddRoomComponent
+    },
+    {
+        "path":"my-room-card/:id",component:MyRoomCardComponent
+    },
+    {
+        "path":"edit-image/:id/:roomId",component:EditImageComponent
+    },
+    {
+        "path":"my-addedRoom-card/:id",component:MyAddedRoomCardComponent
+    },
+
+    {
+         "path":"room-images/:id",component:RoomImagesComponent
+    },
+    {
+        "path":"hotel-images/:hotelId",component:HotelImagesComponent
+    },
+    {
+        "path":"add-amenities/:hotelId/:id",component:AddAmenitiesComponent
+    },
+    {
+        "path":"hotel-card",component:HotelCardComponent
+
+    },
+    {
+        "path":"room-type/:hotelId",component:RoomTypeComponent
+    },
+    {
+        "path":"room-details/:hotelId/:roomId",component:RoomDetailsComponent
+    },
+    
+    {
+        "path":"booking-details/:bookingId",component:BookingDetailsComponent
+    },
+    {
+        "path":"review",component:AddReviewComponent
     },
     {
         "path":"**", component: PageNotFoundComponent

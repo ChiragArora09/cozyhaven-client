@@ -1,0 +1,35 @@
+<!--
+<div class="rooms-container">
+    <div *ngFor="let room of rooms"  class="room-card">
+      <h3>{{ room.room_type }}</h3>
+      <p>Bed Type: {{ room.bed_type }}</p>
+      <p>Capacity: {{ room.capacity }}</p>
+      <p>Price: {{ room.price}}</p>
+      <p>Total Rooms: {{ room.total_rooms }}</p>
+      <p>Booked Rooms: {{ room.booked_rooms }}</p>
+    </div>
+  </div>
+  -->
+  <div class="main-container">
+   <app-hotel-provider></app-hotel-provider>
+    
+  <div class="row hotel-list"  >
+    <div class="column" *ngFor="let room of rooms">
+  <div class=" hotel-card">
+    <div class="hotel-header">
+        <h3>{{ room.bedType }}</h3>
+    </div>
+    <p class="hotel-location">{{ room.bookedRooms }}</p>
+    <p class="hotel-description">{{ room.capacity }}</p>
+    <p class="hotel-description">{{ room.price }}</p>
+    <p class="hotel-description">{{ room.roomType }}</p>
+    <div class="hotel-actions">
+      <button class="edit-btn" (click)="onEdit(room.id)">Edit</button>
+      <button class="delete-btn" (click)="onDelete(room.id)">Delete</button>
+     
+    </div>
+    <div class="hotel-actions">
+        <button class="edit-room-btn" (click)="navigateToEditImage(room.id)"> >Edit Room Images</button>
+      </div>
+  </div>
+  </div>

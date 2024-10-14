@@ -1,0 +1,45 @@
+<p>add-review works!</p>
+
+<div class="form-container">
+    <form class="form-content" [formGroup]="addReviewForm" (ngSubmit)="onClick()">
+    <div class="form-row">
+    <h1>Add Hotel</h1>
+    </div>
+    <div class="card-body">
+    <div class="alert alert-dark" role="alert" *ngIf="successMsg">
+    {{successMsg}}
+    </div>
+    <div class="alert alert-primary" role="alert" *ngIf="errorMsg">
+    {{errorMsg}}
+    </div>
+    </div>
+    <div class="form-group">
+    <label>COMMENT</label>
+    <input class="form-control" type="text" formControlName="comments" (change)="resetmsg()">
+    <div *ngIf="addReviewForm.get('comments').invalid && addReviewForm.get('comments').touched">
+    <small *ngIf="addReviewForm.get('comments').errors['required']"> Required</small>
+    </div>
+    </div>
+    <div class="form-group">
+    <label>Rating</label>
+    <input class="form-control" type="text" formControlName="rating" (change)="resetmsg()">
+    <div *ngIf="addReviewForm.get('rating').invalid && addReviewForm.get('rating').touched">
+    <small *ngIf="addReviewForm.get('rating').errors['required']">Required</small>
+    </div>
+    </div>
+    <div class="form-group">
+    <label>STAR</label>
+    <input class="form-control" type="text" formControlName="star" (change)="resetmsg()">
+    <div *ngIf="addReviewForm.get('star').invalid && addReviewForm.get('star').touched">
+    <small *ngIf="addReviewForm.get('star').errors['required']">Required</small>
+    </div>
+    </div>
+    
+    &nbsp;&nbsp;&nbsp;
+    <div class="card-footer text-center">
+    <button class="save-btn" type="submit" [disabled]="addReviewForm.invalid" >Submit</button>
+               
+    </div>
+    </form>
+    </div>
+    

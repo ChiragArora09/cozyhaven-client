@@ -1,0 +1,65 @@
+.review-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.review-card {
+    position: relative; /* Add this for positioning the icon relative to the card */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    padding: 20px;
+    width: 300px;
+    transition: transform 0.3s;
+}
+
+.delete-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1em;
+    color: #ff4d4d;
+    cursor: pointer;
+}
+
+.review-card:hover {
+    transform: scale(1.02);
+}
+
+.hotel-name {
+    font-size: 1.5em;
+    margin: 0;
+    color: #333;
+}
+
+.location {
+    font-size: 1.1em;
+    margin: 5px 0;
+    color: #777;
+}
+
+.comment {
+    font-size: 1em;
+    color: #555;
+    margin: 10px 0;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+}
+
+.stars {
+    font-size: 1.2em;
+    color: #FFD700; /* Gold color for stars */
+    margin-right: 10px;
+}
+
+.rating-value {
+    font-size: 1.2em;
+    color: #333;
+}

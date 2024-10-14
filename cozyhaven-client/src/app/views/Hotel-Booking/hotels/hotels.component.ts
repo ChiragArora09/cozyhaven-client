@@ -18,6 +18,8 @@ export class HotelsComponent {
 
   ngOnInit(){
     const hotelsData=this.hotelDataService.getHotels();
+
     this.hotels=hotelsData;
+    console.log(this.hotels)
   }
 }

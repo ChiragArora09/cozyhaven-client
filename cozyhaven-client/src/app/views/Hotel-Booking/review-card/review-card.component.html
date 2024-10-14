@@ -1,0 +1,17 @@
+<div class="main-container">
+    <app-hotel-provider></app-hotel-provider>
+
+<div class="review-container">
+    <div class="review-card" *ngFor="let r of review">
+        <i class="fas fa-trash delete-icon" (click)="deleteReview(r.id)"></i> 
+        <h3 class="hotel-name">{{r.hotelName}}</h3>
+        <h4 class="location">{{r.location}}</h4>
+        <p class="comment">{{r.comments}}</p>
+        <div class="rating">
+            <span class="stars">{{ generateStars(r.star) }}</span> <br>
+            <span class="rating-value">{{r.rating}}</span>
+        </div>
+    </div>
+</div>
+</div>
+

@@ -1,0 +1,23 @@
+<div>
+  <button class="add-hotel" routerLink="/add-hotel">+ Add Hotel</button>
+</div>
+<div class="row">
+  <div class="column">
+<div class=" hotel-card">
+  <div class="hotel-header">
+      <h3>{{ hotel.hotelName }}</h3>
+  </div>
+  <div class="image">
+      <img src="../../../assets/hotelbg.jpg" alt="Hotel Image">
+  </div>
+  <p class="hotel-location">{{ hotel.location }}</p>
+  <p class="hotel-description">{{ hotel.description }}</p>
+  <div class="hotel-actions">
+    <button class="edit-btn" (click)="onEdit(hotel.id)">Edit</button>
+    <button class="delete-btn" (click)="deleteHotel(hotel.id)">Delete</button>
+  </div>
+  <div>
+    <button class="add-room-button" (click)="navigateToHotel(hotel.id)" >View rooms</button>
+  </div>
+
+</div>

@@ -1,0 +1,109 @@
+<!--<div class="main-container">
+    <app-hotel-provider></app-hotel-provider>
+  <div class="hotel-list">-->
+  
+  <!--<div class="form-container">
+  <form class="form-content" [formGroup]="addHotelForm" (ngSubmit)="onClick()">
+  <div class="form-row">
+  <h1>Add Hotel</h1>
+  </div>
+  <div class="card-body">
+  <div class="alert alert-dark" role="alert" *ngIf="successMsg">
+  {{successMsg}}
+  </div>
+  <div class="alert alert-primary" role="alert" *ngIf="errorMsg">
+  {{errorMsg}}
+  </div>
+  </div>
+  <div class="form-group">
+  <label>HOTEL NAME</label>
+  <input class="form-control" type="text" formControlName="hotelName">
+  <div *ngIf="addHotelForm.get('hotelName').invalid && addHotelForm.get('hotelName').touched">
+  <small *ngIf="addHotelForm.get('hotelName').errors['required']">Hotel name is Required</small>
+  </div>
+  </div>
+  <div class="form-group">
+  <label>DESCRIPTION</label>
+  <input class="form-control" type="text" formControlName="description" >
+  <div *ngIf="addHotelForm.get('description').invalid && addHotelForm.get('description').touched">
+  <small *ngIf="addHotelForm.get('description').errors['required']">Description is Required</small>
+  </div>
+  </div>
+  <div class="form-group">
+  <label>LOCATION</label>
+  <input class="form-control" type="text" formControlName="location" >
+  <div *ngIf="addHotelForm.get('location').invalid && addHotelForm.get('location').touched">
+  <small *ngIf="addHotelForm.get('location').errors['required']">Location is Required</small>
+  </div>
+  </div>
+  
+  &nbsp;&nbsp;&nbsp;
+  <div class="card-footer text-center">
+  <button class="save-btn" type="submit">Edit</button>
+  <button class="save-btn" type="submit" routerLink="/view-list">Go to hotel list</button>
+  
+  </div>
+  </form>
+  </div>
+  </div>
+  </div>-->
+
+
+<div class="d-flex">
+  
+
+    <app-hotel-provider class="bg-light p-3" style="min-width: 200px;"></app-hotel-provider>
+    
+   
+    <div class="container mt-4 flex-grow-1">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card shadow">
+
+            <div class="card-header bg-primary text-white">
+              Edit Hotel Details
+            </div>
+            <div class="card-body">
+
+              <div class="alert alert-success" role="alert" *ngIf="successMsg">
+                {{ successMsg }}
+              </div>
+            
+              <div class="alert alert-danger" role="alert" *ngIf="errorMsg">
+                {{ errorMsg }}
+              </div>
+              <form>
+         
+                <div class="form-group mb-3">
+                  <label for="hotelName" class="text-dark">Hotel Name</label>
+                  <input id="hotelName" name="hotelName" type="text" class="form-control" [(ngModel)]="hotelName" (ngModelChange)="resetmsg()" placeholder="Enter hotel name" required>
+                </div>
+                
+                <div class="form-group mb-3">
+                  <label for="description" class="text-dark">Description</label>
+                  <input id="description" name="description" type="text" class="form-control" [(ngModel)]="description" (ngModelChange)="resetmsg()" placeholder="Enter description" required
+                  >
+                </div>
+
+                <div class="form-group mb-3">
+                  <label for="location" class="text-dark">Location</label>
+                  <input id="location" name="location" type="text" class="form-control" [(ngModel)]="location" (ngModelChange)="resetmsg()" placeholder="Enter location"  required
+                  >
+                </div>
+                
+              </form>
+              
+            </div>
+            <div class="card-footer text-center">
+              <button class="btn btn-primary me-2" (click)="onClick()">Edit Hotel</button>
+              <button class="btn btn-secondary" (click)="onShowClick()" *ngIf="show"> Go to Hotel List</button>
+            </div>
+            
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  

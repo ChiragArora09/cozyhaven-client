@@ -1,0 +1,53 @@
+<div class="main-container">
+    <app-hotel-provider></app-hotel-provider>
+
+    <div class="content-section">
+        <div class="btn-group">
+            <button type="button" class="btn btn-light btn-lg" (click)="filterByStatus('ALL')">All</button>
+            <button type="button" class="btn btn-primary btn-lg" (click)="filterByStatus('CONFIRMED')">Confirmed</button>
+            <button type="button" class="btn btn-secondary btn-lg" (click)="filterByStatus('CANCELLED')">Cancelled</button>
+            <button type="button" class="btn btn-info btn-lg" (click)="filterByStatus('CHECKED_OUT')">Checked-Out</button>
+            
+        </div>
+        <div class="table-responsive mt-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                        
+                        <th scope="col" class="text-center">Hotel Name</th>
+                        <th scope="col" class="text-center">Location</th>
+                        <th scope="col" class="text-center">Booked Date</th>
+                        <th scope="col" class="text-center">Check In Date</th>
+                        <th scope="col" class="text-center">Check Out Date</th>
+                        <th scope="col" class="text-center">Status</th>
+                    </tr>
+                </thead>
+               <tbody>
+                   <tr *ngFor="let b of filter">
+                    <td scope="row" class="text-center">{{b.hotelName}}</td>
+                    <td  class="text-center">{{b.location}}</td>
+                    <td  class="text-center">{{b.bookedDate}}</td>
+                    <td  class="text-center">{{b.checkInDate}}</td>
+                    <td  class="text-center">{{b.checkOutDate}}</td>
+                    <td  class="text-center">
+                        <span class="status-box" [ngClass]="{
+                            'status-confirmed':b.status==='CONFIRMED',
+                            'status-cancelled':b.status==='CANCELLED',
+                            'status-checkedout':b.status==='CHECKED_OUT'
+                        }">
+                        {{b.status}}
+                    </span>
+                    </td>
+                   </tr>
+                </tbody>
+
+                
+                  
+            </table>
+            <div>
+                <button *ngIf="show" class="btn btn-warning" (click)="updateBooking()">Update</button>
+                 
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="main-container">
+    <app-hotel-provider></app-hotel-provider>
+    <div class="hotel-list">
+
+             <div class="main-content">
+                    <div id="simple-room" class="card">
+  <h2>Edit Room Images</h2>
+  <button class="update-button" (click)="navigateToUploadImage(roomId)">Update</button>
+       
+  <div class="image-list">
+    <table>
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let image of images">
+          <td>
+            <img [src]="'/assets/'+image.imageName" alt="Uploaded Image" style="width: 200px; height: auto;" />
+          </td>
+          <td>{{ image.imageName }}</td>
+          <td>
+            <button class="icon-btn" (click)="deleteImage(image.id)"><i class="fa fa-trash"></i></button>
+         </td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+ 
+  

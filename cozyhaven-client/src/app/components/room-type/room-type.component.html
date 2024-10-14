@@ -1,0 +1,35 @@
+<p>room-type works!</p>
+<div class="container">
+    <div class="header">
+        <!-- <div class="search-fields">
+            <input type="text" placeholder="City, Area" value="Goa">
+            <input type="date" value="2024-09-06">
+            <input type="date" value="2024-09-07">
+            <input type="text" placeholder="Rooms & Guests" value="1 Room, 2 Adults">
+            <button class="search-button">SEARCH</button>
+        </div> -->
+    </div>
+
+    <div class="room-filters">
+        <button class="filter-button active">All Rooms</button>
+        <button class="filter-button">Standard</button>
+        <button class="filter-button">Deluxe</button>
+        <button class="filter-button">Suite</button>
+    </div>
+
+    <h1 class="section-title">ROOMS</h1>
+    
+     <div class="room-list">
+        <div class="room" *ngFor="let room of rooms">
+            <img src="../../../assets/h1_img2.jpg" alt="Suite Room">
+            <h3>{{room.roomType}}</h3>
+            <p><strong>{{room.price}}</strong> per night</p>
+            <ul>
+                <li>{{room.bedType}}</li>
+                <li>{{room.capacity}}</li>
+            </ul>
+            <button class="details-button" (click)="navigatetoMoreDetails(room.id)"> PROCEED </button>
+        </div> 
+
+       
+</div>
