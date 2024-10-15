@@ -26,11 +26,8 @@
             ],
             "styles": [
               "src/styles.css",
-<<<<<<< HEAD
               "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
-=======
               "node_modules/primeng/resources/themes/saga-blue/theme.css",
->>>>>>> 3e78df26f53cfe5aed086755b9ceb9ba6ff7e27a
               "node_modules/primeng/resources/primeng.min.css",
               "node_modules/primeicons/primeicons.css"
             ],

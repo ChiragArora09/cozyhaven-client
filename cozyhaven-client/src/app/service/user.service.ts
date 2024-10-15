@@ -1,7 +1,8 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { User } from "../model/user.model";
+import { Header } from "primeng/api";
 
 @Injectable({
     providedIn: 'root'
@@ -42,6 +43,20 @@ export class UserService {
       const token = localStorage.getItem('token');
       return this.http.get('http://localhost:8082/customer/my-info', {
         headers: new HttpHeaders().set('Authorization', 'Bearer '+token)
+      })
+    }
+
+    uploadProfilePicture(formData:FormData) :Observable<any> {
+      const token = localStorage.getItem('token');
+      return this.http.post("http://localhost:8082/customer/image/upload", formData, {
+        headers: new HttpHeaders().set('Authorization', 'Bearer '+token),
+      })
+    }
+
+    editCustomerDetails(data:any){
+      const token = localStorage.getItem('token');
+      return this.http.post("http://localhost:8082/customer/update-my-info", data, {
+        headers: new HttpHeaders().set('Authorization', 'Bearer '+token),
       })
     }
 }

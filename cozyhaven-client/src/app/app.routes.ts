@@ -103,7 +103,6 @@ export const routes: Routes = [
     },
     {
         "path":"flight-search", component: FlightSearchComponent, canActivate: [AuthGuard]
-
     },
     {
         "path":"fetched-flights", component: FetchedFlightsComponent, canActivate: [AuthGuard]
