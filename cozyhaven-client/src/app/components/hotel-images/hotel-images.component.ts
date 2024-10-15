@@ -20,7 +20,7 @@ export class HotelImagesComponent {
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params=>{
-      this.hotelId=params.get("hotelId")
+      this.hotelId=params.get("id")
     })
   }
   
@@ -29,6 +29,10 @@ export class HotelImagesComponent {
   }
 
   onUpload(){
+    this.activatedRoute.paramMap.subscribe(params=>{
+      this.hotelId=params.get("id")
+    });
+
     let formData = new FormData();
     formData.set('file',this.file); 
     this.imageService.uploadHotelImage(formData,this.hotelId ).subscribe({
@@ -47,7 +51,7 @@ export class HotelImagesComponent {
   navigateToAddRoom(){
     this.activatedRoute.paramMap.subscribe(params => {
       
-      this.hotelId = params.get("hotelId");
+      this.hotelId = params.get("id");
       
     })
     this.router.navigateByUrl(`/add-room/${this.hotelId}`)

@@ -143,6 +143,9 @@ export const routes: Routes = [
         "path":"add-hotel",component:AddHotelComponent
     },
     {
+        "path":"hotel-image/:id",component:HotelImagesComponent
+    },
+    {
         "path":"add-room/:id",component:AddRoomComponent
     },
     {
