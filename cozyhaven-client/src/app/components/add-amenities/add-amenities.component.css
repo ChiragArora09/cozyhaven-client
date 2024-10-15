@@ -2,7 +2,7 @@
     display: flex;
 }
 
-/* Main Content */
+
 .main-content {
     flex: 1;
     padding: 20px;
@@ -15,10 +15,10 @@
 .main-container {
     display: flex;
     flex-direction: row;
-    height: 100vh; /* Full height for the main container */
+    height: 100vh; 
 }
 
-/* Card Component */
+
 .card {
     background-color: #72767d;
     color: #fff;

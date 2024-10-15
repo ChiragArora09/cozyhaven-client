@@ -216,9 +216,12 @@
     display: flex;
     background-color: #fff;
     border-radius: 8px;
+    margin-top:110px;
     margin-bottom: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    width:100%;
+    max-width:500px;
+    position: relative;
+    left:500px;
   }
   
   .hotel-image {

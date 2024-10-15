@@ -1,0 +1,134 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh; 
+}
+
+.form-container {
+    background-color: white;
+    border-radius: 10px;
+    border:1px solid black;
+    padding: 20px;
+    width: 700px;
+    position: relative;
+    margin: initial;
+    left:630px;
+    top:65px
+}
+.form-group input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+}
+
+label {
+    color: black;
+    margin-bottom: 5px;
+}
+
+input, select {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+input[type="number"] {
+    background-color: #fff;
+}
+
+.save-btn {
+    background-color: #28A745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.save-btn:hover {
+    background-color: #218838;
+}
+
+
+.navbar {
+    width: 250px;
+    background-color: #2C3E50;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%; 
+    overflow-y: auto;
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.navbar ul li {
+    padding: 15px;
+    color: white;
+    cursor: pointer;
+}
+
+.navbar ul li:hover {
+    background-color: #34495E;
+}
+
+.star-rating {
+    display: flex;
+    direction: row;
+    justify-content: flex-start;
+  }
+  
+  .star-rating i {
+    font-size: 24px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .star-rating i.selected {
+    color: #FFD700; 
+  }
+  
+  .star-rating i:hover,
+  .star-rating i:hover ~ i {
+    color: #FFD700;
+  }
+  

@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { HotelService } from '../../../service/hotel.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgFor, NgIf } from '@angular/common';
+import { NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
+import { NavbarComponent } from "../../../components/navbar/navbar.component";
 
 @Component({
   selector: 'app-room-details',
   standalone: true,
-  imports: [NgFor,NgIf,RatingModule,FormsModule],
+  imports: [NgFor, NgIf, RatingModule, FormsModule, NgClass, NgStyle, NavbarComponent],
   templateUrl: './room-details.component.html',
   styleUrl: './room-details.component.css'
 })
@@ -21,7 +22,13 @@ export class RoomDetailsComponent implements OnInit{
   roomId:any;
   hotelId:any;
   hotelBookingData:any;
+  showAlert=false;
 
+  checkInDate: string;
+  checkOutDate: string;
+  numRooms: number;
+  numGuests: number;
+  
   constructor(private hotelService:HotelService,private route:ActivatedRoute,private router:Router){}
 
   ngOnInit(): void {
@@ -74,15 +81,22 @@ export class RoomDetailsComponent implements OnInit{
     this.hotelService.confirmBooking(searchData,this.roomId).subscribe({
       next:(data)=>{
         console.log(data);
-        window.alert('Booking Confirmed! Thank you for booking with us.');
+        this.showAlert=true;
+       // window.alert('Booking Confirmed! Thank you for booking with us.');
       }
     })
-
    
   }
 
-}
+  closeAlert() {
+    this.showAlert = false; 
+  }
 
+  // confirmBooking(): void {
+  //   this.isModalOpen = true;
+  // }
+
+}
 // {
 //   "checkInDate": "2024-10-07",
 //   "checkOutDate": "2024-10-08",

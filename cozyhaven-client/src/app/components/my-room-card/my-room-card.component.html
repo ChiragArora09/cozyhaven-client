@@ -19,10 +19,10 @@
     <div class="hotel-header">
         <h3>{{ room.bedType }}</h3>
     </div>
-    <p class="hotel-location">{{ room.bookedRooms }}</p>
-    <p class="hotel-description">{{ room.capacity }}</p>
-    <p class="hotel-description">{{ room.price }}</p>
-    <p class="hotel-description">{{ room.roomType }}</p>
+    <p class="hotel-location">Booked Rooms :{{ room.bookedRooms }}</p>
+    <p class="hotel-description">Capacity :{{ room.capacity }}</p>
+    <p class="hotel-description">Price :{{ room.price }}</p>
+    <p class="hotel-description">RoomType :{{ room.roomType }}</p>
     <div class="hotel-actions">
       <button class="edit-btn" (click)="onEdit(room.id)">Edit</button>
       <button class="delete-btn" (click)="onDelete(room.id)">Delete</button>

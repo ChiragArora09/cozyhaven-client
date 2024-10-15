@@ -1,4 +1,4 @@
-
+<app-navbar></app-navbar>
 <div class="background"></div>
 <form [formGroup]="hotelSearchForm" (ngSubmit)="onClick()">
         <div class="search-section">
@@ -30,10 +30,17 @@
                           
                 </div>
             <div class="search-field">
-                <label for="guests">Rooms & Guests</label>
-                <input type="text" id="guests" formControlName="numberGuests" placeholder="1 Room 2 Adults">
+                <label for="guests">Guests</label>
+                <input type="text" id="guests" formControlName="numberGuests" placeholder="1 Adults">
                 <div class="input-error" *ngIf="hotelSearchForm.get('numberGuests').invalid && hotelSearchForm.get('numberGuests').touched">
                   <small class="error">Number of guests must be at least 1.</small>
+                </div>    
+            </div>
+            <div class="search-field">
+                <label for="guests">Rooms</label>
+                <input type="text" id="rooms" formControlName="numRooms" placeholder="1 Room">
+                <div class="input-error" *ngIf="hotelSearchForm.get('numRooms').invalid && hotelSearchForm.get('numRooms').touched">
+                  <small class="error">Number of rooms must be at least 1.</small>
                 </div>    
             </div>
             <div class="search-button" >

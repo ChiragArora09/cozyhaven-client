@@ -1,4 +1,4 @@
-<p>room-type works!</p>
+<app-navbar></app-navbar>
 <div class="container">
     <div class="header">
         <!-- <div class="search-fields">
@@ -11,10 +11,10 @@
     </div>
 
     <div class="room-filters">
-        <button class="filter-button active">All Rooms</button>
-        <button class="filter-button">Standard</button>
-        <button class="filter-button">Deluxe</button>
-        <button class="filter-button">Suite</button>
+        <button class="filter-button active" (click)="fetchAll()">All Rooms</button>
+        <button class="filter-button" (click)="onStandard()">Standard</button>
+        <button class="filter-button" (click)="onDeluxe()">Deluxe</button>
+        <button class="filter-button" (click)="onSuite()">Suite</button>
     </div>
 
     <h1 class="section-title">ROOMS</h1>
@@ -25,8 +25,8 @@
             <h3>{{room.roomType}}</h3>
             <p><strong>{{room.price}}</strong> per night</p>
             <ul>
-                <li>{{room.bedType}}</li>
-                <li>{{room.capacity}}</li>
+                <li>BED TYPE : {{room.bedType}}</li>
+                <li>CAPACITY : {{room.capacity}}</li>
             </ul>
             <button class="details-button" (click)="navigatetoMoreDetails(room.id)"> PROCEED </button>
         </div> 

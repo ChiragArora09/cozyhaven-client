@@ -1,105 +1,15 @@
-/*body, html {
-    height: 100%;
-    margin: 0;
-}
-.hotel-list{
-    display: grid;
-    grid-template-columns: repeat(4,20rem);
-    position: relative;
-    top:55px;
-    left: 288px;
-  }
-  .main-container{
-    display: flex;
-    flex-direction: row;
-  }
-.card {
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    width: 100%;
-    max-width: 600px;
-    margin-top: 20px; 
-    display: flex;
-    align-items: center;  
-    justify-content: center; 
-    padding-top: 90px;
-}
 
-.card-header h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #333;
-}
-
-.card-body {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.form-group label {
-    font-size: 1.1rem;
-    color: #333;
-}
-
-.form-group input {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 100%;
-    font-size: 1rem;
-}
-
-.card-footer {
-    padding-top: 20px;
-}
-
-.card-footer button {
-    background-color: #007BFF;
-    color: white;
-    padding: 10px 30px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    cursor: pointer;
-}
-
-.card-footer button:hover {
-    background-color: #0056b3;
-}
-
-.alert {
-    font-size: 1rem;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.alert-dark {
-    background-color: #333;
-    color: white;
-}
-
-.alert-primary {
-    background-color: #007bff;
-    color: white;
-}*/
-
-/* Ensure all labels have black text */
 label {
     color: #000000;
     font-weight: bold;
   }
   
-  /* Optional: Enhance input focus */
   input:focus {
     border-color: #80bdff;
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
   }
   
-  /* Optional: Style buttons */
   .btn-primary {
     background-color: #007bff;
     border-color: #007bff;
@@ -110,7 +20,6 @@ label {
     border-color: #6c757d;
   }
   
-  /* Optional: Add some spacing to the card */
   .card {
     border-radius: 8px;
   }

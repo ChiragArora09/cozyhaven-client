@@ -1,11 +1,12 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component,Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { NavbarComponent } from "../navbar/navbar.component";
 
 @Component({
   selector: 'app-hotel-card',
   standalone: true,
-  imports: [NgFor,NgIf,RouterLink],
+  imports: [NgFor, NgIf, RouterLink, NavbarComponent],
   templateUrl: './hotel-card.component.html',
   styleUrl: './hotel-card.component.css'
 })

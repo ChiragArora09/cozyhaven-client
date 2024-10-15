@@ -12,40 +12,6 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './add-amenities.component.css'
 })
 export class AddAmenitiesComponent {
-//   amenities:{}={}
-//   roomId:any
-
-//   constructor(private hotelService:HotelService,private activatedRoute:ActivatedRoute,private router:Router){
- 
-//   this.activatedRoute.paramMap.subscribe(params => {
-//     this.roomId=params.get("id")
-//   })
-// }
-
-//   onChange(e:any){
-//      console.log(e.target.value)
-//      console.log(this.amenities)
-//      this.amenities[`${e.target.value}`] = "YES"
-     
-//     // const amenity = e.target.value;
-//     // const isChecked = e.target.checked;
-//     // console.log(`Amenity: ${amenity}, Checked: ${isChecked}`);
-//     // this.amenities[amenity] = isChecked ? 'YES' : 'NO';
-
-//   }
-//   onClick(){
-
-//     this.hotelService.addAmenities(this.amenities,this.roomId).subscribe({
-//       next:(data)=>{
-//       console.log('Amenities added successfully:', data);
-//       },
-//       error: (err) => {
-//         console.error('Error adding amenities:', err);
-//       }
-//     })
-//   }
-// }
-
 
   amenities: { [key: string]: string } = {
     breakfast: 'NO',
@@ -74,11 +40,11 @@ export class AddAmenitiesComponent {
   onChange(e: any) {
     const amenity = e.target.value;
     const isChecked = e.target.checked;
-    this.amenities[amenity] = isChecked ? 'YES' : 'NO'; // Update the value based on checkbox state
+    this.amenities[amenity] = isChecked ? 'YES' : 'NO'; 
   }
 
   onClick(event: Event) {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault(); 
     this.hotelService.addAmenities(this.amenities, this.roomId).subscribe({
       next: (data) => {
         console.log('Amenities added successfully:', data);
@@ -90,7 +56,7 @@ export class AddAmenitiesComponent {
   }
 
   onHotelExtraSubmit(event: Event) {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault();
     this.hotelService.addExtra(this.roomId, this.hotelExtra).subscribe({
       next: (data) => {
         console.log('Hotel extra saved successfully:', data);

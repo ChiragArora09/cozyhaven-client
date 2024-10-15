@@ -42,14 +42,14 @@
   </div>
 
   <div *ngIf="selectedService=='Hotel'">
-    <div class="booking-info" *ngFor="let booking of hotelBooking">
+    <div class="booking-info mt-4" *ngFor="let booking of hotelBooking">
       <h3>{{booking.hotelName}}</h3>
-      <p><strong>Total Amount: </strong>{{booking.totalAmount}}</p>
-      <p><strong>Booked Date: </strong>{{booking.bookedDate}}</p>
-      <p><strong>Check-in date: </strong>{{booking.checkInDate}}</p>
-      <p><strong>Check-out date: </strong>{{booking.checkOutDate}}</p>
-      <p><strong>Address: </strong>{{booking.location}}</p>
-      <p><strong>Status: </strong>
+      <p><strong>Total Amount: <br></strong>{{booking.totalAmount}}</p>
+      <p><strong>Booked Date: <br></strong>{{booking.bookedDate}}</p>
+      <p><strong>Check-in date: <br></strong>{{booking.checkInDate}}</p>
+      <p><strong>Check-out date:<br> </strong>{{booking.checkOutDate}}</p>
+      <p><strong>Location: <br></strong>{{booking.location}}</p>
+      <p><strong>Status: <br></strong>
         <span class="status-booked">{{booking.status}}</span>
       </p>
       <div class="card-actions">
