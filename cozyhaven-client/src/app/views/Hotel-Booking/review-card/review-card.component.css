@@ -6,7 +6,7 @@
 }
 
 .review-card {
-    position: relative; /* Add this for positioning the icon relative to the card */
+    position: relative;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;

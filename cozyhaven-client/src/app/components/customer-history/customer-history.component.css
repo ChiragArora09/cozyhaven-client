@@ -318,3 +318,135 @@
     color: white;
     margin-left: 10px;
 }
+body {
+  font-family: Arial, sans-serif;
+}
+
+.booking-card {
+  width: 600px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px auto;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.booking-details {
+  display: flex;
+}
+
+.booking-details img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.booking-info {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  left:250px;
+}
+
+h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.status-booked {
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.status-confirmed {
+  background-color: #28a745; /* Green */
+  color: #fff;
+}
+
+.status-checked-out {
+  background-color: #17a2b8; /* Blue */
+  color: #fff;
+}
+
+.status-cancelled {
+  background-color: #dc3545; /* Red */
+  color: #fff;
+}
+
+.card-actions {
+  margin-top: 10px;
+}
+
+.btn-review {
+  background-color: #28a745; /* Green */
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-review:hover {
+  background-color: #218838;
+}
+
+.btn-cancel {
+  background-color: #dc3545; 
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-cancel:hover {
+  background-color: #c82333;
+}

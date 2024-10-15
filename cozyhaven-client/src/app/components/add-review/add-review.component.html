@@ -1,9 +1,7 @@
-<p>add-review works!</p>
-
 <div class="form-container">
     <form class="form-content" [formGroup]="addReviewForm" (ngSubmit)="onClick()">
     <div class="form-row">
-    <h1>Add Hotel</h1>
+    <h1>Give Feedback</h1>
     </div>
     <div class="card-body">
     <div class="alert alert-dark" role="alert" *ngIf="successMsg">
@@ -29,16 +27,26 @@
     </div>
     <div class="form-group">
     <label>STAR</label>
-    <input class="form-control" type="text" formControlName="star" (change)="resetmsg()">
+    <!-- <input class="form-control" type="text" formControlName="star" (change)="resetmsg()">
     <div *ngIf="addReviewForm.get('star').invalid && addReviewForm.get('star').touched">
     <small *ngIf="addReviewForm.get('star').errors['required']">Required</small>
+    </div> -->
+    <div class="star-rating">
+        <i class="fa fa-star" *ngFor="let star of stars; let i = index"
+           [ngClass]="{'selected': i < addReviewForm.get('star').value}" (click)="rate(i + 1)">
+        </i>
+      </div>
+      <div *ngIf="addReviewForm.get('star').invalid && addReviewForm.get('star').touched">
+        <small *ngIf="addReviewForm.get('star').errors['required']">Required</small>
+      
     </div>
     </div>
-    
     &nbsp;&nbsp;&nbsp;
     <div class="card-footer text-center">
     <button class="save-btn" type="submit" [disabled]="addReviewForm.invalid" >Submit</button>
-               
+    &nbsp;&nbsp;&nbsp;
+    <button class="save-btn" type="submit" routerLink="/home" >Go to Home</button>
+              
     </div>
     </form>
     </div>

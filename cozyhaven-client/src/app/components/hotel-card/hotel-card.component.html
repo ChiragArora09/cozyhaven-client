@@ -117,24 +117,24 @@
       </div>
     </div>
   </div>  -->
-
+  <app-navbar></app-navbar>
   <div class="hotel-card">
     <img src="assets/images/hotel-placeholder.jpg" alt="Hotel Image" class="hotel-image" *ngIf="hotel.picture; else noImage">
     <ng-template #noImage>
-      <img src="assets/images/no-image.png" alt="No Image Available" class="hotel-image">
+      <img src="../../../assets/hotelbg.jpg" alt="No Image Available" class="hotel-image">
     </ng-template>
     
     <div class="hotel-details">
-      <h3>{{ hotel.hotelName }}</h3>
+      <h3>{{ hotel.hotelName }}★★★★★</h3>
       <p class="location">{{ hotel.hotelLocation }}</p>
       
-      <p class="room-type"><strong>Room Type:</strong> {{ hotel.roomType }}</p>
-      <p class="price"><strong>Price per Night:</strong> ₹{{ hotel.price }}</p>
+      <!-- <p class="room-type"><strong>Room Type:</strong> {{ hotel.roomType }}</p>-->
+      <p class="price"><strong>Price per Night:</strong> ₹{{ hotel.price }}</p> 
       
-      <div class="stars">
-        <span *ngIf="hotel.star; else noStar">{{ hotel.star }}★</span>
+      <!-- <div class="stars">
+        <span *ngIf="hotel.star; else noStar">{{ hotel.star }}</span>
         <ng-template #noStar><span>No star rating available</span></ng-template>
-      </div>
+      </div> -->
       
       <div class="rating">
         <span *ngIf="hotel.rating; else noRating"><strong>Rating:</strong> {{ hotel.rating }}/5</span>

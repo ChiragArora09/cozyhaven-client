@@ -43,7 +43,7 @@ export class AddHotelComponent {
         console.log(data);
         this.successMsg='Hotel Added';
         this.errorMsg='';
-        this.router.navigateByUrl(`/add-room/${data.id}`);
+        this.router.navigateByUrl(`/hotel-image/${data.id}`);
 
       },
       error:(err)=>{

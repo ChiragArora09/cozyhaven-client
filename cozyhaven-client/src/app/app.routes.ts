@@ -52,6 +52,7 @@ import { MyFlightInfoComponent } from './components/my-flight-info/my-flight-inf
 import { EditFlightRouteComponent } from './components/edit-flight-route/edit-flight-route.component';
 import { AddOfferComponent } from './components/add-offer/add-offer.component';
 import { EditOfferComponent } from './components/edit-offer/edit-offer.component';
+import { DashboardComponent } from './views/Hotel-Booking/dashboard/dashboard.component';
 
 
 export const routes: Routes = [
@@ -120,6 +121,9 @@ export const routes: Routes = [
         "path":"hotel-provider",component:HotelProviderComponent
     },
     {
+         "path":"dashboard",component:DashboardComponent
+    },
+    {
         "path":"view-list",component:HotelListComponent
     },
     {
@@ -136,6 +140,9 @@ export const routes: Routes = [
     },
     {
         "path":"add-hotel",component:AddHotelComponent
+    },
+    {
+        "path":"hotel-image/:id",component:HotelImagesComponent
     },
     {
         "path":"add-room/:id",component:AddRoomComponent

@@ -100,10 +100,11 @@ body, html {
 }
 
 .form-container {
-    background-color: #72767d;
+    background-color: white;
     border-radius: 10px;
+    border:1px black;
     padding: 20px;
-    width: 400px;
+    width: 600px;
     position: relative;
     margin: initial;
     left:630px;
@@ -114,6 +115,7 @@ body, html {
     border: 1px solid #ddd;
     border-radius: 5px;
     width: 100%;
+    max-width: 500px;
     font-size: 1rem;
 }
 
@@ -142,7 +144,7 @@ body, html {
 }
 
 label {
-    color: white;
+    color:black;
     margin-bottom: 5px;
 }
 

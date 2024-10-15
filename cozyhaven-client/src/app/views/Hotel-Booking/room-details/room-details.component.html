@@ -1,16 +1,29 @@
-    <div class="container">
+<app-navbar></app-navbar>
+
+<div class="container ">
+    <div class="booking-details" *ngIf="hotelBookingData">
+        <strong>Booking Details:</strong> <br>
+        Check-in Date: {{ this.hotelBookingData.checkInDate }} <br>
+        Check-out Date: {{ this.hotelBookingData.checkOutDate }} <br>
+        Number of Rooms: {{this.hotelBookingData.numRooms }} <br>
+        Number of Guests: {{ this.hotelBookingData.numberGuests }}
+    </div>
+    <div *ngIf="showAlert" class="alert">
+        <span class="closebtn" (click)="closeAlert()">&times;</span>
+        Booking confirmed successfully!
+    </div>
         <div class="hotel-info">
             <div class="hotel-details">
                 <h1>{{ roomInfo.hotelName }}</h1>
                 
-                <!-- Carousel for Hotel Images -->
-                <div id="hotelImagesCarousel" class="carousel slide" data-ride="carousel">
+                
+                <!-- <div id="hotelImagesCarousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item" *ngFor="let image of picture; let i = index" [class.active]="i === 0">
                             <img class="d-block w-100" [src]="'/assets/' + image.imageName" alt="Hotel Image">
                         </div>
                     </div>
-                    <!-- Controls -->
+                    
                     <a class="carousel-control-prev" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
@@ -19,7 +32,24 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
-                </div>
+                </div> -->
+
+                <div id="hotelImagesCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item" *ngFor="let image of picture; let i = index" [class.active]="i === 0">
+                        <img class="d-block w-100" [src]="'/assets/' + image.imageName" alt="Hotel Image">
+                      </div>
+                    </div>
+                  
+                    <button class="carousel-control-prev" type="button" data-bs-target="#hotelImagesCarousel" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#hotelImagesCarousel" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
                 
                 <div class="hotel-about">
                     <h3>About The Hotel</h3>
@@ -53,4 +83,5 @@
             </div>
         </div>
     </div>
+    
     

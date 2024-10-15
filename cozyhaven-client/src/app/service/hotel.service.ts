@@ -147,4 +147,12 @@ export class HotelService {
     })
 
   }
+
+  getRoomType(hotelId:any,roomType:any):Observable<any>{
+    const token = localStorage.getItem('token')
+    return this.http.get(`http://localhost:8082/room/${hotelId}/${roomType}`,{
+      headers: new HttpHeaders().set('Authorization', 'Bearer '+token)
+       
+    })
+  }
 }
