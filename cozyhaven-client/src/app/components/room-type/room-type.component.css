@@ -1,4 +1,4 @@
-.container {
+/* .container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -114,4 +114,160 @@
     padding: 10px 20px;
     margin: 20px 0;
     cursor: pointer;
+} */
+
+/* Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    padding: 20px;
+    width: 2500px;
+    background-color: #f8f9fa;
+    margin-top: 150px;
+}
+
+/* Header */
+.header {
+    width: 100%;
+    background-color: #6a1b9a;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+/* Room Filters */
+.room-filters {
+    margin: 20px 0;
+}
+
+.filter-button {
+    background-color: #6a1b9a;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    margin: 0 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.filter-button.active,
+.filter-button:hover {
+    background-color: #4a148c;
+}
+
+.section-title {
+    font-size: 2em;
+    margin: 20px 0;
+    color: #333;
+    text-align: center;
+}
+
+/* Room List */
+.room-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.room {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px;
+    text-align: center;
+    width: 30%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.room:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.room img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.room h3 {
+    font-size: 1.5em;
+    margin: 15px 0;
+    color: #333;
+}
+
+.room p {
+    font-size: 1.1em;
+    color: #666;
+    margin: 10px 0;
+}
+
+.room ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    color: #555;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+}
+
+.room ul li {
+    margin: 5px 0;
+}
+
+/* Buttons */
+.details-button {
+    background-color: #6a1b9a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.details-button:hover {
+    background-color: #4a148c;
+}
+
+/* Additional Styles */
+.more-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 20px 0;
+    transition: background-color 0.3s ease;
+}
+
+.more-button:hover {
+    background-color: #218838;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .room-list {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .room {
+        width: 90%;
+    }
 }

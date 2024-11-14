@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HotelSearch } from '../model/hotelSearch.model';
@@ -154,5 +154,11 @@ export class HotelService {
       headers: new HttpHeaders().set('Authorization', 'Bearer '+token)
        
     })
+  }
+
+  
+
+  getBookedRoomsByLocation(location: string): Observable<any> {
+    return this.http.get<any>(`http://localhost:8080/hotel/booked-rooms/${location}`);
   }
 }

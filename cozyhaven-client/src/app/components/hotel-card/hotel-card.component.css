@@ -212,6 +212,33 @@
   }
    */
 
+   /* .filter-bar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #000;
+    color: #00BFFF;
+    padding: 10px 0;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 600px;
+    margin-top: 100px;
+  }
+  
+  .filter-option {
+    text-align: center;
+  }
+  
+  .filter-title {
+    display: block;
+    font-size: 0.9em;
+  }
+  
+  .filter-value {
+    display: block;
+    font-size: 1em;
+    color: #FFF;
+  }
+
    .hotel-card {
     display: flex;
     background-color: #fff;
@@ -269,5 +296,110 @@
   
   .hotel-details .rating strong {
     color: #28A745;
-  }
+  } */
+
+  /* Container for Hotels */
+.hotel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+/* Filter Bar */
+.filter-bar {
+  display: flex;
+  justify-content: space-around;
+  background-color: #000;
+  color: #00BFFF;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin: 20px auto;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.filter-option {
+  text-align: center;
+}
+
+.filter-title {
+  display: block;
+  font-size: 1em;
+  color: #ccc;
+}
+
+.filter-value {
+  display: block;
+  font-size: 1.1em;
+  color: #FFF;
+  font-weight: bold;
+}
+
+/* Hotel Card */
+.hotel-card {
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin: 20px 0;
+ height:300px;
+  width: 1500px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.hotel-card:hover {
+  transform: translateY(-5px);
+}
+
+.hotel-image {
+  width: 35%;
+  object-fit: cover;
+  height: 300px;
+}
+
+.hotel-details {
+  padding: 20px;
+  width: 65%;
+}
+
+.hotel-details h3 {
+  font-size: 1.4em;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.location {
+  font-size: 1em;
+  color: #777;
+  margin-bottom: 12px;
+}
+
+.price {
+  font-size: 1.1em;
+  color: #6A5ACD;
+  margin-bottom: 8px;
+}
+
+.rating {
+  font-size: 1em;
+  color: #28A745;
+  margin-bottom: 12px;
+}
+
+.btn {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
   

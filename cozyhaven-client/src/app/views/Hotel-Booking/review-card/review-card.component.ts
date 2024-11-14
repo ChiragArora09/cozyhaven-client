@@ -29,14 +29,6 @@ export class ReviewCardComponent {
 
   }
 
-  generateStars(star: string): string {
-    const starMapping: { [key: string]: number } = {
-      'ONE': 1,'TWO': 2, 'THREE': 3,'FOUR': 4,'FIVE': 5
-    };
-    const starCount = starMapping[star] || 0; 
-    return '★'.repeat(starCount) + '☆'.repeat(5 - starCount); 
-  }
-
   deleteReview(reviewId:number){
     this.bookedService.deleteReview(reviewId).subscribe({
       next:()=>{
@@ -48,5 +40,59 @@ export class ReviewCardComponent {
       }
     })
     
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  generateStars(star: string): string {
+    const starMapping: { [key: string]: number } = {
+      'ONE': 1,'TWO': 2, 'THREE': 3,'FOUR': 4,'FIVE': 5
+    };
+    const starCount = starMapping[star] || 0; 
+    return '★'.repeat(starCount) + '☆'.repeat(5 - starCount); 
   }
 }

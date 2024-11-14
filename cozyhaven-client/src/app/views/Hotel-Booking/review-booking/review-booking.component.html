@@ -1,4 +1,4 @@
-<p>review-booking works!</p>
+<!-- <p>review-booking works!</p>
 <div class="booking-review">
     <h2>Review Your Booking</h2>
     <div class="hotel-details">
@@ -60,4 +60,23 @@
 
     <button class="confirm-booking">Confirm Booking</button>
 </div>
+ -->
 
+ <div class="main-container">
+    <app-hotel-provider></app-hotel-provider>
+    <div class="form-container">
+        <div class="hotel-graph">
+    <h2>Booked Rooms</h2>
+    <!-- <label for="location">Select Location:</label> -->
+    <select id="location" (change)="onLocationChange($event)">
+        <!-- <option value="" selected disabled>Select a Location</option>-->
+        <option [value]="hotel.id" *ngFor="let hotel of hotels">{{hotel.location}}</option> 
+      
+    </select>
+    <div >
+        <p-chart type="bar" [data]="hotelRoomsBarData" [options]="barOptions"/>
+    </div>
+    </div>
+    </div>
+    </div>
+  

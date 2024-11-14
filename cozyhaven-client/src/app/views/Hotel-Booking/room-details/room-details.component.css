@@ -1,4 +1,4 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -43,12 +43,6 @@ body {
     color: #333;
 }
 
-/* .carousel-item img {
-    border-radius: 10px;
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-} */
 
 .hotel-about {
     margin-top: 20px;
@@ -159,4 +153,178 @@ body {
     color: black;
 }
 
-  
+   */
+
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9fb;
+    color: #333;
+}
+
+.container {
+   max-width:80% ;
+    margin: 0 auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 110px;
+}
+
+.hotel-info {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background: #fafafa;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-container {
+    width: 40%;
+}
+
+.carousel-item img {
+    border-radius: 10px;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.hotel-details {
+    width: 60%;
+    text-align: right; /* Align text to the right */
+}
+
+.hotel-details h1 {
+    font-size: 18px;
+    color: #6b4ccf;
+    font-weight: bold;
+}
+
+.hotel-description {
+    font-size: 18px;
+    color: #666;
+    margin-top: 10px;
+}
+
+.amenities {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    justify-content: flex-end; /* Align amenities to the right */
+}
+
+.amenities li {
+    background-color: #eae8ff;
+    padding: 8px 12px;
+    margin: 5px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #6b4ccf;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.price {
+    font-size: 26px;
+    color: #ff6347;
+    font-weight: bold;
+    margin-top: 20px;
+    background: #eae8ff;
+    padding: 10px 15px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.details {
+    font-size: 18px;
+    color: #555;
+    margin-top: 10px;
+}
+
+.book-button {
+    padding: 14px 30px;
+    font-size: 18px;
+    background-color: #6b4ccf;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.book-button:hover {
+    background-color: #583db6;
+}
+
+.reviews {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.review {
+    width: 30%;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.review h4 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.review p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.p-rating {
+    color: gold; /* Set star color to gold */
+}
+
+.p-rating .p-rating-icon.p-rating-icon-empty {
+    color: #ddd; /* Set color for empty stars */
+}
+
+
+.alert {
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
+

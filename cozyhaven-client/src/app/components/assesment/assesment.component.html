@@ -1,0 +1,13 @@
+<div class="container">
+    
+    <div class="card" *ngFor="let p of post">
+        <p>{{p.title}}</p>
+        <p>{{p.body}}</p>
+        <button (click)="onClick(p.id)">Click</button>
+
+    </div>
+    <div class="card-footer">
+        <!-- <button (click)="onClick(p.id)">Click</button> -->
+    </div>
+
+</div>

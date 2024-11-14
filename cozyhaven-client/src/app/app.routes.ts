@@ -53,6 +53,7 @@ import { EditFlightRouteComponent } from './components/edit-flight-route/edit-fl
 import { AddOfferComponent } from './components/add-offer/add-offer.component';
 import { EditOfferComponent } from './components/edit-offer/edit-offer.component';
 import { DashboardComponent } from './views/Hotel-Booking/dashboard/dashboard.component';
+import { AssesmentComponent } from './components/assesment/assesment.component';
 
 
 export const routes: Routes = [
@@ -157,6 +158,9 @@ export const routes: Routes = [
     {
         "path":"my-addedRoom-card/:id",component:MyAddedRoomCardComponent
     },
+    {
+        "path":"review-booking",component:ReviewBookingComponent
+    },
 
     {
          "path":"room-images/:id",component:RoomImagesComponent
@@ -213,6 +217,9 @@ export const routes: Routes = [
     },
     {
         "path":"edit-offer/:flightId/:offerId", component: EditOfferComponent, canActivate: [AuthGuard]
+    },
+    {
+        "path":"assesment",component:AssesmentComponent
     },
     {
         "path":"**", component: PageNotFoundComponent

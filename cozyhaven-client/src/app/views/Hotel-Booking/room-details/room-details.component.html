@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<!-- <app-navbar></app-navbar>
 
 <div class="container ">
     <div class="booking-details" *ngIf="hotelBookingData">
@@ -16,24 +16,6 @@
             <div class="hotel-details">
                 <h1>{{ roomInfo.hotelName }}</h1>
                 
-                
-                <!-- <div id="hotelImagesCarousel" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item" *ngFor="let image of picture; let i = index" [class.active]="i === 0">
-                            <img class="d-block w-100" [src]="'/assets/' + image.imageName" alt="Hotel Image">
-                        </div>
-                    </div>
-                    
-                    <a class="carousel-control-prev" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div> -->
-
                 <div id="hotelImagesCarousel" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                       <div class="carousel-item" *ngFor="let image of picture; let i = index" [class.active]="i === 0">
@@ -84,4 +66,62 @@
         </div>
     </div>
     
-    
+     -->
+
+     <app-navbar></app-navbar>
+
+     <div class="container">
+         <div class="booking-details" *ngIf="hotelBookingData">
+             <strong>Booking Details:</strong> <br>
+             Check-in Date: {{ this.hotelBookingData.checkInDate }} <br>
+             Check-out Date: {{ this.hotelBookingData.checkOutDate }} <br>
+             Number of Rooms: {{ this.hotelBookingData.numRooms }} <br>
+             Number of Guests: {{ this.hotelBookingData.numberGuests }}
+         </div>
+         <div *ngIf="showAlert" class="alert">
+             <span class="closebtn" (click)="closeAlert()">&times;</span>
+             Booking confirmed successfully!
+         </div>
+         <div class="hotel-info">
+             <div class="carousel-container">
+                 <div id="hotelImagesCarousel" class="carousel slide" data-bs-ride="carousel">
+                     <div class="carousel-inner">
+                         <div class="carousel-item" *ngFor="let image of picture; let i = index" [class.active]="i === 0">
+                             <img class="d-block w-100" [src]="'/assets/' + image.imageName" alt="Hotel Image">
+                         </div>
+                     </div>
+                     <button class="carousel-control-prev" type="button" data-bs-target="#hotelImagesCarousel" data-bs-slide="prev">
+                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                         <span class="visually-hidden">Previous</span>
+                     </button>
+                     <button class="carousel-control-next" type="button" data-bs-target="#hotelImagesCarousel" data-bs-slide="next">
+                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                         <span class="visually-hidden">Next</span>
+                     </button>
+                 </div>
+             </div>
+             <div class="hotel-details">
+                 <h3>{{ roomInfo.hotelName }}</h3>
+                 <h2 class="hotel-description">{{ roomInfo?.description }}</h2>
+                 <ul class="amenities">
+                     <li *ngIf="roomInfo?.freeWifi == 'YES'">Free Wifi</li>
+                     <li *ngIf="roomInfo?.spa == 'YES'">Spa</li>
+                     <li *ngIf="roomInfo?.parkingArea == 'YES'">Parking Lot</li>
+                     <li *ngIf="roomInfo?.swimmingPool == 'YES'">Swimming Pool</li>
+                     <li *ngIf="roomInfo?.gym == 'YES'">Gym</li>
+                 </ul>
+                 <p class="price">{{ roomInfo.price }} INR</p>
+                 <p class="details"><b>Meals: {{ roomInfo.complimentary }}</b><br><b>Cancellation Policy: {{ roomInfo.cancellationInfo }}</b></p>
+                 <button class="book-button" (click)="confirmBooking()">BOOK NOW</button>
+             </div>
+         </div>
+     
+         <div class="reviews" *ngFor="let review of reviews">
+             <div class="review">
+                 <h4>{{ review.customer.fullname }}</h4>
+                 <p>{{ review.comments }}</p>
+                 <p-rating [(ngModel)]="review.rating" [readonly]="true" [cancel]="false"></p-rating>
+             </div>
+         </div>
+     </div>
+     

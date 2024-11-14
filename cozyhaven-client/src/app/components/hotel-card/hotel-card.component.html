@@ -118,7 +118,8 @@
     </div>
   </div>  -->
   <app-navbar></app-navbar>
-  <div class="hotel-card">
+
+  <!-- <div class="hotel-card">
     <img src="assets/images/hotel-placeholder.jpg" alt="Hotel Image" class="hotel-image" *ngIf="hotel.picture; else noImage">
     <ng-template #noImage>
       <img src="../../../assets/hotelbg.jpg" alt="No Image Available" class="hotel-image">
@@ -128,13 +129,12 @@
       <h3>{{ hotel.hotelName }}★★★★★</h3>
       <p class="location">{{ hotel.hotelLocation }}</p>
       
-      <!-- <p class="room-type"><strong>Room Type:</strong> {{ hotel.roomType }}</p>-->
       <p class="price"><strong>Price per Night:</strong> ₹{{ hotel.price }}</p> 
       
-      <!-- <div class="stars">
+       <div class="stars">
         <span *ngIf="hotel.star; else noStar">{{ hotel.star }}</span>
         <ng-template #noStar><span>No star rating available</span></ng-template>
-      </div> -->
+      </div> 
       
       <div class="rating">
         <span *ngIf="hotel.rating; else noRating"><strong>Rating:</strong> {{ hotel.rating }}/5</span>
@@ -142,6 +142,54 @@
       </div>
 
       <button class="btn btn-primary me-2" (click)="onclick()"> Proceed </button>
+    </div>
+  </div> -->
+
+  <div>
+    <div class="filter-bar">
+      <div class="filter-option">
+        <span class="filter-title">City ,Area</span>
+        <span class="filter-value">{{searchData.location}}</span>
+      </div>
+      <div class="filter-option">
+        <span class="filter-title">Check-In</span>
+        <span class="filter-value">{{searchData.checkInDate}}</span>
+      </div>
+      <div class="filter-option">
+        <span class="filter-title">Check-out</span>
+        <span class="filter-value">{{searchData.checkOutDate}}</span>
+      </div>
+      <div class="filter-option">
+        <span class="filter-title">Rooms & Guests</span>
+        <span class="filter-value">{{searchData.numberGuests}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="hotel-container">
+    <div class="hotel-card">
+      <img
+        src="assets/images/hotel-placeholder.jpg"
+        alt="Hotel Image"
+        class="hotel-image"
+        *ngIf="hotel.picture; else noImage"
+      />
+      <ng-template #noImage>
+        <img src="../../../assets/hotelbg.jpg" alt="No Image Available" class="hotel-image" />
+      </ng-template>
+  
+      <div class="hotel-details">
+        <h2>{{ hotel.hotelName }} ★★★★★</h2>
+        <h3><em >{{hotel.description}}</em></h3>
+        <p class="location">{{ hotel.hotelLocation }}</p>
+        <p class="price"><strong>Price per Night:</strong> ₹{{ hotel.price }}</p>
+  
+        <div class="rating">
+          <span *ngIf="hotel.rating; else noRating"><strong>Rating:</strong> {{ hotel.rating }}/5</span>
+          <ng-template #noRating><span>No rating available</span></ng-template>
+        </div>
+  
+        <button class="btn btn-primary" (click)="onclick()">Proceed</button>
+      </div>
     </div>
   </div>
   
