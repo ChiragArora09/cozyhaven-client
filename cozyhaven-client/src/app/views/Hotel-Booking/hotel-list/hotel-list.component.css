@@ -15,7 +15,6 @@
   }
   
   
-
 .hotel-list {
   display: grid;
   grid-template-columns: repeat(4, 250px);
@@ -23,4 +22,3 @@
   justify-content: center;
   padding: 20px;
 }
-
